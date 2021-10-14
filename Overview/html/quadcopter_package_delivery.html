@@ -1,0 +1,203 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Quadcopter Package Delivery</title><meta name="generator" content="MATLAB 9.11"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2021-10-14"><meta name="DC.source" content="quadcopter_package_delivery.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Quadcopter Package Delivery</h1><!--introduction--><p>This example models a quadcopter that navigates a path to deliver a package. The body was designed in CAD and imported into Simscape Multibody.  The electric motors capture the dynamics of the power conversion in an abstract manner to enable fast simulation.  The package is released from the quadcopter when it reaches the final waypoint and the release criteria are met.</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Model</a></li><li><a href="#3">Quadcopter Subsystem</a></li><li><a href="#4">Body Subsystem</a></li><li><a href="#5">Motors Subsystem</a></li><li><a href="#6">Maneuver Controller</a></li><li><a href="#7">Simulation Results from Simscape Logging: Path 1</a></li><li><a href="#9">Simulation Results from Simscape Logging: Path 2</a></li><li><a href="#10">Simulation Results from Simscape Logging: Path 3</a></li><li><a href="#11">Parameter Sweep: Package Mass</a></li><li><a href="#12">Parameter Sweep: Trajectory Speed</a></li></ul></div><h2 id="1">Model</h2><img vspace="5" hspace="5" src="quadcopter_package_delivery_01.png" alt=""> <p><img vspace="5" hspace="5" src="quadcopter_package_deliver_mechExpAnim.png" alt=""> </p><h2 id="3">Quadcopter Subsystem</h2><img vspace="5" hspace="5" src="quadcopter_package_delivery_02.png" alt=""> <h2 id="4">Body Subsystem</h2><img vspace="5" hspace="5" src="quadcopter_package_delivery_03.png" alt=""> <h2 id="5">Motors Subsystem</h2><img vspace="5" hspace="5" src="quadcopter_package_delivery_04.png" alt=""> <h2 id="6">Maneuver Controller</h2><img vspace="5" hspace="5" src="quadcopter_package_delivery_05.png" alt=""> <h2 id="7">Simulation Results from Simscape Logging: Path 1</h2><img vspace="5" hspace="5" src="quadcopter_package_delivery_06.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_07.png" alt=""> <h2 id="9">Simulation Results from Simscape Logging: Path 2</h2><img vspace="5" hspace="5" src="quadcopter_package_delivery_08.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_09.png" alt=""> <h2 id="10">Simulation Results from Simscape Logging: Path 3</h2><img vspace="5" hspace="5" src="quadcopter_package_delivery_10.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_11.png" alt=""> <h2 id="11">Parameter Sweep: Package Mass</h2><p>Using parallel computing we vary the mass of the package to see its effect on the quadcopter trajectory.</p><pre class="codeoutput">Elapsed Simulation Time Single Run: 30.134
+[14-Oct-2021 13:47:40] Checking for availability of parallel pool...
+Starting parallel pool (parpool) using the 'local' profile ...
+Connected to the parallel pool (number of workers: 2).
+[14-Oct-2021 13:48:16] Starting Simulink on parallel workers...
+[14-Oct-2021 13:48:37] Loading project on parallel workers...
+[14-Oct-2021 13:48:37] Configuring simulation cache folder on parallel workers...
+[14-Oct-2021 13:48:45] Transferring base workspace variables used in the model to parallel workers...
+[14-Oct-2021 13:48:48] Loading model on parallel workers...
+[14-Oct-2021 13:49:11] Running simulations...
+[14-Oct-2021 13:50:56] Completed 1 of 10 simulation runs
+[14-Oct-2021 13:50:57] Completed 2 of 10 simulation runs
+[14-Oct-2021 13:51:14] Completed 3 of 10 simulation runs
+[14-Oct-2021 13:51:16] Completed 4 of 10 simulation runs
+[14-Oct-2021 13:51:33] Completed 5 of 10 simulation runs
+[14-Oct-2021 13:51:35] Completed 6 of 10 simulation runs
+[14-Oct-2021 13:51:52] Completed 7 of 10 simulation runs
+[14-Oct-2021 13:51:53] Completed 8 of 10 simulation runs
+[14-Oct-2021 13:52:10] Completed 9 of 10 simulation runs
+[14-Oct-2021 13:52:11] Completed 10 of 10 simulation runs
+[14-Oct-2021 13:52:12] Cleaning up parallel workers...
+Elapsed Sweep Time Total:       147.00
+Elapsed Sweep Time/(Num Tests): 14.70
+</pre><img vspace="5" hspace="5" src="quadcopter_package_delivery_12.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_13.png" alt=""> <h2 id="12">Parameter Sweep: Trajectory Speed</h2><p>Using parallel computing we vary the target speed of the quadcopter and see if the quadcopter can follow the target path.</p><pre class="codeoutput">Elapsed Simulation Time Single Run: 67.45
+[14-Oct-2021 13:54:12] Checking for availability of parallel pool...
+Starting parallel pool (parpool) using the 'local' profile ...
+Connected to the parallel pool (number of workers: 2).
+[14-Oct-2021 13:55:04] Starting Simulink on parallel workers...
+[14-Oct-2021 13:55:29] Loading project on parallel workers...
+[14-Oct-2021 13:55:29] Configuring simulation cache folder on parallel workers...
+[14-Oct-2021 13:55:38] Transferring base workspace variables used in the model to parallel workers...
+[14-Oct-2021 13:55:42] Loading model on parallel workers...
+[14-Oct-2021 13:56:16] Running simulations...
+[14-Oct-2021 13:58:19] Completed 1 of 8 simulation runs
+[14-Oct-2021 13:58:21] Completed 2 of 8 simulation runs
+[14-Oct-2021 13:58:36] Completed 3 of 8 simulation runs
+[14-Oct-2021 13:58:37] Completed 4 of 8 simulation runs
+[14-Oct-2021 13:58:50] Completed 5 of 8 simulation runs
+[14-Oct-2021 13:58:52] Completed 6 of 8 simulation runs
+[14-Oct-2021 13:59:02] Completed 7 of 8 simulation runs
+[14-Oct-2021 13:59:04] Completed 8 of 8 simulation runs
+[14-Oct-2021 13:59:05] Cleaning up parallel workers...
+Elapsed Sweep Time Total:       117.00
+Elapsed Sweep Time/(Num Tests): 14.62
+</pre><img vspace="5" hspace="5" src="quadcopter_package_delivery_14.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_15.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_16.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_17.png" alt=""> <p class="footer">Copyright 2021 The MathWorks, Inc.<br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2021b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Quadcopter Package Delivery
+% 
+% This example models a quadcopter that navigates a path to deliver a
+% package. The body was designed in CAD and imported into Simscape
+% Multibody.  The electric motors capture the dynamics of the power
+% conversion in an abstract manner to enable fast simulation.  The package
+% is released from the quadcopter when it reaches the final waypoint and
+% the release criteria are met.
+% 
+% Copyright 2021 The MathWorks, Inc.
+
+
+
+%% Model
+
+open_system('quadcopter_package_delivery')
+
+set_param(find_system(bdroot,'FindAll','on','type','annotation','Tag','ModelFeatures'),'Interpreter','off');
+
+%%
+%
+% <<quadcopter_package_deliver_mechExpAnim.png>>
+
+%% Quadcopter Subsystem
+
+open_system('quadcopter_package_delivery/Quadcopter','force')
+
+%% Body Subsystem
+
+open_system('quadcopter_package_delivery/Quadcopter/Body','force')
+
+%% Motors Subsystem
+
+open_system('quadcopter_package_delivery/Quadcopter/Electrical','force')
+
+%% Maneuver Controller
+
+set_param('quadcopter_package_delivery/Maneuver Controller','open','on');
+
+
+%% Simulation Results from Simscape Logging: Path 1
+%%
+%
+
+waypoints = waypts_path1;
+yaw_traj  = yaw_traj_path1;
+[timespot, spline_data] = quadcopter_define_trajectory(waypoints, segment_speeds_path1, 2);
+sim('quadcopter_package_delivery');
+quadcopter_package_delivery_plot2xyz;
+quadcopter_package_delivery_plot1pvo;
+
+%% Simulation Results from Simscape Logging: Path 2
+
+waypoints = waypts_path2;
+yaw_traj  = yaw_traj_path2;
+[timespot, spline_data] = quadcopter_define_trajectory(waypoints, segment_speeds_path2, 2);
+sim('quadcopter_package_delivery');
+quadcopter_package_delivery_plot2xyz;
+quadcopter_package_delivery_plot1pvo;
+
+%% Simulation Results from Simscape Logging: Path 3
+
+waypoints = waypts_path3;
+yaw_traj  = yaw_traj_path3;
+[timespot, spline_data] = quadcopter_define_trajectory(waypoints, segment_speeds_path3, 4);
+sim('quadcopter_package_delivery');
+quadcopter_package_delivery_plot2xyz;
+quadcopter_package_delivery_plot1pvo;
+
+%% Parameter Sweep: Package Mass
+% Using parallel computing we vary the mass of the package to see its
+% effect on the quadcopter trajectory.
+
+quadcopter_package_delivery_sweep_load_mass
+
+%% Parameter Sweep: Trajectory Speed
+% Using parallel computing we vary the target speed of the quadcopter and
+% see if the quadcopter can follow the target path.
+
+quadcopter_package_delivery_sweep_load_speed
+
+%%
+
+%clear all
+close all
+bdclose all
+##### SOURCE END #####
+--></body></html>
