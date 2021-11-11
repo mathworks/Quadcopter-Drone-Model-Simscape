@@ -1,3 +1,6 @@
+% Parameters for quadcopter_package_delivery
+% Copyright 2021 The MathWorks, Inc.
+
 % Size of the ground
 planex = 12.5;           % m
 planey = 8.5;            % m
@@ -13,9 +16,14 @@ battery_capacity = 7.6;
 rho_pla   = 1.25;            % g/cm^3 
 
 %% package ground contact properties
-pkgGrndStiff  = 10000;
-pkgGrndDamp   = 30;
-pkgGrndTransW = 1e-6;
+%pkgGrndStiff  = 10000;
+%pkgGrndDamp   = 300;
+%pkgGrndTransW = 1e-3;
+
+pkgGrndStiff  = 1000;
+pkgGrndDamp   = 300;
+pkgGrndTransW = 1e-3;
+
 
 %% package size and density
 pkgSize = [1 1 1]*0.15; % m
@@ -30,8 +38,8 @@ air_rho = 1.225; % kg/m^3
 
 %% Controller parameters
 filtM_position = 0.05;
-kp_position    = 0.2;
-ki_position    = 0.04;
+kp_position    = 1;
+ki_position    = 0.08;
 kd_position    = 1.6;
 filtD_position = 100;
 pos2attitude   = 0.6;
@@ -61,6 +69,7 @@ kp_motor       = 0.00375;
 ki_motor       = 4.50000e-4;
 kd_motor       = 0;
 filtD_motor    = 10000;
+filtSpd_motor    = 0.001;
 limit_motor    = 0.25;
 
 %% Drag coefficients

@@ -8,6 +8,7 @@ The package is released from the quadcopter when it reaches the final waypoint a
 the release criteria are met.
 
 Open the project file Quadcopter_Drone.prj to get started.
+[![View Quadcopter Drone Model in Simscape on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://www.mathworks.com/matlabcentral/fileexchange/63580-quadcopter-drone-model-in-simscape)
 
 ![](Images/quadcopter_package_delivery_1View_Dropoff.gif)
 ## **Quadcopter and Control System**

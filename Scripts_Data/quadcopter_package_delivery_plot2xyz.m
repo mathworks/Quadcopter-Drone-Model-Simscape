@@ -33,13 +33,19 @@ load_final_z = logsout_quadcopter_package_delivery.get('Quadcopter').Values.Load
 ref_pxyz = logsout_quadcopter_package_delivery.get('Ref').Values.pos.Data(:,:)';
 
 % Plot results
+if(size(ref_pxyz,2)>3)
+    ref_pxyz = ref_pxyz';
+end
 plot3(ref_pxyz(:,1), ref_pxyz(:,2), ref_pxyz(:,3), 'k--','LineWidth', 1,'DisplayName','Ref')
 hold on
 plot3(simlog_px, simlog_py, simlog_pz, 'LineWidth', 1,'DisplayName','Ref')
 plot3(simlog_px(1),   simlog_py(1),   simlog_pz(1),   'o','MarkerEdgeColor','#77AC30','MarkerFaceColor','#77AC30')
 plot3(simlog_px(end), simlog_py(end), simlog_pz(end), 'o','MarkerFaceColor','r')
 
-[planeMeshx,planeMeshy] = meshgrid([-0.5 0.5]*planex,[-0.5 0.5]*planey);
+[planeMeshx,planeMeshy] = meshgrid(...
+    [min(waypoints(1,:))-3 max(waypoints(1,:))+3],...
+    [min(waypoints(2,:))-3 max(waypoints(2,:))+3]);
+
 surf(planeMeshx, planeMeshy, zeros(size(planeMeshx)),'FaceColor',[0.8 0.9 0.8])
 
 plot3(0.5*0.25*sin(linspace(0,2*pi,30))+waypoints(1,end),0.5*0.25*cos(linspace(0,2*pi,30))+waypoints(2,end),zeros(30,1),'b','LineWidth',2)

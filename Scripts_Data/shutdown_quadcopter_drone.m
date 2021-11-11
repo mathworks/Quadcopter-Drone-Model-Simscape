@@ -7,11 +7,6 @@ curr_proj = simulinkproject;
 cd(curr_proj.RootFolder)
 cd('Libraries')
 
-% Clean custom library
-if(exist('+MyResistor','dir') && exist('MyResistor_lib.slx','file'))
-    ssc_clean MyResistor
-end
-
 % Change to root folder
 cd(curr_proj.RootFolder)
 

@@ -20,8 +20,9 @@ end
 
 if(open_start_content)
     % Parameters
-    quadcopter_parameters
-    quadcopter_define_waypoints
-    % Model
+    quadcopter_package_parameters;
+    % Define trajectory
+    [waypoints, timespot_spl, spline_data, spline_yaw] = quadcopter_package_select_trajectory(1);
+    % Open Model
     quadcopter_package_delivery
 end

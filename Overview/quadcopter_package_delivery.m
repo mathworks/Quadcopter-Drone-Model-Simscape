@@ -42,27 +42,16 @@ set_param('quadcopter_package_delivery/Maneuver Controller','open','on');
 %%
 %
 
-waypoints = waypts_path1;
-yaw_traj  = yaw_traj_path1;
-[timespot, spline_data] = quadcopter_define_trajectory(waypoints, segment_speeds_path1, 2);
+[waypoints, timespot_spl, spline_data, spline_yaw] = quadcopter_package_select_trajectory(1);
+quadcopter_package_plot_trajectory(waypoints, timespot_spl, spline_data, spline_yaw)
 sim('quadcopter_package_delivery');
 quadcopter_package_delivery_plot2xyz;
 quadcopter_package_delivery_plot1pvo;
 
-%% Simulation Results from Simscape Logging: Path 2
+%% Simulation Results from Simscape Logging: Path 4
 
-waypoints = waypts_path2;
-yaw_traj  = yaw_traj_path2;
-[timespot, spline_data] = quadcopter_define_trajectory(waypoints, segment_speeds_path2, 2);
-sim('quadcopter_package_delivery');
-quadcopter_package_delivery_plot2xyz;
-quadcopter_package_delivery_plot1pvo;
-
-%% Simulation Results from Simscape Logging: Path 3
-
-waypoints = waypts_path3;
-yaw_traj  = yaw_traj_path3;
-[timespot, spline_data] = quadcopter_define_trajectory(waypoints, segment_speeds_path3, 4);
+[waypoints, timespot_spl, spline_data, spline_yaw] = quadcopter_package_select_trajectory(4);
+quadcopter_package_plot_trajectory(waypoints, timespot_spl, spline_data, spline_yaw)
 sim('quadcopter_package_delivery');
 quadcopter_package_delivery_plot2xyz;
 quadcopter_package_delivery_plot1pvo;

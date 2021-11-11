@@ -7,8 +7,8 @@ cd(fileparts(which(mfilename)));
 % Open model and save under another name for test
 orig_mdl = 'quadcopter_package_delivery';
 open_system(orig_mdl);
-quadcopter_parameters
-quadcopter_define_waypoints
+quadcopter_package_parameters
+[waypoints, timespot_spl, spline_data, spline_yaw] = quadcopter_package_select_trajectory(1);
 
 mdl = [orig_mdl '_pct_temp'];
 save_system(orig_mdl,mdl);
@@ -59,6 +59,7 @@ Elapsed_Time_Sweep = ...
     datenum(simOut(1).SimulationMetadata.TimingInfo.WallClockTimestampStart)) * 86400;
 disp(['Elapsed Sweep Time Total:       ' sprintf('%5.2f',Elapsed_Time_Sweep)]);
 disp(['Elapsed Sweep Time/(Num Tests): ' sprintf('%5.2f',Elapsed_Time_Sweep/length(simOut))]);
+disp(' ');
 
 %% Plot results
 plot_sim_res(simInput,simOut,waypoints,planex,planey,'Parallel Test',Elapsed_Time_Time_parallel)

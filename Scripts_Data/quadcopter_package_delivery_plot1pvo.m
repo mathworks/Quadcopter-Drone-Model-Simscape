@@ -41,9 +41,14 @@ ref_yaw = logsout_quadcopter_package_delivery.get('Ref').Values.yaw.Data(:,:)';
 
 % Plot results
 simlog_handles(1) = subplot(3, 3, 1);
+if(size(ref_pxyz,2)>3)
+    ref_pxyz = ref_pxyz';
+    ref_vxyz = ref_vxyz';
+end
 plot(simlog_t, ref_pxyz(:,1), 'k--','LineWidth', 1,'DisplayName','Ref')
 hold on
 plot(simlog_t, simlog_px, 'LineWidth', 1,'DisplayName','Meas');
+hold off
 grid on
 title('Pos x (m)')
 legend('Location','Best');
@@ -52,6 +57,7 @@ simlog_handles(2) = subplot(3, 3, 2);
 plot(simlog_t, ref_vxyz(:,1), 'k--','LineWidth', 1,'DisplayName','Ref')
 hold on
 plot(simlog_t, simlog_vx, 'LineWidth', 1,'DisplayName','Meas');
+hold off
 grid on
 title('Vel x (m/s)')
 
@@ -59,6 +65,7 @@ simlog_handles(3) = subplot(3, 3, 3);
 plot(simlog_t, ref_roll*180/pi, 'k--','LineWidth', 1,'DisplayName','Ref')
 hold on
 plot(simlog_t, squeeze(simlog_qx)*180/pi, 'LineWidth', 1,'DisplayName','Meas');
+hold off
 grid on
 title('Roll (deg)')
 linkaxes(simlog_handles, 'x')
@@ -67,6 +74,7 @@ simlog_handles(4) = subplot(3, 3, 4);
 plot(simlog_t, ref_pxyz(:,2), 'k--','LineWidth', 1,'DisplayName','Ref')
 hold on
 plot(simlog_t, simlog_py, 'LineWidth', 1,'DisplayName','Meas');
+hold off
 grid on
 title('Pos y')
 linkaxes(simlog_handles, 'x')
@@ -75,6 +83,7 @@ simlog_handles(5) = subplot(3, 3, 5);
 plot(simlog_t, ref_vxyz(:,2), 'k--','LineWidth', 1,'DisplayName','Ref')
 hold on
 plot(simlog_t, simlog_vy, 'LineWidth', 1,'DisplayName','Meas');
+hold off
 grid on
 title('Vel y')
 linkaxes(simlog_handles, 'x')
@@ -83,6 +92,7 @@ simlog_handles(6) = subplot(3, 3, 6);
 plot(simlog_t, ref_pitch*180/pi, 'k--','LineWidth', 1,'DisplayName','Ref')
 hold on
 plot(simlog_t, squeeze(simlog_qy)*180/pi, 'LineWidth', 1,'DisplayName','Meas');
+hold off
 grid on
 title('Pitch')
 linkaxes(simlog_handles, 'x')
@@ -91,6 +101,7 @@ simlog_handles(7) = subplot(3, 3, 7);
 plot(simlog_t, ref_pxyz(:,3), 'k--','LineWidth', 1,'DisplayName','Ref')
 hold on
 plot(simlog_t, simlog_pz, 'LineWidth', 1,'DisplayName','Meas');
+hold off
 grid on
 title('Pos z')
 xlabel('Time (s)')
@@ -100,6 +111,7 @@ simlog_handles(8) = subplot(3, 3, 8);
 plot(simlog_t, ref_vxyz(:,3), 'k--','LineWidth', 1,'DisplayName','Ref')
 hold on
 plot(simlog_t, simlog_vz, 'LineWidth', 1,'DisplayName','Meas');
+hold off
 grid on
 title('Vel z')
 xlabel('Time (s)')
@@ -109,11 +121,12 @@ simlog_handles(9) = subplot(3, 3, 9);
 plot(simlog_t, ref_yaw*180/pi, 'k--','LineWidth', 1,'DisplayName','Ref')
 hold on
 plot(simlog_t, squeeze(simlog_qz)*180/pi, 'LineWidth', 1,'DisplayName','Meas');
+hold off
 grid on
 title('Yaw (deg)')
 linkaxes(simlog_handles, 'x')
 xlabel('Time (s)')
-
+ 
 % Remove temporary variables
 clear simlog_t simlog_handles
 clear simlog_R1i simlog_C1v temp_colororder

@@ -7,9 +7,8 @@ cd(fileparts(which(mfilename)));
 % Open model and save under another name for test
 orig_mdl = 'quadcopter_package_delivery';
 open_system(orig_mdl);
-quadcopter_parameters
-quadcopter_define_waypoints
-
+quadcopter_package_parameters
+[waypoints, timespot_spl, spline_data, spline_yaw] = quadcopter_package_select_trajectory(1);
 mdl = [orig_mdl '_pct_temp'];
 save_system(orig_mdl,mdl);
 
@@ -19,12 +18,8 @@ tunebpathA = [mdl '/Quadcopter/Load/Medical Kit/Medical Kit'];
 refsys = [mdl '/Quadcopter'];
 
 %% Generate parameter sets
-waypoints = waypts_path1;
-yaw_traj  = yaw_traj_path1;
-[timespot, spline_data] = quadcopter_define_trajectory(waypoints, segment_speeds_path1, 2);
-
 % Delta is 10% of trajectory duration
-timespot_delta = floor(timespot(end)*0.1);
+timespot_spl_delta = floor(timespot_spl(end)*0.1);
 
 % Set of deltas is multiples of timespot_delta
 delta_set = linspace(0,7,8);
@@ -37,8 +32,7 @@ simInput(1:length(delta_set)) = Simulink.SimulationInput(mdl);
 for i=1:length(delta_set)
     % Scale time vector so that duration 
     % is reduced by multiples of timespot_delta
-    simInput(i) = simInput(i).setVariable('timespot',timespot*(timespot(end)-timespot_delta*delta_set(i))/timespot(end));
-    simInput(i) = simInput(i).setVariable('spline_data',spline_data);
+    simInput(i) = simInput(i).setVariable('timespot_spl',timespot_spl*(timespot_spl(end)-timespot_spl_delta*delta_set(i))/timespot_spl(end));
 end
 
 save_system(mdl);
@@ -96,10 +90,8 @@ elseif ~isgraphics(evalin('base',handle_var{:}))
 end
 figure(evalin('base',fig_handle_name))
 clf(evalin('base',fig_handle_name))
-figure
 
 % Plot trajectories
-%legendstr = [];
 legendstr = cell(1,8);
 for i=1:length(simOut)
     data_px = simOut(i).logsout_quadcopter_package_delivery.get('Quadcopter').Values.Chassis.px;
