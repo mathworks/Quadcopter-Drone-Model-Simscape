@@ -70,7 +70,7 @@ outA2 = logsout_quadcopter_package_delivery.get('Quadcopter').Values.Chassis.pz;
 ref_pxyz = logsout_quadcopter_package_delivery.get('Ref').Values.pos;
 
 figure(1); clf;
-plot(ref_pxyz.Time,ref_pxyz.Data(3,:),'k--','LineWidth',2);
+plot(ref_pxyz.Time,ref_pxyz.Data(:,3),'k--','LineWidth',2);
 hold on
 plot(outA1.Time,outA1.Data,'LineWidth',1);
 plot(outA2.Time,outA2.Data,'LineWidth',1);
