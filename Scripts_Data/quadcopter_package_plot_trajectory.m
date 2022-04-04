@@ -16,7 +16,7 @@ function quadcopter_package_plot_trajectory(waypoints, timespot_spl, spline_data
 %   plotted versus time.  If there are no sequential, repeated waypoints,
 %   the trajectory is plotted versus distance along the trajectory
 
-% Copyright 2021 The MathWorks, Inc.
+% Copyright 2021-2022 The MathWorks, Inc.
  
 % Transpose if necessary
 if(~(size(waypoints,2)==3))
@@ -88,13 +88,13 @@ if(find(dist_spline==0))
     ah(1) = subplot(211);
     plot(timespot_spl,target_spd,'LineWidth',1,'DisplayName','Speed');
     hold on
-    plot(timespot_spl,target_spd,'ro','MarkerFaceColor','r','DisplayName','Waypoints');
+    %plot(timespot_spl,target_spd,'ro','MarkerFaceColor','r','DisplayName','Waypoints');
     hold off
-    text(timespot_spl,target_spd,string(1:length(timespot_spl)),'HorizontalAlignment','left','VerticalAlignment','bottom')
+    %text(timespot_spl,target_spd,string(1:length(timespot_spl)),'HorizontalAlignment','left','VerticalAlignment','bottom')
     ylim = get(gca,'YLim');
     set(gca,'YLim',ylim+[-1 1]*0.1*(ylim(2)-ylim(1)));
     title('Target Speed vs. Time')
-    ylabel('Distance (m)')
+    ylabel('Speed (m/s)')
     grid on
     legend('Location','Best')
 
@@ -102,9 +102,9 @@ if(find(dist_spline==0))
     plot(timespot_spl,spline_yaw*180/pi,'LineWidth',1,'DisplayName','Yaw Angle');
     hold on
     %yaw_at_wayp = interp1(cum_dist_spline,spline_yaw*180/pi,cumsum_wayp_dist);
-    plot(timespot_spl,spline_yaw*180/pi,'ro','MarkerFaceColor','r','DisplayName','Waypoints');
+    %plot(timespot_spl,spline_yaw*180/pi,'ro','MarkerFaceColor','r','DisplayName','Waypoints');
     hold off
-    text(timespot_spl,spline_yaw*180/pi,string(1:length(timespot_spl)),'HorizontalAlignment','left','VerticalAlignment','bottom')
+    %text(timespot_spl,spline_yaw*180/pi,string(1:length(timespot_spl)),'HorizontalAlignment','left','VerticalAlignment','bottom')
     ylim = get(gca,'YLim');
     set(gca,'YLim',ylim+[-1 1]*0.1*(ylim(2)-ylim(1)));
     title('Yaw Angle vs. Time')
@@ -141,7 +141,7 @@ else
     ylim = get(gca,'YLim');
     set(gca,'YLim',ylim+[-1 1]*0.1*(ylim(2)-ylim(1)));
     title('Yaw Angle Along Trajectory')
-    xlabel('Time (sec)')
+    xlabel('Distance (m)')
     ylabel('Yaw Angle (deg)')
     legend('Location','Best')
     grid on

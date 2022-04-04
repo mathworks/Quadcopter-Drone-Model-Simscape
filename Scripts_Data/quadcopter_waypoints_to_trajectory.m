@@ -1,4 +1,4 @@
-function [timespot_spl, spline_data, spline_yaw] = quadcopter_waypoints_to_trajectory(waypoints,max_speed,min_speed,xApproach,vApproach,varargin)
+function [timespot_spl, spline_data, spline_yaw, wayp_path_vis] = quadcopter_waypoints_to_trajectory(waypoints,max_speed,min_speed,xApproach,vApproach,varargin)
 %quadcopter_waypoints_to_trajectory Generate trajectory for quadcopter 
 %   [timespot_spl, spline_data, spline_yaw] = quadcopter_waypoints_to_trajectory(waypoints,max_speed,min_speed,xApproach,vApproach,varargin)
 %   This function calculates the key parameters that define the
@@ -24,6 +24,7 @@ function [timespot_spl, spline_data, spline_yaw] = quadcopter_waypoints_to_traje
 %       spline_data     Points used for interpolating the spline that
 %                       defines the path of the quadcopter
 %       spline_yaw      Yaw angle at the spline_data points
+%       spline_data_vis Data to visualize linear path between waypoints
 %
 %   The spline data are the set of points that will be used for spline
 %   interpolation to define the path of the quadcopter.  This permits the
@@ -32,7 +33,7 @@ function [timespot_spl, spline_data, spline_yaw] = quadcopter_waypoints_to_traje
 %   calculate the times the quadcopter will pass through the points along
 %   the spline.
 
-% Copyright 2021 The MathWorks, Inc.
+% Copyright 2021-2022 The MathWorks, Inc.
 
 % If no arguments are passed, plot the trajectory with some assumptions
 % about the key parameters.
@@ -73,8 +74,10 @@ spl_x = wayp_unique(1,1);
 spl_y = wayp_unique(1,2);
 spl_z = wayp_unique(1,3);
 
-numpts_per_seg = 6;  % Point for spline for each segment
-dist_for_curve = 1;  % Distance before corner to start curve
+%numpts_per_seg = 6;  % Point for spline for each segment
+%dist_for_curve = 1;  % Distance before corner to start curve
+numpts_per_seg = 16;  % Point for spline for each segment
+dist_for_curve = 5;  % Distance before corner to start curve
 
 for i = 2:size(wayp_unique,1)
     % Evenly space fixed number of points per segment
@@ -147,6 +150,9 @@ numpts_for_path = ceil(max(cum_dist_spline)*points_per_meter); % Points roughly 
 x_ctr = interp1(cum_dist_spline,spline_data(:,1),linspace(0,cum_dist_spline(end),numpts_for_path),'spline');
 y_ctr = interp1(cum_dist_spline,spline_data(:,2),linspace(0,cum_dist_spline(end),numpts_for_path),'spline');
 z_ctr = interp1(cum_dist_spline,spline_data(:,3),linspace(0,cum_dist_spline(end),numpts_for_path),'spline');
+
+% Create set of points to visualize linear path between waypoints
+wayp_path_vis = quadcopter_waypoints_to_path_vis(waypoints);
 
 % Plot waypoints, points for spline, and path of spline
 if(contains(showplot,'plot'))
@@ -279,7 +285,7 @@ if(~isempty(inds_final2)&&~isempty(inds_final1))
 end
 
 % Ramp up initial speed
-inds_init1 = find(s_ctr>1);
+inds_init1 = find(s_ctr>4);
 ind_init1 = inds_init1(1);
 tgt_spd_smooth(1:ind_init1) = ...
     linspace(0,tgt_spd_smooth(ind_init1),ind_init1);

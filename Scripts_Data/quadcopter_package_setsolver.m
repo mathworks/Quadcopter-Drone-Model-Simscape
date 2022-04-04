@@ -1,5 +1,5 @@
 function solverBlock_pth = quadcopter_package_setsolver(mdl,deskreal)
-% Copyright 2011-2021 The MathWorks, Inc.
+% Copyright 2011-2022 The MathWorks, Inc.
 
 desktop_solver = 'ode23t';
 

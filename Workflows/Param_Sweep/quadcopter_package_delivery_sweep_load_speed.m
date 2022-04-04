@@ -1,5 +1,5 @@
 %% Use Parallel Computing and Fast Restart to sweep parameter value
-% Copyright 2021 The MathWorks, Inc.
+% Copyright 2021-2022 The MathWorks, Inc.
 
 % Move to folder where script is saved
 cd(fileparts(which(mfilename)));
@@ -8,18 +8,19 @@ cd(fileparts(which(mfilename)));
 orig_mdl = 'quadcopter_package_delivery';
 open_system(orig_mdl);
 quadcopter_package_parameters
-[waypoints, timespot_spl, spline_data, spline_yaw] = quadcopter_package_select_trajectory(1);
+[waypoints, timespot_spl, spline_data, spline_yaw, wayp_path_vis] = ...
+    quadcopter_package_select_trajectory(1);
 mdl = [orig_mdl '_pct_temp'];
 save_system(orig_mdl,mdl);
 
 %% Configure model for tests
 % Block paths
-tunebpathA = [mdl '/Quadcopter/Load/Medical Kit/Medical Kit'];
+tunebpathA = [mdl '/Quadcopter/Load/Package/Package'];
 refsys = [mdl '/Quadcopter'];
 
 %% Generate parameter sets
-% Delta is 10% of trajectory duration
-timespot_spl_delta = floor(timespot_spl(end)*0.1);
+% Delta is 8% of trajectory duration
+timespot_spl_delta = floor(timespot_spl(end)*0.08);
 
 % Set of deltas is multiples of timespot_delta
 delta_set = linspace(0,7,8);
@@ -35,6 +36,7 @@ for i=1:length(delta_set)
     simInput(i) = simInput(i).setVariable('timespot_spl',timespot_spl*(timespot_spl(end)-timespot_spl_delta*delta_set(i))/timespot_spl(end));
 end
 
+wind_speed = 0;
 save_system(mdl);
 
 %% Run one simulation to see time used
