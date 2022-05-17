@@ -28,5 +28,6 @@ if(open_start_content)
     % Open Model
     quadcopter_package_delivery % Not for Workshop
     % Open Exercises
-    %quadcopter_drone_exercises_app_run
+    %quadcopter_workshop_prefs
+    %quadcopter_drone_exercises_app_run  % For Workshop
 end

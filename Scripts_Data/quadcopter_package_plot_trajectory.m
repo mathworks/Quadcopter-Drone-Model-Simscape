@@ -65,16 +65,16 @@ title('Points for Trajectory')
 legend('Location','Best')
 
 % Plot speed and yaw of trajectory
-fig_handle_name1 =   'h1_trajectory_speed_yaw';
-handle_var = evalin('base',['who(''' fig_handle_name1 ''')']);
+fig_handle_name2 =   'h1_trajectory_speed_yaw';
+handle_var = evalin('base',['who(''' fig_handle_name2 ''')']);
 if(isempty(handle_var))
-    evalin('base',[fig_handle_name1 ' = figure(''Name'', ''' fig_handle_name1 ''');']);
+    evalin('base',[fig_handle_name2 ' = figure(''Name'', ''' fig_handle_name2 ''');']);
 elseif ~isgraphics(evalin('base',handle_var{:}))
-    evalin('base',[fig_handle_name1 ' = figure(''Name'', ''' fig_handle_name1 ''');']);
+    evalin('base',[fig_handle_name2 ' = figure(''Name'', ''' fig_handle_name2 ''');']);
 end
 
-figure(evalin('base',fig_handle_name1))
-clf(evalin('base',fig_handle_name1))
+figure(evalin('base',fig_handle_name2))
+clf(evalin('base',fig_handle_name2))
 
 % Calculate cumulative distance
 diff_spline = diff(spline_data);
@@ -148,5 +148,17 @@ else
 end
 
 linkaxes(ah,'x')
+
+% Offset figure so that figures are not hidden
+posf1 = get(evalin('base',fig_handle_name1),'Position');
+posf2 = get(evalin('base',fig_handle_name2),'Position');
+if(posf1 == posf2)
+    % Make front figure 10% smaller
+    % Cannot simply offset figures as bottom and left properties
+    % are ignored in MATLAB Online
+    set(evalin('base',fig_handle_name2),'Position',posf2.*[1 1 0.9 0.9]);
+end
+
+
 
 end

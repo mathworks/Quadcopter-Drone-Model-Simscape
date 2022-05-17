@@ -1,5 +1,6 @@
 function quadcopter_drone_exercises(ex_num)
 
+quadcopter_ex02_motor_sweep_prefs
 bdclose all
 close all
 
@@ -15,16 +16,20 @@ switch ex_num
         mdl = 'quadcopter_ex04_wind_test';
     case 5
         mdl = 'none';
-        mfile = 'quadcopter_ex05_profit_app.m';
+        mfile = 'quadcopter_delivery_tradeoff_cost_app_run.m';
     otherwise
         mdl = 'none';
         disp(['No exercise ' num2str(ex_num)])
 
 end
 
+% Close figure windows
+close all
+
 if(~strcmpi(mdl,'none'))
     cd(fileparts(which(mdl)))
     open_system(mdl);
 elseif(~isempty(mfile))
-    run(mfile)
+    % Need to run in base to check if UI is open
+    evalin('base',['run(''' mfile ''')']);
 end

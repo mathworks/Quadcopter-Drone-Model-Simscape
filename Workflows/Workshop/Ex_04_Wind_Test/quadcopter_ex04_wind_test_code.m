@@ -49,13 +49,23 @@ legend({'x','y','z'},'Location','Best');
 grid on
 
 %% Plot trajectory
-plot_sim_res_trajectory(logsout_noWind,logsout_Wind,waypoints,planex,planey)
+fht = plot_sim_res_trajectory(logsout_noWind,logsout_Wind,waypoints,planex,planey);
 
 %% Plot results
-plot_sim_res_batt(logsout_noWind,logsout_Wind)
+fhb = plot_sim_res_batt(logsout_noWind,logsout_Wind);
+
+% Offset figure so that figures are not hidden
+posfht = get(evalin('base',fht),'Position');
+posfhb = get(evalin('base',fhb),'Position');
+if(posfht == posfhb)
+    % Make front figure 10% smaller
+    % Cannot simply offset figures as bottom and left properties
+    % are ignored in MATLAB Online
+    set(evalin('base',fhb),'Position',posfhb.*[1 1 0.9 0.9]);
+end
 
 %%  Function to plot paths during tests
-function plot_sim_res_trajectory(logsout_noWind,logsout_Wind,waypoints,planex,planey)
+function fht = plot_sim_res_trajectory(logsout_noWind,logsout_Wind,waypoints,planex,planey)
 
 % Create/Reuse figure and define handle in workspace
 fig_handle_name =   'h1_quadcopter_package_delivery_wind_test';
@@ -109,10 +119,12 @@ set(gca,'XLim',[-0.5 0.5]*planex,'YLim',[-0.5 0.5]*planey)
 view(-5,16)
 
 %text(0.5,0.15,sprintf('%s\n%s',annotation_str,['Elapsed Time: ' num2str(elapsed_time)]),'Color',[1 1 1]*0.6,'Units','Normalized');
+
+fht = fig_handle_name;
 end
 
 %%  Function to plot electrical quantities during tests
-function plot_sim_res_batt(logsout_noWind,logsout_Wind)
+function fhb = plot_sim_res_batt(logsout_noWind,logsout_Wind)
 
 % Create/Reuse figure and define handle in workspace
 fig_handle_name =   'h2_quadcopter_package_delivery_wind_test';
@@ -141,5 +153,7 @@ box on
 legend('Location','Best');
 xlabel('Time (sec)');
 ylabel('SOC (A*hr)');
+
+fhb = fig_handle_name;
 
 end
