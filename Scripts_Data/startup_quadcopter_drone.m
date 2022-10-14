@@ -1,5 +1,5 @@
 % Startup script for project Quadcopter_Drone.prj
-% Copyright 2018-2021 The MathWorks, Inc.
+% Copyright 2018-2022 The MathWorks, Inc.
 
 %% Code for building Simscape custom library at startup
 % Change to folder with package directory
@@ -22,7 +22,12 @@ if(open_start_content)
     % Parameters
     quadcopter_package_parameters;
     % Define trajectory
-    [waypoints, timespot_spl, spline_data, spline_yaw] = quadcopter_package_select_trajectory(1);
+    [waypoints, timespot_spl, spline_data, spline_yaw, wayp_path_vis] = quadcopter_package_select_trajectory(1,true);
+    % Set Python environment (if needed)
+    check_pyenv
     % Open Model
-    quadcopter_package_delivery
+    quadcopter_package_delivery % Not for Workshop
+    % Open Exercises
+    %quadcopter_workshop_prefs
+    %quadcopter_drone_exercises_app_run  % For Workshop
 end

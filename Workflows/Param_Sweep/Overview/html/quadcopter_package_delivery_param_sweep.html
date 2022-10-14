@@ -1,0 +1,542 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Quadcopter Package Delivery, Parameter Sweeps</title><meta name="generator" content="MATLAB 9.11"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2022-10-12"><meta name="DC.source" content="quadcopter_package_delivery_param_sweep.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Quadcopter Package Delivery, Parameter Sweeps</h1><!--introduction--><p>This example models a quadcopter that navigates a path to deliver a package. The body was designed in CAD and imported into Simscape Multibody.  The electric motors capture the dynamics of the power conversion in an abstract manner to enable fast simulation.  The package is released from the quadcopter when it reaches the final waypoint and the release criteria are met.</p><p>The design space for the quadcopter and the missions it performs is explored by conducting a set of parameter sweeps.</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Model</a></li><li><a href="#3">Parameter Sweep: Package Mass</a></li><li><a href="#4">Parameter Sweep: Trajectory Speed</a></li><li><a href="#5">Parameter Sweep: Mass and Wind</a></li><li><a href="#6">Parameter Sweep: Mass and Air Temperature</a></li></ul></div><h2 id="1">Model</h2><img vspace="5" hspace="5" src="quadcopter_package_delivery_param_sweep_01.png" alt=""> <p><img vspace="5" hspace="5" src="quadcopter_package_deliver_mechExpAnim.png" alt=""> </p><h2 id="3">Parameter Sweep: Package Mass</h2><p>Using parallel computing we vary the mass of the package to see its effect on the quadcopter trajectory.</p><pre class="codeoutput">Elapsed Simulation Time Single Run: 65.7832
+[12-Oct-2022 18:14:57] Checking for availability of parallel pool...
+Starting parallel pool (parpool) using the 'local' profile ...
+Connected to the parallel pool (number of workers: 2).
+[12-Oct-2022 18:15:44] Starting Simulink on parallel workers...
+[12-Oct-2022 18:16:15] Loading project on parallel workers...
+[12-Oct-2022 18:16:15] Configuring simulation cache folder on parallel workers...
+[12-Oct-2022 18:16:28] Transferring base workspace variables used in the model to parallel workers...
+[12-Oct-2022 18:16:32] Loading model on parallel workers...
+[12-Oct-2022 18:16:53] Running simulations...
+[12-Oct-2022 18:18:56] Completed 1 of 12 simulation runs
+[12-Oct-2022 18:19:01] Completed 2 of 12 simulation runs
+[12-Oct-2022 18:19:32] Completed 3 of 12 simulation runs
+[12-Oct-2022 18:19:45] Completed 4 of 12 simulation runs
+[12-Oct-2022 18:20:08] Completed 5 of 12 simulation runs
+[12-Oct-2022 18:20:25] Completed 6 of 12 simulation runs
+[12-Oct-2022 18:20:48] Completed 7 of 12 simulation runs
+[12-Oct-2022 18:21:05] Completed 8 of 12 simulation runs
+[12-Oct-2022 18:21:27] Completed 9 of 12 simulation runs
+[12-Oct-2022 18:21:48] Completed 10 of 12 simulation runs
+[12-Oct-2022 18:22:05] Completed 11 of 12 simulation runs
+[12-Oct-2022 18:22:06] Completed 12 of 12 simulation runs
+[12-Oct-2022 18:22:07] Cleaning up parallel workers...
+Elapsed Sweep Time Total:       273.00
+Elapsed Sweep Time/(Num Tests): 22.75
+ 
+Parallel pool using the 'local' profile is shutting down.
+</pre><img vspace="5" hspace="5" src="quadcopter_package_delivery_param_sweep_02.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_param_sweep_03.png" alt=""> <h2 id="4">Parameter Sweep: Trajectory Speed</h2><p>Using parallel computing we vary the target speed of the quadcopter and see if the quadcopter can follow the target path.</p><pre class="codeoutput">Elapsed Simulation Time Single Run: 86.4526
+[12-Oct-2022 18:24:27] Checking for availability of parallel pool...
+Starting parallel pool (parpool) using the 'local' profile ...
+Connected to the parallel pool (number of workers: 2).
+[12-Oct-2022 18:25:15] Starting Simulink on parallel workers...
+[12-Oct-2022 18:25:42] Loading project on parallel workers...
+[12-Oct-2022 18:25:42] Configuring simulation cache folder on parallel workers...
+[12-Oct-2022 18:25:52] Transferring base workspace variables used in the model to parallel workers...
+[12-Oct-2022 18:25:58] Loading model on parallel workers...
+[12-Oct-2022 18:26:35] Running simulations...
+[12-Oct-2022 18:29:21] Completed 1 of 8 simulation runs
+[12-Oct-2022 18:29:26] Completed 2 of 8 simulation runs
+[12-Oct-2022 18:30:11] Completed 3 of 8 simulation runs
+[12-Oct-2022 18:30:21] Completed 4 of 8 simulation runs
+[12-Oct-2022 18:30:49] Completed 5 of 8 simulation runs
+[12-Oct-2022 18:31:06] Completed 6 of 8 simulation runs
+[12-Oct-2022 18:31:39] Completed 7 of 8 simulation runs
+[12-Oct-2022 18:32:03] Completed 8 of 8 simulation runs
+[12-Oct-2022 18:32:04] Cleaning up parallel workers...
+Elapsed Sweep Time Total:       284.00
+Elapsed Sweep Time/(Num Tests): 35.50
+Parallel pool using the 'local' profile is shutting down.
+</pre><img vspace="5" hspace="5" src="quadcopter_package_delivery_param_sweep_04.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_param_sweep_05.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_param_sweep_06.png" alt=""> <h2 id="5">Parameter Sweep: Mass and Wind</h2><p>Using parallel computing we vary the mass of the package and the strength of wind gusts that strike the quadcopter during the test.</p><pre class="codeoutput">Elapsed Simulation Time Single Run: 145.5853
+[12-Oct-2022 18:35:35] Checking for availability of parallel pool...
+Starting parallel pool (parpool) using the 'local' profile ...
+Connected to the parallel pool (number of workers: 2).
+[12-Oct-2022 18:36:17] Starting Simulink on parallel workers...
+[12-Oct-2022 18:36:44] Loading project on parallel workers...
+[12-Oct-2022 18:36:44] Configuring simulation cache folder on parallel workers...
+[12-Oct-2022 18:36:52] Transferring base workspace variables used in the model to parallel workers...
+[12-Oct-2022 18:36:58] Loading model on parallel workers...
+[12-Oct-2022 18:37:36] Running simulations...
+[12-Oct-2022 18:40:22] Completed 1 of 228 simulation runs
+[12-Oct-2022 18:40:28] Completed 2 of 228 simulation runs
+[12-Oct-2022 18:41:10] Completed 3 of 228 simulation runs
+[12-Oct-2022 18:41:21] Completed 4 of 228 simulation runs
+[12-Oct-2022 18:42:17] Completed 5 of 228 simulation runs
+[12-Oct-2022 18:42:37] Completed 6 of 228 simulation runs
+[12-Oct-2022 18:43:41] Completed 7 of 228 simulation runs
+[12-Oct-2022 18:44:08] Completed 8 of 228 simulation runs
+[12-Oct-2022 18:45:27] Completed 9 of 228 simulation runs
+[12-Oct-2022 18:46:03] Completed 10 of 228 simulation runs
+[12-Oct-2022 18:47:17] Completed 11 of 228 simulation runs
+[12-Oct-2022 18:47:37] Completed 12 of 228 simulation runs
+[12-Oct-2022 18:48:39] Completed 13 of 228 simulation runs
+[12-Oct-2022 18:48:47] Completed 14 of 228 simulation runs
+[12-Oct-2022 18:49:36] Completed 15 of 228 simulation runs
+[12-Oct-2022 18:49:46] Completed 16 of 228 simulation runs
+[12-Oct-2022 18:50:25] Completed 17 of 228 simulation runs
+[12-Oct-2022 18:50:37] Completed 18 of 228 simulation runs
+[12-Oct-2022 18:51:02] Completed 19 of 228 simulation runs
+[12-Oct-2022 18:51:10] Completed 20 of 228 simulation runs
+[12-Oct-2022 18:51:38] Completed 21 of 228 simulation runs
+[12-Oct-2022 18:51:51] Completed 22 of 228 simulation runs
+[12-Oct-2022 18:52:23] Completed 23 of 228 simulation runs
+[12-Oct-2022 18:52:44] Completed 24 of 228 simulation runs
+[12-Oct-2022 18:53:22] Completed 25 of 228 simulation runs
+[12-Oct-2022 18:53:51] Completed 26 of 228 simulation runs
+[12-Oct-2022 18:54:35] Completed 27 of 228 simulation runs
+[12-Oct-2022 18:55:19] Completed 28 of 228 simulation runs
+[12-Oct-2022 18:56:14] Completed 29 of 228 simulation runs
+[12-Oct-2022 18:56:43] Completed 30 of 228 simulation runs
+[12-Oct-2022 18:57:32] Completed 31 of 228 simulation runs
+[12-Oct-2022 18:57:44] Completed 32 of 228 simulation runs
+[12-Oct-2022 18:58:30] Completed 33 of 228 simulation runs
+[12-Oct-2022 18:58:48] Completed 34 of 228 simulation runs
+[12-Oct-2022 18:59:33] Completed 35 of 228 simulation runs
+[12-Oct-2022 18:59:38] Completed 36 of 228 simulation runs
+[12-Oct-2022 19:00:21] Completed 37 of 228 simulation runs
+[12-Oct-2022 19:00:31] Completed 38 of 228 simulation runs
+[12-Oct-2022 19:00:58] Completed 39 of 228 simulation runs
+[12-Oct-2022 19:01:14] Completed 40 of 228 simulation runs
+[12-Oct-2022 19:01:41] Completed 41 of 228 simulation runs
+[12-Oct-2022 19:02:00] Completed 42 of 228 simulation runs
+[12-Oct-2022 19:02:35] Completed 43 of 228 simulation runs
+[12-Oct-2022 19:03:03] Completed 44 of 228 simulation runs
+[12-Oct-2022 19:03:43] Completed 45 of 228 simulation runs
+[12-Oct-2022 19:04:27] Completed 46 of 228 simulation runs
+[12-Oct-2022 19:05:08] Completed 47 of 228 simulation runs
+[12-Oct-2022 19:06:09] Completed 48 of 228 simulation runs
+[12-Oct-2022 19:07:03] Completed 49 of 228 simulation runs
+[12-Oct-2022 19:07:26] Completed 50 of 228 simulation runs
+[12-Oct-2022 19:08:13] Completed 51 of 228 simulation runs
+[12-Oct-2022 19:08:36] Completed 52 of 228 simulation runs
+[12-Oct-2022 19:09:18] Completed 53 of 228 simulation runs
+[12-Oct-2022 19:09:36] Completed 54 of 228 simulation runs
+[12-Oct-2022 19:10:24] Completed 55 of 228 simulation runs
+[12-Oct-2022 19:10:28] Completed 56 of 228 simulation runs
+[12-Oct-2022 19:11:04] Completed 57 of 228 simulation runs
+[12-Oct-2022 19:11:05] Completed 58 of 228 simulation runs
+[12-Oct-2022 19:11:58] Completed 59 of 228 simulation runs
+[12-Oct-2022 19:12:00] Completed 60 of 228 simulation runs
+[12-Oct-2022 19:12:56] Completed 61 of 228 simulation runs
+[12-Oct-2022 19:13:02] Completed 62 of 228 simulation runs
+[12-Oct-2022 19:14:25] Completed 63 of 228 simulation runs
+[12-Oct-2022 19:14:40] Completed 64 of 228 simulation runs
+[12-Oct-2022 19:16:42] Completed 65 of 228 simulation runs
+[12-Oct-2022 19:17:06] Completed 66 of 228 simulation runs
+[12-Oct-2022 19:19:03] Completed 67 of 228 simulation runs
+[12-Oct-2022 19:19:49] Completed 68 of 228 simulation runs
+[12-Oct-2022 19:22:10] Completed 69 of 228 simulation runs
+[12-Oct-2022 19:22:20] Completed 70 of 228 simulation runs
+[12-Oct-2022 19:24:12] Completed 71 of 228 simulation runs
+[12-Oct-2022 19:24:18] Completed 72 of 228 simulation runs
+[12-Oct-2022 19:25:52] Completed 73 of 228 simulation runs
+[12-Oct-2022 19:26:05] Completed 74 of 228 simulation runs
+[12-Oct-2022 19:27:05] Completed 75 of 228 simulation runs
+[12-Oct-2022 19:27:25] Completed 76 of 228 simulation runs
+[12-Oct-2022 19:28:00] Completed 77 of 228 simulation runs
+[12-Oct-2022 19:28:27] Completed 78 of 228 simulation runs
+[12-Oct-2022 19:29:12] Completed 79 of 228 simulation runs
+[12-Oct-2022 19:29:40] Completed 80 of 228 simulation runs
+[12-Oct-2022 19:30:29] Completed 81 of 228 simulation runs
+[12-Oct-2022 19:31:02] Completed 82 of 228 simulation runs
+[12-Oct-2022 19:32:04] Completed 83 of 228 simulation runs
+[12-Oct-2022 19:32:54] Completed 84 of 228 simulation runs
+[12-Oct-2022 19:34:04] Completed 85 of 228 simulation runs
+[12-Oct-2022 19:35:15] Completed 86 of 228 simulation runs
+[12-Oct-2022 19:36:43] Completed 87 of 228 simulation runs
+[12-Oct-2022 19:38:36] Completed 88 of 228 simulation runs
+[12-Oct-2022 19:39:24] Completed 89 of 228 simulation runs
+[12-Oct-2022 19:41:06] Completed 90 of 228 simulation runs
+[12-Oct-2022 19:42:15] Completed 91 of 228 simulation runs
+[12-Oct-2022 19:43:41] Completed 92 of 228 simulation runs
+[12-Oct-2022 19:44:19] Completed 93 of 228 simulation runs
+[12-Oct-2022 19:44:53] Completed 94 of 228 simulation runs
+[12-Oct-2022 19:45:08] Completed 95 of 228 simulation runs
+[12-Oct-2022 19:45:30] Completed 96 of 228 simulation runs
+[12-Oct-2022 19:45:53] Completed 97 of 228 simulation runs
+[12-Oct-2022 19:46:16] Completed 98 of 228 simulation runs
+[12-Oct-2022 19:46:44] Completed 99 of 228 simulation runs
+[12-Oct-2022 19:47:13] Completed 100 of 228 simulation runs
+[12-Oct-2022 19:47:50] Completed 101 of 228 simulation runs
+[12-Oct-2022 19:48:27] Completed 102 of 228 simulation runs
+[12-Oct-2022 19:49:11] Completed 103 of 228 simulation runs
+[12-Oct-2022 19:49:50] Completed 104 of 228 simulation runs
+[12-Oct-2022 19:50:49] Completed 105 of 228 simulation runs
+[12-Oct-2022 19:51:40] Completed 106 of 228 simulation runs
+[12-Oct-2022 19:52:48] Completed 107 of 228 simulation runs
+[12-Oct-2022 19:54:05] Completed 108 of 228 simulation runs
+[12-Oct-2022 19:54:08] Completed 109 of 228 simulation runs
+[12-Oct-2022 19:55:11] Completed 110 of 228 simulation runs
+[12-Oct-2022 19:55:16] Completed 111 of 228 simulation runs
+[12-Oct-2022 19:56:08] Completed 112 of 228 simulation runs
+[12-Oct-2022 19:56:10] Completed 113 of 228 simulation runs
+[12-Oct-2022 19:56:46] Completed 114 of 228 simulation runs
+[12-Oct-2022 19:56:55] Completed 115 of 228 simulation runs
+[12-Oct-2022 19:57:28] Completed 116 of 228 simulation runs
+[12-Oct-2022 19:57:43] Completed 117 of 228 simulation runs
+[12-Oct-2022 19:58:14] Completed 118 of 228 simulation runs
+[12-Oct-2022 19:58:32] Completed 119 of 228 simulation runs
+[12-Oct-2022 19:59:10] Completed 120 of 228 simulation runs
+[12-Oct-2022 19:59:36] Completed 121 of 228 simulation runs
+[12-Oct-2022 20:00:30] Completed 122 of 228 simulation runs
+[12-Oct-2022 20:01:13] Completed 123 of 228 simulation runs
+[12-Oct-2022 20:02:08] Completed 124 of 228 simulation runs
+[12-Oct-2022 20:03:03] Completed 125 of 228 simulation runs
+[12-Oct-2022 20:04:03] Completed 126 of 228 simulation runs
+[12-Oct-2022 20:05:13] Completed 127 of 228 simulation runs
+[12-Oct-2022 20:05:16] Completed 128 of 228 simulation runs
+[12-Oct-2022 20:06:06] Completed 129 of 228 simulation runs
+[12-Oct-2022 20:06:16] Completed 130 of 228 simulation runs
+[12-Oct-2022 20:06:59] Completed 131 of 228 simulation runs
+[12-Oct-2022 20:07:22] Completed 132 of 228 simulation runs
+[12-Oct-2022 20:07:47] Completed 133 of 228 simulation runs
+[12-Oct-2022 20:07:55] Completed 134 of 228 simulation runs
+[12-Oct-2022 20:08:22] Completed 135 of 228 simulation runs
+[12-Oct-2022 20:08:35] Completed 136 of 228 simulation runs
+[12-Oct-2022 20:09:03] Completed 137 of 228 simulation runs
+[12-Oct-2022 20:09:26] Completed 138 of 228 simulation runs
+[12-Oct-2022 20:10:01] Completed 139 of 228 simulation runs
+[12-Oct-2022 20:10:33] Completed 140 of 228 simulation runs
+[12-Oct-2022 20:11:10] Completed 141 of 228 simulation runs
+[12-Oct-2022 20:11:54] Completed 142 of 228 simulation runs
+[12-Oct-2022 20:12:40] Completed 143 of 228 simulation runs
+[12-Oct-2022 20:13:41] Completed 144 of 228 simulation runs
+[12-Oct-2022 20:14:36] Completed 145 of 228 simulation runs
+[12-Oct-2022 20:15:52] Completed 146 of 228 simulation runs
+[12-Oct-2022 20:16:01] Completed 147 of 228 simulation runs
+[12-Oct-2022 20:16:41] Completed 148 of 228 simulation runs
+[12-Oct-2022 20:16:53] Completed 149 of 228 simulation runs
+[12-Oct-2022 20:17:35] Completed 150 of 228 simulation runs
+[12-Oct-2022 20:17:39] Completed 151 of 228 simulation runs
+[12-Oct-2022 20:18:13] Completed 152 of 228 simulation runs
+[12-Oct-2022 20:18:29] Completed 153 of 228 simulation runs
+[12-Oct-2022 20:18:54] Completed 154 of 228 simulation runs
+[12-Oct-2022 20:19:11] Completed 155 of 228 simulation runs
+[12-Oct-2022 20:19:43] Completed 156 of 228 simulation runs
+[12-Oct-2022 20:20:04] Completed 157 of 228 simulation runs
+[12-Oct-2022 20:20:42] Completed 158 of 228 simulation runs
+[12-Oct-2022 20:21:12] Completed 159 of 228 simulation runs
+[12-Oct-2022 20:22:03] Completed 160 of 228 simulation runs
+[12-Oct-2022 20:22:42] Completed 161 of 228 simulation runs
+[12-Oct-2022 20:23:42] Completed 162 of 228 simulation runs
+[12-Oct-2022 20:24:37] Completed 163 of 228 simulation runs
+[12-Oct-2022 20:25:51] Completed 164 of 228 simulation runs
+[12-Oct-2022 20:25:55] Completed 165 of 228 simulation runs
+[12-Oct-2022 20:26:40] Completed 166 of 228 simulation runs
+[12-Oct-2022 20:26:44] Completed 167 of 228 simulation runs
+[12-Oct-2022 20:27:23] Completed 168 of 228 simulation runs
+[12-Oct-2022 20:27:32] Completed 169 of 228 simulation runs
+[12-Oct-2022 20:28:08] Completed 170 of 228 simulation runs
+[12-Oct-2022 20:28:20] Completed 171 of 228 simulation runs
+[12-Oct-2022 20:28:42] Completed 172 of 228 simulation runs
+[12-Oct-2022 20:28:55] Completed 173 of 228 simulation runs
+[12-Oct-2022 20:29:25] Completed 174 of 228 simulation runs
+[12-Oct-2022 20:29:37] Completed 175 of 228 simulation runs
+[12-Oct-2022 20:30:19] Completed 176 of 228 simulation runs
+[12-Oct-2022 20:30:36] Completed 177 of 228 simulation runs
+[12-Oct-2022 20:31:31] Completed 178 of 228 simulation runs
+[12-Oct-2022 20:31:58] Completed 179 of 228 simulation runs
+[12-Oct-2022 20:33:08] Completed 180 of 228 simulation runs
+[12-Oct-2022 20:33:51] Completed 181 of 228 simulation runs
+[12-Oct-2022 20:34:37] Completed 182 of 228 simulation runs
+[12-Oct-2022 20:35:24] Completed 183 of 228 simulation runs
+[12-Oct-2022 20:35:24] Completed 184 of 228 simulation runs
+[12-Oct-2022 20:35:59] Completed 185 of 228 simulation runs
+[12-Oct-2022 20:36:10] Completed 186 of 228 simulation runs
+[12-Oct-2022 20:36:41] Completed 187 of 228 simulation runs
+[12-Oct-2022 20:36:54] Completed 188 of 228 simulation runs
+[12-Oct-2022 20:37:14] Completed 189 of 228 simulation runs
+[12-Oct-2022 20:37:28] Completed 190 of 228 simulation runs
+[12-Oct-2022 20:38:17] Completed 191 of 228 simulation runs
+[12-Oct-2022 20:38:20] Completed 192 of 228 simulation runs
+[12-Oct-2022 20:39:32] Completed 193 of 228 simulation runs
+[12-Oct-2022 20:39:59] Completed 194 of 228 simulation runs
+[12-Oct-2022 20:42:19] Completed 195 of 228 simulation runs
+[12-Oct-2022 20:43:23] Completed 196 of 228 simulation runs
+[12-Oct-2022 20:45:29] Completed 197 of 228 simulation runs
+[12-Oct-2022 20:46:47] Completed 198 of 228 simulation runs
+[12-Oct-2022 20:46:52] Completed 199 of 228 simulation runs
+[12-Oct-2022 20:48:01] Completed 200 of 228 simulation runs
+[12-Oct-2022 20:48:13] Completed 201 of 228 simulation runs
+[12-Oct-2022 20:49:16] Completed 202 of 228 simulation runs
+[12-Oct-2022 20:49:32] Completed 203 of 228 simulation runs
+[12-Oct-2022 20:50:13] Completed 204 of 228 simulation runs
+[12-Oct-2022 20:50:32] Completed 205 of 228 simulation runs
+[12-Oct-2022 20:51:07] Completed 206 of 228 simulation runs
+[12-Oct-2022 20:51:25] Completed 207 of 228 simulation runs
+[12-Oct-2022 20:52:05] Completed 208 of 228 simulation runs
+[12-Oct-2022 20:52:19] Completed 209 of 228 simulation runs
+[12-Oct-2022 20:52:37] Completed 210 of 228 simulation runs
+[12-Oct-2022 20:52:52] Completed 211 of 228 simulation runs
+[12-Oct-2022 20:53:10] Completed 212 of 228 simulation runs
+[12-Oct-2022 20:53:27] Completed 213 of 228 simulation runs
+[12-Oct-2022 20:53:46] Completed 214 of 228 simulation runs
+[12-Oct-2022 20:54:02] Completed 215 of 228 simulation runs
+[12-Oct-2022 20:54:22] Completed 216 of 228 simulation runs
+[12-Oct-2022 20:54:40] Completed 217 of 228 simulation runs
+[12-Oct-2022 20:54:58] Completed 218 of 228 simulation runs
+[12-Oct-2022 20:55:18] Completed 219 of 228 simulation runs
+[12-Oct-2022 20:55:34] Completed 220 of 228 simulation runs
+[12-Oct-2022 20:55:53] Completed 221 of 228 simulation runs
+[12-Oct-2022 20:56:09] Completed 222 of 228 simulation runs
+[12-Oct-2022 20:56:31] Completed 223 of 228 simulation runs
+[12-Oct-2022 20:56:45] Completed 224 of 228 simulation runs
+[12-Oct-2022 20:57:05] Completed 225 of 228 simulation runs
+[12-Oct-2022 20:57:24] Completed 226 of 228 simulation runs
+[12-Oct-2022 20:57:52] Completed 227 of 228 simulation runs
+[12-Oct-2022 20:58:05] Completed 228 of 228 simulation runs
+[12-Oct-2022 20:58:07] Cleaning up parallel workers...
+Elapsed Sweep Time Total:       8379.00
+Elapsed Sweep Time/(Num Tests): 36.75
+ 
+</pre><img vspace="5" hspace="5" src="quadcopter_package_delivery_param_sweep_07.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_param_sweep_08.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_param_sweep_09.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_param_sweep_10.png" alt=""> <h2 id="6">Parameter Sweep: Mass and Air Temperature</h2><p>Using parallel computing we vary the mass of the package and the temperature of the air with associated change in air density</p><pre class="codeoutput">Elapsed Simulation Time Single Run: 103.4732
+[12-Oct-2022 21:02:47] Checking for availability of parallel pool...
+Starting parallel pool (parpool) using the 'local' profile ...
+Connected to the parallel pool (number of workers: 2).
+[12-Oct-2022 21:03:45] Starting Simulink on parallel workers...
+[12-Oct-2022 21:04:26] Loading project on parallel workers...
+[12-Oct-2022 21:04:26] Configuring simulation cache folder on parallel workers...
+[12-Oct-2022 21:04:38] Transferring base workspace variables used in the model to parallel workers...
+[12-Oct-2022 21:05:35] Loading model on parallel workers...
+[12-Oct-2022 21:06:51] Running simulations...
+[12-Oct-2022 21:10:25] Completed 1 of 108 simulation runs
+[12-Oct-2022 21:10:27] Completed 2 of 108 simulation runs
+[12-Oct-2022 21:11:26] Completed 3 of 108 simulation runs
+[12-Oct-2022 21:11:28] Completed 4 of 108 simulation runs
+[12-Oct-2022 21:12:16] Completed 5 of 108 simulation runs
+[12-Oct-2022 21:12:17] Completed 6 of 108 simulation runs
+[12-Oct-2022 21:13:08] Completed 7 of 108 simulation runs
+[12-Oct-2022 21:13:10] Completed 8 of 108 simulation runs
+[12-Oct-2022 21:14:21] Completed 9 of 108 simulation runs
+[12-Oct-2022 21:14:22] Completed 10 of 108 simulation runs
+[12-Oct-2022 21:15:27] Completed 11 of 108 simulation runs
+[12-Oct-2022 21:15:29] Completed 12 of 108 simulation runs
+[12-Oct-2022 21:16:36] Completed 13 of 108 simulation runs
+[12-Oct-2022 21:16:38] Completed 14 of 108 simulation runs
+[12-Oct-2022 21:17:37] Completed 15 of 108 simulation runs
+[12-Oct-2022 21:17:40] Completed 16 of 108 simulation runs
+[12-Oct-2022 21:18:52] Completed 17 of 108 simulation runs
+[12-Oct-2022 21:18:54] Completed 18 of 108 simulation runs
+[12-Oct-2022 21:20:32] Completed 19 of 108 simulation runs
+[12-Oct-2022 21:20:35] Completed 20 of 108 simulation runs
+[12-Oct-2022 21:22:05] Completed 21 of 108 simulation runs
+[12-Oct-2022 21:22:07] Completed 22 of 108 simulation runs
+[12-Oct-2022 21:23:18] Completed 23 of 108 simulation runs
+[12-Oct-2022 21:23:21] Completed 24 of 108 simulation runs
+[12-Oct-2022 21:24:34] Completed 25 of 108 simulation runs
+[12-Oct-2022 21:24:44] Completed 26 of 108 simulation runs
+[12-Oct-2022 21:25:37] Completed 27 of 108 simulation runs
+[12-Oct-2022 21:25:47] Completed 28 of 108 simulation runs
+[12-Oct-2022 21:26:17] Completed 29 of 108 simulation runs
+[12-Oct-2022 21:26:30] Completed 30 of 108 simulation runs
+[12-Oct-2022 21:27:08] Completed 31 of 108 simulation runs
+[12-Oct-2022 21:27:13] Completed 32 of 108 simulation runs
+[12-Oct-2022 21:27:52] Completed 33 of 108 simulation runs
+[12-Oct-2022 21:27:55] Completed 34 of 108 simulation runs
+[12-Oct-2022 21:28:32] Completed 35 of 108 simulation runs
+[12-Oct-2022 21:28:34] Completed 36 of 108 simulation runs
+[12-Oct-2022 21:29:31] Completed 37 of 108 simulation runs
+[12-Oct-2022 21:29:32] Completed 38 of 108 simulation runs
+[12-Oct-2022 21:30:15] Completed 39 of 108 simulation runs
+[12-Oct-2022 21:30:19] Completed 40 of 108 simulation runs
+[12-Oct-2022 21:31:14] Completed 41 of 108 simulation runs
+[12-Oct-2022 21:31:21] Completed 42 of 108 simulation runs
+[12-Oct-2022 21:32:12] Completed 43 of 108 simulation runs
+[12-Oct-2022 21:32:26] Completed 44 of 108 simulation runs
+[12-Oct-2022 21:33:13] Completed 45 of 108 simulation runs
+[12-Oct-2022 21:33:28] Completed 46 of 108 simulation runs
+[12-Oct-2022 21:34:05] Completed 47 of 108 simulation runs
+[12-Oct-2022 21:34:24] Completed 48 of 108 simulation runs
+[12-Oct-2022 21:34:52] Completed 49 of 108 simulation runs
+[12-Oct-2022 21:35:12] Completed 50 of 108 simulation runs
+[12-Oct-2022 21:35:39] Completed 51 of 108 simulation runs
+[12-Oct-2022 21:35:58] Completed 52 of 108 simulation runs
+[12-Oct-2022 21:36:31] Completed 53 of 108 simulation runs
+[12-Oct-2022 21:36:53] Completed 54 of 108 simulation runs
+[12-Oct-2022 21:37:33] Completed 55 of 108 simulation runs
+[12-Oct-2022 21:37:50] Completed 56 of 108 simulation runs
+[12-Oct-2022 21:38:23] Completed 57 of 108 simulation runs
+[12-Oct-2022 21:38:38] Completed 58 of 108 simulation runs
+[12-Oct-2022 21:39:06] Completed 59 of 108 simulation runs
+[12-Oct-2022 21:39:21] Completed 60 of 108 simulation runs
+[12-Oct-2022 21:39:50] Completed 61 of 108 simulation runs
+[12-Oct-2022 21:40:07] Completed 62 of 108 simulation runs
+[12-Oct-2022 21:40:35] Completed 63 of 108 simulation runs
+[12-Oct-2022 21:40:52] Completed 64 of 108 simulation runs
+[12-Oct-2022 21:41:17] Completed 65 of 108 simulation runs
+[12-Oct-2022 21:41:35] Completed 66 of 108 simulation runs
+[12-Oct-2022 21:41:59] Completed 67 of 108 simulation runs
+[12-Oct-2022 21:42:19] Completed 68 of 108 simulation runs
+[12-Oct-2022 21:42:41] Completed 69 of 108 simulation runs
+[12-Oct-2022 21:42:59] Completed 70 of 108 simulation runs
+[12-Oct-2022 21:43:21] Completed 71 of 108 simulation runs
+[12-Oct-2022 21:43:38] Completed 72 of 108 simulation runs
+[12-Oct-2022 21:43:58] Completed 73 of 108 simulation runs
+[12-Oct-2022 21:44:18] Completed 74 of 108 simulation runs
+[12-Oct-2022 21:44:40] Completed 75 of 108 simulation runs
+[12-Oct-2022 21:44:54] Completed 76 of 108 simulation runs
+[12-Oct-2022 21:45:15] Completed 77 of 108 simulation runs
+[12-Oct-2022 21:45:28] Completed 78 of 108 simulation runs
+[12-Oct-2022 21:45:50] Completed 79 of 108 simulation runs
+[12-Oct-2022 21:46:04] Completed 80 of 108 simulation runs
+[12-Oct-2022 21:46:26] Completed 81 of 108 simulation runs
+[12-Oct-2022 21:46:44] Completed 82 of 108 simulation runs
+[12-Oct-2022 21:47:02] Completed 83 of 108 simulation runs
+[12-Oct-2022 21:47:21] Completed 84 of 108 simulation runs
+[12-Oct-2022 21:47:37] Completed 85 of 108 simulation runs
+[12-Oct-2022 21:47:56] Completed 86 of 108 simulation runs
+[12-Oct-2022 21:48:12] Completed 87 of 108 simulation runs
+[12-Oct-2022 21:48:31] Completed 88 of 108 simulation runs
+[12-Oct-2022 21:48:47] Completed 89 of 108 simulation runs
+[12-Oct-2022 21:49:04] Completed 90 of 108 simulation runs
+[12-Oct-2022 21:49:26] Completed 91 of 108 simulation runs
+[12-Oct-2022 21:49:43] Completed 92 of 108 simulation runs
+[12-Oct-2022 21:50:05] Completed 93 of 108 simulation runs
+[12-Oct-2022 21:50:58] Completed 94 of 108 simulation runs
+[12-Oct-2022 21:51:08] Completed 95 of 108 simulation runs
+[12-Oct-2022 21:51:48] Completed 96 of 108 simulation runs
+[12-Oct-2022 21:52:04] Completed 97 of 108 simulation runs
+[12-Oct-2022 21:52:27] Completed 98 of 108 simulation runs
+[12-Oct-2022 21:52:45] Completed 99 of 108 simulation runs
+[12-Oct-2022 21:53:03] Completed 100 of 108 simulation runs
+[12-Oct-2022 21:53:08] Completed 101 of 108 simulation runs
+[12-Oct-2022 21:53:26] Completed 102 of 108 simulation runs
+[12-Oct-2022 21:53:31] Completed 103 of 108 simulation runs
+[12-Oct-2022 21:53:49] Completed 104 of 108 simulation runs
+[12-Oct-2022 21:53:54] Completed 105 of 108 simulation runs
+[12-Oct-2022 21:54:12] Completed 106 of 108 simulation runs
+[12-Oct-2022 21:54:17] Completed 107 of 108 simulation runs
+[12-Oct-2022 21:54:35] Completed 108 of 108 simulation runs
+[12-Oct-2022 21:54:36] Cleaning up parallel workers...
+Elapsed Sweep Time Total:       2803.00
+Elapsed Sweep Time/(Num Tests): 25.95
+ 
+</pre><img vspace="5" hspace="5" src="quadcopter_package_delivery_param_sweep_11.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_param_sweep_12.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_param_sweep_13.png" alt=""> <p class="footer">Copyright 2021-2022 The MathWorks, Inc.<br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2021b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Quadcopter Package Delivery, Parameter Sweeps
+% 
+% This example models a quadcopter that navigates a path to deliver a
+% package. The body was designed in CAD and imported into Simscape
+% Multibody.  The electric motors capture the dynamics of the power
+% conversion in an abstract manner to enable fast simulation.  The package
+% is released from the quadcopter when it reaches the final waypoint and
+% the release criteria are met.
+%
+% The design space for the quadcopter and the missions it performs is
+% explored by conducting a set of parameter sweeps.
+% 
+% Copyright 2021-2022 The MathWorks, Inc.
+
+
+
+%% Model
+
+open_system('quadcopter_package_delivery')
+
+set_param(find_system(bdroot,'FindAll','on','type','annotation','Tag','ModelFeatures'),'Interpreter','off');
+
+%%
+%
+% <<quadcopter_package_deliver_mechExpAnim.png>>
+
+
+%% Parameter Sweep: Package Mass
+% Using parallel computing we vary the mass of the package to see its
+% effect on the quadcopter trajectory.
+
+quadcopter_package_delivery_sweep_load_mass
+
+%% Parameter Sweep: Trajectory Speed
+% Using parallel computing we vary the target speed of the quadcopter and
+% see if the quadcopter can follow the target path.
+
+quadcopter_package_delivery_sweep_load_speed
+
+%% Parameter Sweep: Mass and Wind
+% Using parallel computing we vary the mass of the package and the strength
+% of wind gusts that strike the quadcopter during the test.
+
+quadcopter_package_delivery_sweep_load_mass_wind
+
+%% Parameter Sweep: Mass and Air Temperature
+% Using parallel computing we vary the mass of the package and the
+% temperature of the air with associated change in air density
+
+quadcopter_package_delivery_sweep_load_mass_temp
+
+%%
+
+%clear all
+close all
+bdclose all
+##### SOURCE END #####
+--></body></html>

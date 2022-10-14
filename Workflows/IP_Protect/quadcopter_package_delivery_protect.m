@@ -1,7 +1,7 @@
 %% Script to create protected model
 %  with Simscape runtime parameters.
 
-% Copyright 2021 The MathWorks(TM), Inc.
+% Copyright 2021-2022 The MathWorks(TM), Inc.
 
 % Move to folder where script is saved
 cd(fileparts(which(mfilename)));
@@ -16,15 +16,14 @@ open_system(mdl);
 save_system(mdl,new_mdl);
 set_param(new_mdl,'SaveFormat','Structure');
 
-
 %% Block paths
-tunebpathA = [new_mdl '/Quadcopter/Load/Medical Kit/Medical Kit'];
+tunebpathA = [new_mdl '/Quadcopter/Load/Package/Package'];
 refsys = [new_mdl '/Quadcopter'];
 
 %% Define Simulink.Parameter objects
 pkgDensity = Simulink.Parameter;
 pkgDensity.CoderInfo.StorageClass = 'SimulinkGlobal';
-pkgDensity.Value = 5;%evalin('base',get_param(tunebpathA,'Density'));
+pkgDensity.Value = 160;%evalin('base',get_param(tunebpathA,'Density'));
 
 %% Create Reference Model
 set_param(refsys,'TreatAsAtomicUnit','on');
@@ -61,25 +60,23 @@ set_param(ph.Outport(1),...
 
 pkgDensity.Value = 100;
 sim(new_mdl);
-outA1 = logsout_quadcopter_package_delivery.get('Quadcopter').Values.Chassis.pz;
+outB1 = logsout_quadcopter_package_delivery.get('Quadcopter').Values.Motor.Mot1.i;
 
-pkgDensity.Value = 200;
+pkgDensity.Value = 600;
 sim(new_mdl);
-outA2 = logsout_quadcopter_package_delivery.get('Quadcopter').Values.Chassis.pz;
+outB2 = logsout_quadcopter_package_delivery.get('Quadcopter').Values.Motor.Mot1.i;
 
 ref_pxyz = logsout_quadcopter_package_delivery.get('Ref').Values.pos;
 
-figure(1); clf;
-plot(ref_pxyz.Time,ref_pxyz.Data(:,3),'k--','LineWidth',2);
+figure(2); clf;
+plot(outB1.Time,outB1.Data,'LineWidth',1);
 hold on
-plot(outA1.Time,outA1.Data,'LineWidth',1);
-plot(outA2.Time,outA2.Data,'LineWidth',1);
+plot(outB2.Time,outB2.Data,'LineWidth',1);
 hold off
 
-title('Package Height During Maneuver');
-xlabel('Time (s');ylabel('Load Height (m)');
-legend({'Command','Normal','Heavy'},'Location','Best');
-
+title('Motor 1 Current During Maneuver');
+xlabel('Time (s');ylabel('Current (A)');
+legend({'Normal','Heavy'},'Location','Best');
 %% Cleanup directory
 %{
 

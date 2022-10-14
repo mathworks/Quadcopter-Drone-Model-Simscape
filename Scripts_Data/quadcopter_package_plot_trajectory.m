@@ -16,7 +16,7 @@ function quadcopter_package_plot_trajectory(waypoints, timespot_spl, spline_data
 %   plotted versus time.  If there are no sequential, repeated waypoints,
 %   the trajectory is plotted versus distance along the trajectory
 
-% Copyright 2021 The MathWorks, Inc.
+% Copyright 2021-2022 The MathWorks, Inc.
  
 % Transpose if necessary
 if(~(size(waypoints,2)==3))
@@ -65,16 +65,16 @@ title('Points for Trajectory')
 legend('Location','Best')
 
 % Plot speed and yaw of trajectory
-fig_handle_name1 =   'h1_trajectory_speed_yaw';
-handle_var = evalin('base',['who(''' fig_handle_name1 ''')']);
+fig_handle_name2 =   'h1_trajectory_speed_yaw';
+handle_var = evalin('base',['who(''' fig_handle_name2 ''')']);
 if(isempty(handle_var))
-    evalin('base',[fig_handle_name1 ' = figure(''Name'', ''' fig_handle_name1 ''');']);
+    evalin('base',[fig_handle_name2 ' = figure(''Name'', ''' fig_handle_name2 ''');']);
 elseif ~isgraphics(evalin('base',handle_var{:}))
-    evalin('base',[fig_handle_name1 ' = figure(''Name'', ''' fig_handle_name1 ''');']);
+    evalin('base',[fig_handle_name2 ' = figure(''Name'', ''' fig_handle_name2 ''');']);
 end
 
-figure(evalin('base',fig_handle_name1))
-clf(evalin('base',fig_handle_name1))
+figure(evalin('base',fig_handle_name2))
+clf(evalin('base',fig_handle_name2))
 
 % Calculate cumulative distance
 diff_spline = diff(spline_data);
@@ -88,13 +88,13 @@ if(find(dist_spline==0))
     ah(1) = subplot(211);
     plot(timespot_spl,target_spd,'LineWidth',1,'DisplayName','Speed');
     hold on
-    plot(timespot_spl,target_spd,'ro','MarkerFaceColor','r','DisplayName','Waypoints');
+    %plot(timespot_spl,target_spd,'ro','MarkerFaceColor','r','DisplayName','Waypoints');
     hold off
-    text(timespot_spl,target_spd,string(1:length(timespot_spl)),'HorizontalAlignment','left','VerticalAlignment','bottom')
+    %text(timespot_spl,target_spd,string(1:length(timespot_spl)),'HorizontalAlignment','left','VerticalAlignment','bottom')
     ylim = get(gca,'YLim');
     set(gca,'YLim',ylim+[-1 1]*0.1*(ylim(2)-ylim(1)));
     title('Target Speed vs. Time')
-    ylabel('Distance (m)')
+    ylabel('Speed (m/s)')
     grid on
     legend('Location','Best')
 
@@ -102,9 +102,9 @@ if(find(dist_spline==0))
     plot(timespot_spl,spline_yaw*180/pi,'LineWidth',1,'DisplayName','Yaw Angle');
     hold on
     %yaw_at_wayp = interp1(cum_dist_spline,spline_yaw*180/pi,cumsum_wayp_dist);
-    plot(timespot_spl,spline_yaw*180/pi,'ro','MarkerFaceColor','r','DisplayName','Waypoints');
+    %plot(timespot_spl,spline_yaw*180/pi,'ro','MarkerFaceColor','r','DisplayName','Waypoints');
     hold off
-    text(timespot_spl,spline_yaw*180/pi,string(1:length(timespot_spl)),'HorizontalAlignment','left','VerticalAlignment','bottom')
+    %text(timespot_spl,spline_yaw*180/pi,string(1:length(timespot_spl)),'HorizontalAlignment','left','VerticalAlignment','bottom')
     ylim = get(gca,'YLim');
     set(gca,'YLim',ylim+[-1 1]*0.1*(ylim(2)-ylim(1)));
     title('Yaw Angle vs. Time')
@@ -141,12 +141,24 @@ else
     ylim = get(gca,'YLim');
     set(gca,'YLim',ylim+[-1 1]*0.1*(ylim(2)-ylim(1)));
     title('Yaw Angle Along Trajectory')
-    xlabel('Time (sec)')
+    xlabel('Distance (m)')
     ylabel('Yaw Angle (deg)')
     legend('Location','Best')
     grid on
 end
 
 linkaxes(ah,'x')
+
+% Offset figure so that figures are not hidden
+posf1 = get(evalin('base',fig_handle_name1),'Position');
+posf2 = get(evalin('base',fig_handle_name2),'Position');
+if(posf1 == posf2)
+    % Make front figure 10% smaller
+    % Cannot simply offset figures as bottom and left properties
+    % are ignored in MATLAB Online
+    set(evalin('base',fig_handle_name2),'Position',posf2.*[1 1 0.9 0.9]);
+end
+
+
 
 end

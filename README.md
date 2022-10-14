@@ -1,11 +1,14 @@
 # **Quadcopter Drone Model in Simscape**
-Copyright 2021 The MathWorks, Inc.
+Copyright 2021-2022 The MathWorks, Inc.
 
-This example models a quadcopter that navigates a path to deliver a package. The body 
-was designed in CAD and imported into Simscape Multibody. The electric motors capture 
-the dynamics of the power conversion in an abstract manner to enable fast simulation. 
-The package is released from the quadcopter when it reaches the final waypoint and 
-the release criteria are met.
+This example models a quadcopter that navigates a path to deliver a package. 
+* **Electric motors and battery** enable estimation of current draw and drone range
+* **CAD files of the chassis and propellers** model the mechanical system
+* **Cascaded PID controllers** adjust motor speeds to control altitude and attitude
+* **Path following and speed controllers** provide high-level commands 
+* **Python queries to a weather database** obtain location-specific wind conditions
+* **Wind gust profiles** test stability of drone controllers
+* **Profitability analysis in a MATLAB App** enables exploring technical and business tradeoffs
 
 Open the project file Quadcopter_Drone.prj to get started.
 [![View Quadcopter Drone Model in Simscape on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://www.mathworks.com/matlabcentral/fileexchange/63580-quadcopter-drone-model-in-simscape)

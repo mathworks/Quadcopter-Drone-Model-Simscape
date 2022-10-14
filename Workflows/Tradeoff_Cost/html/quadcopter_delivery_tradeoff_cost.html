@@ -1,0 +1,409 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Quadcopter Delivery Zone Cost Analysis</title><meta name="generator" content="MATLAB 9.11"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2022-10-12"><meta name="DC.source" content="quadcopter_delivery_tradeoff_cost.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Quadcopter Delivery Zone Cost Analysis</h1><!--introduction--><p>This example shows how to use image processing and statistical analysis to analyze the relative costs incurred when flying delivery drone missions.</p><div><ul><li>Image processing is used to identify areas of dense population.</li><li>MATLAB code is used to generate a histogram of mission distances</li><li>Statistics are used to create a parameterized distribution of load mass</li><li>Fitting tools are used to estimate the cost index</li></ul></div><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Import Image</a></li><li><a href="#2">Identify Populated Areas with Image Processing</a></li><li><a href="#3">Histogram of Delivery Distances</a></li><li><a href="#4">Statistical Distribution of Load Masses</a></li><li><a href="#5">Histogram of Delivery Costs</a></li></ul></div><h2 id="1">Import Image</h2><p>An image of the delivery area is imported into MATLAB for processing.</p><pre class="codeinput">[img, ~, ImageAlpha] = imread(<span class="string">'Dublin_DroneArea_Image.png'</span>);
+
+<span class="comment">% Plot results</span>
+<span class="keyword">if</span> ~exist(<span class="string">'h0_quadcopter_delivery_zone'</span>, <span class="string">'var'</span>) || <span class="keyword">...</span>
+        ~isgraphics(h0_quadcopter_delivery_zone, <span class="string">'figure'</span>)
+    h0_quadcopter_delivery_zone = figure(<span class="string">'Name'</span>, <span class="string">'quadcopter_delivery_zone'</span>);
+<span class="keyword">end</span>
+figure(h0_quadcopter_delivery_zone)
+clf(h0_quadcopter_delivery_zone)
+
+temp_colororder = get(gca,<span class="string">'defaultAxesColorOrder'</span>);
+data_diameter = 4;
+
+image([-1 1]*data_diameter/2,[-1 1]*data_diameter/2,<span class="keyword">...</span>
+    img,<span class="string">'AlphaData'</span>,ImageAlpha)
+axis <span class="string">equal</span>
+box <span class="string">on</span>
+title(<span class="string">'Residents in Delivery Area'</span>)
+xlabel(<span class="string">'Distance (km)'</span>)
+ylabel(<span class="string">'Distance (km)'</span>)
+</pre><img vspace="5" hspace="5" src="quadcopter_delivery_tradeoff_cost_01.png" alt=""> <h2 id="2">Identify Populated Areas with Image Processing</h2><p>Corner detection is used to identify populated areas.</p><pre class="codeinput"><span class="comment">% Extract green data</span>
+img_Gr = img(:,:,2);
+
+<span class="comment">% Identify corners</span>
+corners = detectHarrisFeatures(img_Gr,<span class="string">'FilterSize'</span>,5);
+
+<span class="comment">% Center and rescale data</span>
+px = corners.Location(:,1);
+d_px = max(px)-min(px);
+px_sc = (px-d_px/2)/d_px*data_diameter;
+
+py = corners.Location(:,2);
+d_py = max(py)-min(py);
+py_sc = (py-d_py/2)/d_py*4;
+
+<span class="comment">% Calculate distance from center to points</span>
+rad_set = (px_sc.^2+py_sc.^2).^0.5;
+
+<span class="comment">% Eliminate points on outer edge</span>
+radEdgeInds = find(rad_set&lt;1.98);
+rad_setNew = rad_set(radEdgeInds,:);
+rad_set = [];
+rad_set = rad_setNew;
+
+<span class="keyword">if</span> ~exist(<span class="string">'h1_quadcopter_delivery_zone'</span>, <span class="string">'var'</span>) || <span class="keyword">...</span>
+        ~isgraphics(h1_quadcopter_delivery_zone, <span class="string">'figure'</span>)
+    h1_quadcopter_delivery_zone = figure(<span class="string">'Name'</span>, <span class="string">'quadcopter_delivery_zone'</span>);
+<span class="keyword">end</span>
+figure(h1_quadcopter_delivery_zone)
+clf(h1_quadcopter_delivery_zone)
+
+temp_colororder = get(gca,<span class="string">'defaultAxesColorOrder'</span>);
+
+image([-1 1]*data_diameter/2,[-1 1]*data_diameter/2,<span class="keyword">...</span>
+    img,<span class="string">'AlphaData'</span>,ImageAlpha)
+axis <span class="string">equal</span>
+box <span class="string">on</span>
+
+hold <span class="string">on</span>
+plot(px_sc(radEdgeInds),py_sc(radEdgeInds),<span class="string">'m.'</span>);
+hold <span class="string">off</span>
+title(<span class="string">'Residents in Delivery Area'</span>)
+xlabel(<span class="string">'Distance (km)'</span>)
+ylabel(<span class="string">'Distance (km)'</span>)
+</pre><img vspace="5" hspace="5" src="quadcopter_delivery_tradeoff_cost_02.png" alt=""> <h2 id="3">Histogram of Delivery Distances</h2><p>Distance from the delivery center is calculated in MATLAB, and a histogram is created to show the distribution of distances.</p><pre class="codeinput"><span class="keyword">if</span> ~exist(<span class="string">'h2_quadcopter_delivery_zone'</span>, <span class="string">'var'</span>) || <span class="keyword">...</span>
+        ~isgraphics(h2_quadcopter_delivery_zone, <span class="string">'figure'</span>)
+    h2_quadcopter_delivery_zone = figure(<span class="string">'Name'</span>, <span class="string">'quadcopter_delivery_zone'</span>);
+<span class="keyword">end</span>
+figure(h2_quadcopter_delivery_zone)
+clf(h2_quadcopter_delivery_zone)
+
+temp_colororder = get(gca,<span class="string">'defaultAxesColorOrder'</span>);
+
+histogram(rad_set,50)
+title(<span class="string">'Histogram of Delivery Distances'</span>)
+xlabel(<span class="string">'Distance (km)'</span>);
+ylabel(<span class="string">'Number of Deliveries'</span>)
+</pre><img vspace="5" hspace="5" src="quadcopter_delivery_tradeoff_cost_03.png" alt=""> <h2 id="4">Statistical Distribution of Load Masses</h2><p>To explore effect on costs, a statistical distribution of costs is generated.  This parameterized distribution can be adjusted using two parameters.</p><pre class="codeinput"><span class="comment">% Beta distributions are 0-1, so we scale by maximum weight</span>
+max_weight = 2;  <span class="comment">% kg</span>
+x = [0:0.01:1];
+beta_coeff_1 = [1.9 3.5];
+beta_coeff_2 = [4.6 2.2];
+Y1 = betapdf(x,beta_coeff_1(1),beta_coeff_1(2))/max_weight;  <span class="comment">% Example 1</span>
+Y2 = betapdf(x,beta_coeff_2(1),beta_coeff_2(2))/max_weight;  <span class="comment">% Example 2</span>
+x = x*max_weight;
+
+<span class="keyword">if</span> ~exist(<span class="string">'h4_quadcopter_delivery_zone'</span>, <span class="string">'var'</span>) || <span class="keyword">...</span>
+        ~isgraphics(h4_quadcopter_delivery_zone, <span class="string">'figure'</span>)
+    h4_quadcopter_delivery_zone = figure(<span class="string">'Name'</span>, <span class="string">'quadcopter_delivery_zone'</span>);
+<span class="keyword">end</span>
+figure(h4_quadcopter_delivery_zone)
+clf(h4_quadcopter_delivery_zone)
+
+temp_colororder = get(gca,<span class="string">'defaultAxesColorOrder'</span>);
+
+plot(x,Y1,<span class="string">'DisplayName'</span>,<span class="string">'Distribution 1'</span>,<span class="string">'LineWidth'</span>,2);
+hold <span class="string">on</span>
+plot(x,Y2,<span class="string">'DisplayName'</span>,<span class="string">'Distribution 2'</span>,<span class="string">'LineWidth'</span>,2);
+hold <span class="string">off</span>
+
+title(<span class="string">'Possible Load Distributions'</span>);
+xlabel(<span class="string">'Load Mass (kg)'</span>)
+ylabel(<span class="string">'Probability Density Function'</span>)
+legend(<span class="string">'Location'</span>,<span class="string">'Best'</span>)
+</pre><img vspace="5" hspace="5" src="quadcopter_delivery_tradeoff_cost_04.png" alt=""> <h2 id="5">Histogram of Delivery Costs</h2><p>Combining the statistical distributions of mission distances and load masses, we estimate a cost index for the missions flown.</p><pre class="codeinput"><span class="comment">% Generate random set of loads according to distributions</span>
+rng(<span class="string">'default'</span>); <span class="comment">% For repeatability set random seed to default</span>
+load_set_1 = betarnd(beta_coeff_1(1),beta_coeff_1(2),length(rad_set),1);
+load_set_2 = betarnd(beta_coeff_2(1),beta_coeff_2(2),length(rad_set),1);
+
+<span class="comment">% Calculate cost proxy: weight*distance</span>
+wd1 = load_set_1.*rad_set;
+wd2 = load_set_2.*rad_set;
+
+<span class="keyword">if</span> ~exist(<span class="string">'h3_quadcopter_delivery_zone'</span>, <span class="string">'var'</span>) || <span class="keyword">...</span>
+        ~isgraphics(h3_quadcopter_delivery_zone, <span class="string">'figure'</span>)
+    h3_quadcopter_delivery_zone = figure(<span class="string">'Name'</span>, <span class="string">'quadcopter_delivery_zone'</span>);
+<span class="keyword">end</span>
+figure(h3_quadcopter_delivery_zone)
+clf(h3_quadcopter_delivery_zone)
+
+h1=histfit(wd1,50,<span class="string">'gamma'</span>);
+h1(1).FaceAlpha = 0.6;
+h1(1).DisplayName = [<span class="string">'Load Distribution 1, Cost Index: '</span> num2str(sum(wd1))];
+h1(2).Color = temp_colororder(1,:);
+h1(2).DisplayName = <span class="string">''</span>;
+h1(2).HandleVisibility = <span class="string">'off'</span>;
+hold <span class="string">on</span>
+h2=histfit(wd2,50,<span class="string">'gamma'</span>);
+h2(1).FaceColor = temp_colororder(2,:);
+h2(1).DisplayName = [<span class="string">'Load Distribution 2, Cost Index: '</span> num2str(sum(wd2))];
+h2(1).FaceAlpha = 0.6;
+h2(2).Color = temp_colororder(2,:);
+h2(2).DisplayName = <span class="string">''</span>;
+h2(2).HandleVisibility = <span class="string">'off'</span>;
+<span class="comment">%pd1 = fitdist(wd1,'gamma');</span>
+<span class="comment">%pd2 = fitdist(wd2,'gamma');</span>
+
+title(<span class="string">'Mission Cost Index for Assumed Load Distribution (r=2km)'</span>)
+xlabel(<span class="string">'Cost of Mission'</span>)
+ylabel(<span class="string">'Number of Missions'</span>)
+
+legend(<span class="string">'Location'</span>,<span class="string">'Best'</span>)
+</pre><img vspace="5" hspace="5" src="quadcopter_delivery_tradeoff_cost_05.png" alt=""> <pre class="codeinput"><span class="comment">%clear all</span>
+close <span class="string">all</span>
+<span class="comment">%bdclose all</span>
+</pre><p class="footer">Copyright 2022 The MathWorks, Inc.<br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2021b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Quadcopter Delivery Zone Cost Analysis
+% 
+% This example shows how to use image processing and statistical analysis
+% to analyze the relative costs incurred when flying delivery drone
+% missions.  
+% 
+% * Image processing is used to identify areas of dense population.
+% * MATLAB code is used to generate a histogram of mission distances
+% * Statistics are used to create a parameterized distribution of load mass
+% * Fitting tools are used to estimate the cost index
+%
+% Copyright 2022 The MathWorks, Inc.
+
+%% Import Image
+%
+% An image of the delivery area is imported into MATLAB for processing.
+
+[img, ~, ImageAlpha] = imread('Dublin_DroneArea_Image.png');
+
+% Plot results
+if ~exist('h0_quadcopter_delivery_zone', 'var') || ...
+        ~isgraphics(h0_quadcopter_delivery_zone, 'figure')
+    h0_quadcopter_delivery_zone = figure('Name', 'quadcopter_delivery_zone');
+end
+figure(h0_quadcopter_delivery_zone)
+clf(h0_quadcopter_delivery_zone)
+
+temp_colororder = get(gca,'defaultAxesColorOrder');
+data_diameter = 4;
+
+image([-1 1]*data_diameter/2,[-1 1]*data_diameter/2,...
+    img,'AlphaData',ImageAlpha)
+axis equal
+box on
+title('Residents in Delivery Area')
+xlabel('Distance (km)')
+ylabel('Distance (km)')
+
+%% Identify Populated Areas with Image Processing
+%
+% Corner detection is used to identify populated areas.
+
+% Extract green data
+img_Gr = img(:,:,2);
+
+% Identify corners
+corners = detectHarrisFeatures(img_Gr,'FilterSize',5);
+
+% Center and rescale data
+px = corners.Location(:,1);
+d_px = max(px)-min(px);
+px_sc = (px-d_px/2)/d_px*data_diameter;
+
+py = corners.Location(:,2);
+d_py = max(py)-min(py);
+py_sc = (py-d_py/2)/d_py*4;
+
+% Calculate distance from center to points
+rad_set = (px_sc.^2+py_sc.^2).^0.5;
+
+% Eliminate points on outer edge
+radEdgeInds = find(rad_set<1.98);
+rad_setNew = rad_set(radEdgeInds,:);
+rad_set = []; 
+rad_set = rad_setNew;
+
+if ~exist('h1_quadcopter_delivery_zone', 'var') || ...
+        ~isgraphics(h1_quadcopter_delivery_zone, 'figure')
+    h1_quadcopter_delivery_zone = figure('Name', 'quadcopter_delivery_zone');
+end
+figure(h1_quadcopter_delivery_zone)
+clf(h1_quadcopter_delivery_zone)
+
+temp_colororder = get(gca,'defaultAxesColorOrder');
+
+image([-1 1]*data_diameter/2,[-1 1]*data_diameter/2,...
+    img,'AlphaData',ImageAlpha)
+axis equal
+box on
+
+hold on
+plot(px_sc(radEdgeInds),py_sc(radEdgeInds),'m.');
+hold off
+title('Residents in Delivery Area')
+xlabel('Distance (km)')
+ylabel('Distance (km)')
+
+%% Histogram of Delivery Distances
+%
+% Distance from the delivery center is calculated in MATLAB, and a
+% histogram is created to show the distribution of distances.
+
+if ~exist('h2_quadcopter_delivery_zone', 'var') || ...
+        ~isgraphics(h2_quadcopter_delivery_zone, 'figure')
+    h2_quadcopter_delivery_zone = figure('Name', 'quadcopter_delivery_zone');
+end
+figure(h2_quadcopter_delivery_zone)
+clf(h2_quadcopter_delivery_zone)
+
+temp_colororder = get(gca,'defaultAxesColorOrder');
+
+histogram(rad_set,50)
+title('Histogram of Delivery Distances')
+xlabel('Distance (km)');
+ylabel('Number of Deliveries')
+
+%% Statistical Distribution of Load Masses 
+%
+% To explore effect on costs, a statistical distribution of costs is
+% generated.  This parameterized distribution can be adjusted using two
+% parameters.
+%
+
+% Beta distributions are 0-1, so we scale by maximum weight
+max_weight = 2;  % kg
+x = [0:0.01:1];
+beta_coeff_1 = [1.9 3.5];
+beta_coeff_2 = [4.6 2.2];
+Y1 = betapdf(x,beta_coeff_1(1),beta_coeff_1(2))/max_weight;  % Example 1
+Y2 = betapdf(x,beta_coeff_2(1),beta_coeff_2(2))/max_weight;  % Example 2
+x = x*max_weight;
+
+if ~exist('h4_quadcopter_delivery_zone', 'var') || ...
+        ~isgraphics(h4_quadcopter_delivery_zone, 'figure')
+    h4_quadcopter_delivery_zone = figure('Name', 'quadcopter_delivery_zone');
+end
+figure(h4_quadcopter_delivery_zone)
+clf(h4_quadcopter_delivery_zone)
+
+temp_colororder = get(gca,'defaultAxesColorOrder');
+
+plot(x,Y1,'DisplayName','Distribution 1','LineWidth',2);
+hold on
+plot(x,Y2,'DisplayName','Distribution 2','LineWidth',2);
+hold off
+
+title('Possible Load Distributions');
+xlabel('Load Mass (kg)')
+ylabel('Probability Density Function')
+legend('Location','Best')
+
+%% Histogram of Delivery Costs
+%
+% Combining the statistical distributions of mission distances and load
+% masses, we estimate a cost index for the missions flown.
+
+% Generate random set of loads according to distributions
+rng('default'); % For repeatability set random seed to default
+load_set_1 = betarnd(beta_coeff_1(1),beta_coeff_1(2),length(rad_set),1);
+load_set_2 = betarnd(beta_coeff_2(1),beta_coeff_2(2),length(rad_set),1);
+
+% Calculate cost proxy: weight*distance
+wd1 = load_set_1.*rad_set;
+wd2 = load_set_2.*rad_set;
+
+if ~exist('h3_quadcopter_delivery_zone', 'var') || ...
+        ~isgraphics(h3_quadcopter_delivery_zone, 'figure')
+    h3_quadcopter_delivery_zone = figure('Name', 'quadcopter_delivery_zone');
+end
+figure(h3_quadcopter_delivery_zone)
+clf(h3_quadcopter_delivery_zone)
+
+h1=histfit(wd1,50,'gamma');
+h1(1).FaceAlpha = 0.6;
+h1(1).DisplayName = ['Load Distribution 1, Cost Index: ' num2str(sum(wd1))];
+h1(2).Color = temp_colororder(1,:);
+h1(2).DisplayName = '';
+h1(2).HandleVisibility = 'off';
+hold on
+h2=histfit(wd2,50,'gamma');
+h2(1).FaceColor = temp_colororder(2,:);
+h2(1).DisplayName = ['Load Distribution 2, Cost Index: ' num2str(sum(wd2))];
+h2(1).FaceAlpha = 0.6;
+h2(2).Color = temp_colororder(2,:);
+h2(2).DisplayName = '';
+h2(2).HandleVisibility = 'off';
+%pd1 = fitdist(wd1,'gamma');
+%pd2 = fitdist(wd2,'gamma');
+
+title('Mission Cost Index for Assumed Load Distribution (r=2km)')
+xlabel('Cost of Mission')
+ylabel('Number of Missions')
+
+legend('Location','Best')
+
+%%
+
+%clear all
+close all
+%bdclose all
+
+##### SOURCE END #####
+--></body></html>
