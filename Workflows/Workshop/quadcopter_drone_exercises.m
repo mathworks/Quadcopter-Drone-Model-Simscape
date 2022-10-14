@@ -2,7 +2,6 @@ function quadcopter_drone_exercises(ex_num)
 
 quadcopter_ex02_motor_sweep_prefs
 bdclose all
-close all
 
 mfile = [];
 switch ex_num
@@ -24,7 +23,15 @@ switch ex_num
 end
 
 % Close figure windows
-close all
+% close all % Closes app with R2022b
+figList = findall(groot, 'Type', 'figure');
+for i = 1:length(figList)
+    if(~strcmp(figList(i).Name,'Exercise Selection App'))
+        disp(['Closing figure ' figList(i).Name])
+        delete(figList(i))
+    end
+end
+
 
 if(~strcmpi(mdl,'none'))
     cd(fileparts(which(mdl)))

@@ -8,12 +8,13 @@ realtime_stepSize = '0.01';
 realtime_localSolver = 'NE_BACKWARD_EULER_ADVANCER';
 realtime_globalSolver = 'ode14x';
 
-solverBlock_pth = find_system(mdl,'FollowLinks','on','LookUnderMasks','on', 'SubClassName', 'solver');
+f    = Simulink.FindOptions('FollowLinks',1,'LookUnderMasks','all');
+solverBlock_pth = Simulink.findBlocks(bdroot, 'SubClassName', 'solver',f);
 
 if strcmpi(deskreal,'desktop')
     set_param(mdl,'Solver',desktop_solver);
     for svb_i=1:size(solverBlock_pth,1)
-        set_param(char(solverBlock_pth(svb_i)), 'UseLocalSolver','off','DoFixedCost','off');
+        set_param(solverBlock_pth(svb_i), 'UseLocalSolver','off','DoFixedCost','off');
     end
 
     % Permit simulation to continue after package has been released
@@ -22,7 +23,7 @@ if strcmpi(deskreal,'desktop')
 else
     set_param(mdl,'Solver',realtime_globalSolver,'FixedStep',realtime_stepSize);
     for svb_i=1:size(solverBlock_pth,1)
-        set_param(char(solverBlock_pth(svb_i)),...
+        set_param(solverBlock_pth(svb_i),...
             'UseLocalSolver','on',...
             'DoFixedCost','on',...
             'MaxNonlinIter',realtime_nonlinIter,...
