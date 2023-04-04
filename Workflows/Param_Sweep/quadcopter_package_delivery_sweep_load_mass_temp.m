@@ -1,5 +1,5 @@
 %% Use Parallel Computing and Fast Restart to sweep parameter values
-% Copyright 2021-2022 The MathWorks, Inc.
+% Copyright 2021-2023 The MathWorks, Inc.
 
 % Move to folder where script is saved
 cd(fileparts(which(mfilename)));

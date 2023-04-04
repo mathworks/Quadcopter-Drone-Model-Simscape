@@ -16,7 +16,7 @@ function quadcopter_package_plot_trajectory(waypoints, timespot_spl, spline_data
 %   plotted versus time.  If there are no sequential, repeated waypoints,
 %   the trajectory is plotted versus distance along the trajectory
 
-% Copyright 2021-2022 The MathWorks, Inc.
+% Copyright 2021-2023 The MathWorks, Inc.
  
 % Transpose if necessary
 if(~(size(waypoints,2)==3))

@@ -33,7 +33,7 @@ function [timespot_spl, spline_data, spline_yaw, wayp_path_vis] = quadcopter_way
 %   calculate the times the quadcopter will pass through the points along
 %   the spline.
 
-% Copyright 2021-2022 The MathWorks, Inc.
+% Copyright 2021-2023 The MathWorks, Inc.
 
 % If no arguments are passed, plot the trajectory with some assumptions
 % about the key parameters.

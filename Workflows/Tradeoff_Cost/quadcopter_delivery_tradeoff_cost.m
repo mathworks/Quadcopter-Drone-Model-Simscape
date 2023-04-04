@@ -9,7 +9,7 @@
 % * Statistics are used to create a parameterized distribution of load mass
 % * Fitting tools are used to estimate the cost index
 %
-% Copyright 2022 The MathWorks, Inc.
+% Copyright 2022-2023 The MathWorks, Inc.
 
 %% Import Image
 %

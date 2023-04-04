@@ -1,5 +1,5 @@
 % Startup script for project Quadcopter_Drone.prj
-% Copyright 2018-2022 The MathWorks, Inc.
+% Copyright 2018-2023 The MathWorks, Inc.
 
 %% Code for building Simscape custom library at startup
 % Change to folder with package directory

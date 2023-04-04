@@ -1,5 +1,5 @@
 % Shutdown script for custom project
-% Copyright 2019-2022 The MathWorks, Inc.
+% Copyright 2019-2023 The MathWorks, Inc.
 
 %% Code for cleaning Simscape custom library at shutdown
 % Change to folder with package directory
