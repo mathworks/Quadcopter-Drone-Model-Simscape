@@ -1,12 +1,17 @@
-
-<!DOCTYPE html
-  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html><head>
-      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-   <!--
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--
 This HTML was auto-generated from MATLAB code.
 To make changes, update the MATLAB code and republish this document.
-      --><title>Quadcopter Package Delivery, Weather Conditions</title><meta name="generator" content="MATLAB 9.14"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2023-03-30"><meta name="DC.source" content="quadcopter_package_delivery_weather.m"><style type="text/css">
+      -->
+<title>Quadcopter Package Delivery, Weather Conditions</title>
+<meta name="generator" content="MATLAB 23.2">
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
+<meta name="DC.date" content="2023-09-15">
+<meta name="DC.source" content="quadcopter_package_delivery_weather.m">
+<style type="text/css">
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
 
 html { min-height:100%; margin-bottom:1px; }
@@ -67,31 +72,64 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 
 
 
-  </style></head><body><div class="content"><h1>Quadcopter Package Delivery, Weather Conditions</h1><!--introduction--><p>This example shows how weather conditions can be obtained from the online weather service OpenWeather.  A Python script is called from within MATLAB to obtain weather for a specific location, either current conditions or a forecast for the next 5 days.</p><p>The Python module reads and parses current weather data from the web API: <a href="https://openweathermap.org/api">https://openweathermap.org/api</a></p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Forecasted Wind Speed for Boston</a></li><li><a href="#2">Current Weather Conditions for Boston</a></li></ul></div><h2 id="1">Forecasted Wind Speed for Boston</h2><pre class="codeinput">wind_spd = quadcopter_drone_get_weather(<span class="string">'Boston'</span>,<span class="string">'forecast'</span>,<span class="string">'showplot'</span>);
-</pre><img vspace="5" hspace="5" src="quadcopter_package_delivery_weather_01.png" alt=""> <h2 id="2">Current Weather Conditions for Boston</h2><pre class="codeinput">[wind_spd, weather_now]= quadcopter_drone_get_weather(<span class="string">'Boston'</span>);
+  </style>
+</head>
+<body>
+<div class="content">
+<h1>Quadcopter Package Delivery, Weather Conditions</h1>
+<!--introduction-->
+<p>This example shows how weather conditions can be obtained from the online weather service OpenWeather. A Python script is called from within MATLAB to obtain weather for a specific location, either current conditions or a forecast for the next 5 days.</p>
+<p>The Python module reads and parses current weather data from the web API: <a href="https://openweathermap.org/api">https://openweathermap.org/api</a>
+</p>
+<!--/introduction-->
+<h2>Contents</h2>
+<div>
+<ul>
+<li>
+<a href="#1">Forecasted Wind Speed for Boston</a>
+</li>
+<li>
+<a href="#2">Current Weather Conditions for Boston</a>
+</li>
+</ul>
+</div>
+<h2 id="1">Forecasted Wind Speed for Boston</h2>
+<pre class="codeinput">wind_spd = quadcopter_drone_get_weather(<span class="string">'Boston'</span>,<span class="string">'forecast'</span>,<span class="string">'showplot'</span>);
+</pre>
+<img vspace="5" hspace="5" src="quadcopter_package_delivery_weather_01.png" alt=""> <h2 id="2">Current Weather Conditions for Boston</h2>
+<pre class="codeinput">[wind_spd, weather_now]= quadcopter_drone_get_weather(<span class="string">'Boston'</span>);
 
 weather_now
-</pre><pre class="codeoutput">
+</pre>
+<pre class="codeoutput">
 weather_now = 
 
   struct with fields:
 
-            temp: 6.8900
-      feels_like: 3.0500
-        temp_min: 4.4400
-        temp_max: 8.4300
-        pressure: 1015
-        humidity: 55
-           speed: 6.6900
-             deg: 170
+            temp: 22.2600
+      feels_like: 22.0800
+        temp_min: 19.2700
+        temp_max: 24.0600
+        pressure: 1016
+        humidity: 59
+           speed: 5.1400
+             deg: 300
+            gust: 9.2600
              lon: -71.0598
              lat: 42.3584
             city: [1&times;6 py.str]
     current_time: [1&times;26 py.str]
 
-</pre><pre class="codeinput">close <span class="string">all</span>
+</pre>
+<pre class="codeinput">close <span class="string">all</span>
 bdclose <span class="string">all</span>
-</pre><p class="footer">Copyright 2022-2023 The MathWorks, Inc.<br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2023a</a><br></p></div><!--
+</pre>
+<p class="footer">Copyright 2022-2023 The MathWorks, Inc.<br>
+<a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2023b</a>
+<br>
+</p>
+</div>
+<!--
 ##### SOURCE BEGIN #####
 %% Quadcopter Package Delivery, Weather Conditions
 % 
@@ -124,4 +162,6 @@ weather_now
 close all
 bdclose all
 ##### SOURCE END #####
---></body></html>
+-->
+</body>
+</html>

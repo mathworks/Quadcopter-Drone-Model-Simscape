@@ -1,12 +1,17 @@
-
-<!DOCTYPE html
-  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html><head>
-      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-   <!--
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--
 This HTML was auto-generated from MATLAB code.
 To make changes, update the MATLAB code and republish this document.
-      --><title>Quadcopter Package Delivery</title><meta name="generator" content="MATLAB 9.14"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2023-03-29"><meta name="DC.source" content="quadcopter_package_delivery.m"><style type="text/css">
+      -->
+<title>Quadcopter Package Delivery</title>
+<meta name="generator" content="MATLAB 23.2">
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
+<meta name="DC.date" content="2023-09-14">
+<meta name="DC.source" content="quadcopter_package_delivery.m">
+<style type="text/css">
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
 
 html { min-height:100%; margin-bottom:1px; }
@@ -67,64 +72,122 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 
 
 
-  </style></head><body><div class="content"><h1>Quadcopter Package Delivery</h1><!--introduction--><p>This example models a quadcopter that navigates a path to deliver a package. The body was designed in CAD and imported into Simscape Multibody.  The electric motors capture the dynamics of the power conversion in an abstract manner to enable fast simulation.  The package is released from the quadcopter when it reaches the final waypoint and the release criteria are met.</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Model</a></li><li><a href="#3">Quadcopter Subsystem</a></li><li><a href="#4">Body Subsystem</a></li><li><a href="#5">Motors Subsystem</a></li><li><a href="#6">Maneuver Controller</a></li><li><a href="#7">Simulation Results from Simscape Logging: Path 1</a></li><li><a href="#9">Simulation Results from Simscape Logging: Path 4</a></li><li><a href="#10">Simulation Results from Simscape Logging: Path 4 with Wind</a></li><li><a href="#11">Parameter Sweep: Package Mass</a></li><li><a href="#12">Parameter Sweep: Trajectory Speed</a></li><li><a href="#13">Simulation Results from Simscape Logging: Path 5, 6</a></li></ul></div><h2 id="1">Model</h2><img vspace="5" hspace="5" src="quadcopter_package_delivery_01.png" alt=""> <p><img vspace="5" hspace="5" src="quadcopter_package_deliver_mechExpAnim.png" alt=""> </p><h2 id="3">Quadcopter Subsystem</h2><img vspace="5" hspace="5" src="quadcopter_package_delivery_02.png" alt=""> <h2 id="4">Body Subsystem</h2><img vspace="5" hspace="5" src="quadcopter_package_delivery_03.png" alt=""> <h2 id="5">Motors Subsystem</h2><img vspace="5" hspace="5" src="quadcopter_package_delivery_04.png" alt=""> <h2 id="6">Maneuver Controller</h2><img vspace="5" hspace="5" src="quadcopter_package_delivery_05.png" alt=""> <h2 id="7">Simulation Results from Simscape Logging: Path 1</h2><img vspace="5" hspace="5" src="quadcopter_package_delivery_06.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_07.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_08.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_09.png" alt=""> <h2 id="9">Simulation Results from Simscape Logging: Path 4</h2><img vspace="5" hspace="5" src="quadcopter_package_delivery_10.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_11.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_12.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_13.png" alt=""> <h2 id="10">Simulation Results from Simscape Logging: Path 4 with Wind</h2><img vspace="5" hspace="5" src="quadcopter_package_delivery_14.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_15.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_16.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_17.png" alt=""> <h2 id="11">Parameter Sweep: Package Mass</h2><p>Using parallel computing we vary the mass of the package to see its effect on the quadcopter trajectory.</p><pre class="codeoutput">Elapsed Simulation Time Single Run: 84.4707
-[29-Mar-2023 23:43:43] Checking for availability of parallel pool...
+  </style>
+</head>
+<body>
+<div class="content">
+<h1>Quadcopter Package Delivery</h1>
+<!--introduction-->
+<p>This example models a quadcopter that navigates a path to deliver a package. The body was designed in CAD and imported into Simscape Multibody. The electric motors capture the dynamics of the power conversion in an abstract manner to enable fast simulation. The package is released from the quadcopter when it reaches the final waypoint and the release criteria are met.</p>
+<!--/introduction-->
+<h2>Contents</h2>
+<div>
+<ul>
+<li>
+<a href="#1">Model</a>
+</li>
+<li>
+<a href="#3">Quadcopter Subsystem</a>
+</li>
+<li>
+<a href="#4">Body Subsystem</a>
+</li>
+<li>
+<a href="#5">Motors Subsystem</a>
+</li>
+<li>
+<a href="#6">Maneuver Controller</a>
+</li>
+<li>
+<a href="#7">Simulation Results from Simscape Logging: Path 1</a>
+</li>
+<li>
+<a href="#9">Simulation Results from Simscape Logging: Path 4</a>
+</li>
+<li>
+<a href="#10">Simulation Results from Simscape Logging: Path 4 with Wind</a>
+</li>
+<li>
+<a href="#11">Parameter Sweep: Package Mass</a>
+</li>
+<li>
+<a href="#12">Parameter Sweep: Trajectory Speed</a>
+</li>
+<li>
+<a href="#13">Simulation Results from Simscape Logging: Path 5, 6</a>
+</li>
+</ul>
+</div>
+<h2 id="1">Model</h2>
+<img vspace="5" hspace="5" src="quadcopter_package_delivery_01.png" alt=""> <p>
+<img vspace="5" hspace="5" src="quadcopter_package_deliver_mechExpAnim.png" alt=""> </p>
+<h2 id="3">Quadcopter Subsystem</h2>
+<img vspace="5" hspace="5" src="quadcopter_package_delivery_02.png" alt=""> <h2 id="4">Body Subsystem</h2>
+<img vspace="5" hspace="5" src="quadcopter_package_delivery_03.png" alt=""> <h2 id="5">Motors Subsystem</h2>
+<img vspace="5" hspace="5" src="quadcopter_package_delivery_04.png" alt=""> <h2 id="6">Maneuver Controller</h2>
+<img vspace="5" hspace="5" src="quadcopter_package_delivery_05.png" alt=""> <h2 id="7">Simulation Results from Simscape Logging: Path 1</h2>
+<img vspace="5" hspace="5" src="quadcopter_package_delivery_06.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_07.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_08.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_09.png" alt=""> <h2 id="9">Simulation Results from Simscape Logging: Path 4</h2>
+<img vspace="5" hspace="5" src="quadcopter_package_delivery_10.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_11.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_12.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_13.png" alt=""> <h2 id="10">Simulation Results from Simscape Logging: Path 4 with Wind</h2>
+<img vspace="5" hspace="5" src="quadcopter_package_delivery_14.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_15.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_16.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_17.png" alt=""> <h2 id="11">Parameter Sweep: Package Mass</h2>
+<p>Using parallel computing we vary the mass of the package to see its effect on the quadcopter trajectory.</p>
+<pre class="codeoutput">Elapsed Simulation Time Single Run: 21.911
+[14-Sep-2023 23:42:15] Checking for availability of parallel pool...
 Starting parallel pool (parpool) using the 'Processes' profile ...
-Connected to parallel pool with 2 workers.
-[29-Mar-2023 23:45:35] Starting Simulink on parallel workers...
-[29-Mar-2023 23:45:50] Loading project on parallel workers...
-[29-Mar-2023 23:45:51] Configuring simulation cache folder on parallel workers...
-[29-Mar-2023 23:46:06] Transferring base workspace variables used in the model to parallel workers...
-Warning: Unable to save App Designer app object. Save not
-supported for matlab.apps.AppBase objects. 
-Warning: Unable to save App Designer app object. Save not
-supported for matlab.apps.AppBase objects. 
-[29-Mar-2023 23:46:13] Loading model on parallel workers...
-[29-Mar-2023 23:47:06] Running simulations...
-[29-Mar-2023 23:50:06] Completed 1 of 12 simulation runs
-[29-Mar-2023 23:50:13] Completed 2 of 12 simulation runs
-[29-Mar-2023 23:50:45] Completed 3 of 12 simulation runs
-[29-Mar-2023 23:50:52] Completed 4 of 12 simulation runs
-[29-Mar-2023 23:51:21] Completed 5 of 12 simulation runs
-[29-Mar-2023 23:51:31] Completed 6 of 12 simulation runs
-[29-Mar-2023 23:51:59] Completed 7 of 12 simulation runs
-[29-Mar-2023 23:52:10] Completed 8 of 12 simulation runs
-[29-Mar-2023 23:52:39] Completed 9 of 12 simulation runs
-[29-Mar-2023 23:52:50] Completed 10 of 12 simulation runs
-[29-Mar-2023 23:53:10] Completed 11 of 12 simulation runs
-[29-Mar-2023 23:53:18] Completed 12 of 12 simulation runs
-[29-Mar-2023 23:53:20] Cleaning up parallel workers...
-Elapsed Sweep Time Total:       362.00
-Elapsed Sweep Time/(Num Tests): 30.17
+Connected to parallel pool with 6 workers.
+[14-Sep-2023 23:42:40] Starting Simulink on parallel workers...
+[14-Sep-2023 23:42:45] Configuring simulation cache folder on parallel workers...
+[14-Sep-2023 23:42:46] Transferring base workspace variables used in the model to parallel workers...
+[14-Sep-2023 23:42:47] Loading model on parallel workers...
+[14-Sep-2023 23:43:06] Running simulations...
+[14-Sep-2023 23:44:11] Completed 1 of 12 simulation runs
+[14-Sep-2023 23:44:12] Completed 2 of 12 simulation runs
+[14-Sep-2023 23:44:14] Completed 3 of 12 simulation runs
+[14-Sep-2023 23:44:15] Completed 4 of 12 simulation runs
+[14-Sep-2023 23:44:21] Completed 5 of 12 simulation runs
+[14-Sep-2023 23:44:21] Completed 6 of 12 simulation runs
+[14-Sep-2023 23:44:27] Completed 7 of 12 simulation runs
+[14-Sep-2023 23:44:27] Completed 8 of 12 simulation runs
+[14-Sep-2023 23:44:28] Completed 9 of 12 simulation runs
+[14-Sep-2023 23:44:29] Completed 10 of 12 simulation runs
+[14-Sep-2023 23:44:30] Completed 11 of 12 simulation runs
+[14-Sep-2023 23:44:38] Completed 12 of 12 simulation runs
+[14-Sep-2023 23:44:39] Cleaning up parallel workers...
+Elapsed Sweep Time Total:       81.00
+Elapsed Sweep Time/(Num Tests):  6.75
  
 Parallel pool using the 'Processes' profile is shutting down.
-</pre><img vspace="5" hspace="5" src="quadcopter_package_delivery_18.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_19.png" alt=""> <h2 id="12">Parameter Sweep: Trajectory Speed</h2><p>Using parallel computing we vary the target speed of the quadcopter and see if the quadcopter can follow the target path.</p><pre class="codeoutput">Elapsed Simulation Time Single Run: 136.7965
-[29-Mar-2023 23:57:07] Checking for availability of parallel pool...
+</pre>
+<img vspace="5" hspace="5" src="quadcopter_package_delivery_18.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_19.png" alt=""> <h2 id="12">Parameter Sweep: Trajectory Speed</h2>
+<p>Using parallel computing we vary the target speed of the quadcopter and see if the quadcopter can follow the target path.</p>
+<pre class="codeoutput">Elapsed Simulation Time Single Run: 42.1623
+[14-Sep-2023 23:45:47] Checking for availability of parallel pool...
 Starting parallel pool (parpool) using the 'Processes' profile ...
-Connected to parallel pool with 2 workers.
-[29-Mar-2023 23:58:08] Starting Simulink on parallel workers...
-[29-Mar-2023 23:58:28] Loading project on parallel workers...
-[29-Mar-2023 23:58:28] Configuring simulation cache folder on parallel workers...
-[29-Mar-2023 23:58:47] Transferring base workspace variables used in the model to parallel workers...
-Warning: Unable to save App Designer app object. Save not
-supported for matlab.apps.AppBase objects. 
-Warning: Unable to save App Designer app object. Save not
-supported for matlab.apps.AppBase objects. 
-[29-Mar-2023 23:58:59] Loading model on parallel workers...
-[30-Mar-2023 00:00:09] Running simulations...
-[30-Mar-2023 00:03:28] Completed 1 of 8 simulation runs
-[30-Mar-2023 00:03:35] Completed 2 of 8 simulation runs
-[30-Mar-2023 00:04:06] Completed 3 of 8 simulation runs
-[30-Mar-2023 00:04:09] Completed 4 of 8 simulation runs
-[30-Mar-2023 00:04:42] Completed 5 of 8 simulation runs
-[30-Mar-2023 00:04:45] Completed 6 of 8 simulation runs
-[30-Mar-2023 00:05:14] Completed 7 of 8 simulation runs
-[30-Mar-2023 00:05:21] Completed 8 of 8 simulation runs
-[30-Mar-2023 00:05:21] Cleaning up parallel workers...
-Elapsed Sweep Time Total:       305.00
-Elapsed Sweep Time/(Num Tests): 38.12
+Connected to parallel pool with 6 workers.
+[14-Sep-2023 23:46:05] Starting Simulink on parallel workers...
+[14-Sep-2023 23:46:10] Configuring simulation cache folder on parallel workers...
+[14-Sep-2023 23:46:10] Transferring base workspace variables used in the model to parallel workers...
+[14-Sep-2023 23:46:12] Loading model on parallel workers...
+[14-Sep-2023 23:46:32] Running simulations...
+[14-Sep-2023 23:47:42] Completed 1 of 8 simulation runs
+[14-Sep-2023 23:47:44] Completed 2 of 8 simulation runs
+[14-Sep-2023 23:47:47] Completed 3 of 8 simulation runs
+[14-Sep-2023 23:47:52] Completed 4 of 8 simulation runs
+[14-Sep-2023 23:47:52] Completed 5 of 8 simulation runs
+[14-Sep-2023 23:47:57] Completed 6 of 8 simulation runs
+[14-Sep-2023 23:47:57] Completed 7 of 8 simulation runs
+[14-Sep-2023 23:47:59] Completed 8 of 8 simulation runs
+[14-Sep-2023 23:47:59] Cleaning up parallel workers...
+Elapsed Sweep Time Total:       87.00
+Elapsed Sweep Time/(Num Tests): 10.88
 Parallel pool using the 'Processes' profile is shutting down.
-</pre><img vspace="5" hspace="5" src="quadcopter_package_delivery_20.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_21.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_22.png" alt=""> <h2 id="13">Simulation Results from Simscape Logging: Path 5, 6</h2><img vspace="5" hspace="5" src="quadcopter_package_delivery_23.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_24.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_25.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_26.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_27.png" alt=""> <p class="footer">Copyright 2022-2023 The MathWorks, Inc.<br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2023a</a><br></p></div><!--
+</pre>
+<img vspace="5" hspace="5" src="quadcopter_package_delivery_20.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_21.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_22.png" alt=""> <h2 id="13">Simulation Results from Simscape Logging: Path 5, 6</h2>
+<img vspace="5" hspace="5" src="quadcopter_package_delivery_23.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_24.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_25.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_26.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_27.png" alt=""> <p class="footer">Copyright 2022-2023 The MathWorks, Inc.<br>
+<a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2023b</a>
+<br>
+</p>
+</div>
+<!--
 ##### SOURCE BEGIN #####
 %% Quadcopter Package Delivery
 % 
@@ -240,4 +303,6 @@ legend('Location','Best')
 close all
 bdclose all
 ##### SOURCE END #####
---></body></html>
+-->
+</body>
+</html>
