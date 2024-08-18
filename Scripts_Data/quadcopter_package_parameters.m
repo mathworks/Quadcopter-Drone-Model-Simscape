@@ -1,5 +1,5 @@
 % Parameters for quadcopter_package_delivery
-% Copyright 2021-2023 The MathWorks, Inc.
+% Copyright 2021-2024 The MathWorks, Inc.
 
 % Size of the ground
 planex = 12.5;           % m

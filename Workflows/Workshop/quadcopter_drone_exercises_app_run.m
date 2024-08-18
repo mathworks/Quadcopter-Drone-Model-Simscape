@@ -1,7 +1,7 @@
 % Script to run (instead of edit) vehicle configuration app
 % and ensure only one copy of the UI is opened.
 
-% Copyright 2019-2023 The MathWorks, Inc.
+% Copyright 2019-2024 The MathWorks, Inc.
 
 if(exist('quadcopter_drone_app_uifigure','var'))
     if(~isempty(quadcopter_drone_app_uifigure))

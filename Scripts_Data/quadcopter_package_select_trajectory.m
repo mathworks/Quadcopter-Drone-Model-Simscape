@@ -11,7 +11,7 @@ function [waypoints, timespot_spl, spline_data, spline_yaw, wayp_path_vis] = qua
 %                       defines the path of the quadcopter
 %       spline_yaw      Yaw angle at the spline_data points
 
-% Copyright 2021-2023 The MathWorks, Inc.
+% Copyright 2021-2024 The MathWorks, Inc.
 
 if(nargin == 2)
     roundtrip = varargin{1};
