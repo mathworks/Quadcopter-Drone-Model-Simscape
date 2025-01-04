@@ -7,9 +7,9 @@ This HTML was auto-generated from MATLAB code.
 To make changes, update the MATLAB code and republish this document.
       -->
 <title>Quadcopter Package Delivery</title>
-<meta name="generator" content="MATLAB 24.1">
+<meta name="generator" content="MATLAB 24.2">
 <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
-<meta name="DC.date" content="2024-03-21">
+<meta name="DC.date" content="2024-09-13">
 <meta name="DC.source" content="quadcopter_package_delivery.m">
 <style type="text/css">
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
@@ -130,60 +130,82 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 <img vspace="5" hspace="5" src="quadcopter_package_delivery_10.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_11.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_12.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_13.png" alt=""> <h2 id="10">Simulation Results from Simscape Logging: Path 4 with Wind</h2>
 <img vspace="5" hspace="5" src="quadcopter_package_delivery_14.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_15.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_16.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_17.png" alt=""> <h2 id="11">Parameter Sweep: Package Mass</h2>
 <p>Using parallel computing we vary the mass of the package to see its effect on the quadcopter trajectory.</p>
-<pre class="codeoutput">Elapsed Simulation Time Single Run: 18.0016
-[21-Mar-2024 23:25:00] Checking for availability of parallel pool...
+<pre class="codeoutput">Elapsed Simulation Time Single Run: 18.2268
+[13-Sep-2024 00:45:10] Checking for availability of parallel pool...
 Starting parallel pool (parpool) using the 'Processes' profile ...
 Connected to parallel pool with 6 workers.
-[21-Mar-2024 23:25:24] Starting Simulink on parallel workers...
-[21-Mar-2024 23:25:29] Configuring simulation cache folder on parallel workers...
-[21-Mar-2024 23:25:29] Transferring base workspace variables used in the model to parallel workers...
-[21-Mar-2024 23:25:31] Loading model on parallel workers...
-[21-Mar-2024 23:25:50] Running simulations...
-[21-Mar-2024 23:26:47] Completed 1 of 12 simulation runs
-[21-Mar-2024 23:26:50] Completed 2 of 12 simulation runs
-[21-Mar-2024 23:26:51] Completed 3 of 12 simulation runs
-[21-Mar-2024 23:26:51] Completed 4 of 12 simulation runs
-[21-Mar-2024 23:26:54] Completed 5 of 12 simulation runs
-[21-Mar-2024 23:26:59] Completed 6 of 12 simulation runs
-[21-Mar-2024 23:27:02] Completed 7 of 12 simulation runs
-[21-Mar-2024 23:27:04] Completed 8 of 12 simulation runs
-[21-Mar-2024 23:27:05] Completed 9 of 12 simulation runs
-[21-Mar-2024 23:27:06] Completed 10 of 12 simulation runs
-[21-Mar-2024 23:27:06] Completed 11 of 12 simulation runs
-[21-Mar-2024 23:27:12] Completed 12 of 12 simulation runs
-[21-Mar-2024 23:27:12] Cleaning up parallel workers...
-Elapsed Sweep Time Total:       75.00
-Elapsed Sweep Time/(Num Tests):  6.25
+[13-Sep-2024 00:45:35] Starting Simulink on parallel workers...
+[13-Sep-2024 00:45:40] Configuring simulation cache folder on parallel workers...
+[13-Sep-2024 00:45:41] Transferring base workspace variables used in the model to parallel workers...
+[13-Sep-2024 00:45:41] Total size of base workspace variables to send to parallel workers is 6.24 MB.
+[13-Sep-2024 00:45:42] Loading model on parallel workers...
+[13-Sep-2024 00:46:01] Running simulations...
+[13-Sep-2024 00:47:16] Completed 1 of 12 simulation runs
+[13-Sep-2024 00:47:16] Received simulation output (size: 7.68 MB) for run 1 from parallel worker.
+[13-Sep-2024 00:47:17] Completed 2 of 12 simulation runs
+[13-Sep-2024 00:47:17] Received simulation output (size: 7.73 MB) for run 2 from parallel worker.
+[13-Sep-2024 00:47:17] Completed 3 of 12 simulation runs
+[13-Sep-2024 00:47:17] Received simulation output (size: 7.79 MB) for run 3 from parallel worker.
+[13-Sep-2024 00:47:19] Completed 4 of 12 simulation runs
+[13-Sep-2024 00:47:19] Received simulation output (size: 7.83 MB) for run 5 from parallel worker.
+[13-Sep-2024 00:47:20] Completed 5 of 12 simulation runs
+[13-Sep-2024 00:47:20] Received simulation output (size: 7.98 MB) for run 6 from parallel worker.
+[13-Sep-2024 00:47:25] Completed 6 of 12 simulation runs
+[13-Sep-2024 00:47:25] Received simulation output (size: 10.00 MB) for run 4 from parallel worker.
+[13-Sep-2024 00:47:32] Completed 7 of 12 simulation runs
+[13-Sep-2024 00:47:32] Received simulation output (size: 7.95 MB) for run 7 from parallel worker.
+[13-Sep-2024 00:47:32] Completed 8 of 12 simulation runs
+[13-Sep-2024 00:47:32] Received simulation output (size: 8.14 MB) for run 8 from parallel worker.
+[13-Sep-2024 00:47:32] Completed 9 of 12 simulation runs
+[13-Sep-2024 00:47:32] Received simulation output (size: 6.29 MB) for run 12 from parallel worker.
+[13-Sep-2024 00:47:34] Completed 10 of 12 simulation runs
+[13-Sep-2024 00:47:34] Received simulation output (size: 8.19 MB) for run 9 from parallel worker.
+[13-Sep-2024 00:47:34] Completed 11 of 12 simulation runs
+[13-Sep-2024 00:47:34] Received simulation output (size: 8.44 MB) for run 10 from parallel worker.
+[13-Sep-2024 00:47:40] Completed 12 of 12 simulation runs
+[13-Sep-2024 00:47:40] Received simulation output (size: 12.47 MB) for run 11 from parallel worker.
+[13-Sep-2024 00:47:40] Cleaning up parallel workers...
+Elapsed Sweep Time Total:       91.00
+Elapsed Sweep Time/(Num Tests):  7.58
  
 Parallel pool using the 'Processes' profile is shutting down.
 </pre>
 <img vspace="5" hspace="5" src="quadcopter_package_delivery_18.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_19.png" alt=""> <h2 id="12">Parameter Sweep: Trajectory Speed</h2>
 <p>Using parallel computing we vary the target speed of the quadcopter and see if the quadcopter can follow the target path.</p>
-<pre class="codeoutput">Elapsed Simulation Time Single Run: 38.1292
-[21-Mar-2024 23:28:15] Checking for availability of parallel pool...
+<pre class="codeoutput">Elapsed Simulation Time Single Run: 38.4391
+[13-Sep-2024 00:48:47] Checking for availability of parallel pool...
 Starting parallel pool (parpool) using the 'Processes' profile ...
 Connected to parallel pool with 6 workers.
-[21-Mar-2024 23:28:33] Starting Simulink on parallel workers...
-[21-Mar-2024 23:28:37] Configuring simulation cache folder on parallel workers...
-[21-Mar-2024 23:28:38] Transferring base workspace variables used in the model to parallel workers...
-[21-Mar-2024 23:28:40] Loading model on parallel workers...
-[21-Mar-2024 23:29:01] Running simulations...
-[21-Mar-2024 23:30:02] Completed 1 of 8 simulation runs
-[21-Mar-2024 23:30:05] Completed 2 of 8 simulation runs
-[21-Mar-2024 23:30:06] Completed 3 of 8 simulation runs
-[21-Mar-2024 23:30:06] Completed 4 of 8 simulation runs
-[21-Mar-2024 23:30:07] Completed 5 of 8 simulation runs
-[21-Mar-2024 23:30:08] Completed 6 of 8 simulation runs
-[21-Mar-2024 23:30:17] Completed 7 of 8 simulation runs
-[21-Mar-2024 23:30:18] Completed 8 of 8 simulation runs
-[21-Mar-2024 23:30:18] Cleaning up parallel workers...
-Elapsed Sweep Time Total:       77.00
-Elapsed Sweep Time/(Num Tests):  9.62
+[13-Sep-2024 00:49:08] Starting Simulink on parallel workers...
+[13-Sep-2024 00:49:14] Configuring simulation cache folder on parallel workers...
+[13-Sep-2024 00:49:14] Transferring base workspace variables used in the model to parallel workers...
+[13-Sep-2024 00:49:14] Total size of base workspace variables to send to parallel workers is 106.85 MB.
+[13-Sep-2024 00:49:16] Loading model on parallel workers...
+[13-Sep-2024 00:49:37] Running simulations...
+[13-Sep-2024 00:50:58] Completed 1 of 8 simulation runs
+[13-Sep-2024 00:50:58] Received simulation output (size: 6.96 MB) for run 6 from parallel worker.
+[13-Sep-2024 00:51:02] Completed 2 of 8 simulation runs
+[13-Sep-2024 00:51:03] Received simulation output (size: 8.45 MB) for run 4 from parallel worker.
+[13-Sep-2024 00:51:03] Completed 3 of 8 simulation runs
+[13-Sep-2024 00:51:03] Received simulation output (size: 8.45 MB) for run 2 from parallel worker.
+[13-Sep-2024 00:51:03] Completed 4 of 8 simulation runs
+[13-Sep-2024 00:51:03] Received simulation output (size: 8.90 MB) for run 3 from parallel worker.
+[13-Sep-2024 00:51:03] Completed 5 of 8 simulation runs
+[13-Sep-2024 00:51:04] Received simulation output (size: 8.57 MB) for run 5 from parallel worker.
+[13-Sep-2024 00:51:04] Completed 6 of 8 simulation runs
+[13-Sep-2024 00:51:04] Received simulation output (size: 9.28 MB) for run 1 from parallel worker.
+[13-Sep-2024 00:51:14] Completed 7 of 8 simulation runs
+[13-Sep-2024 00:51:14] Received simulation output (size: 7.36 MB) for run 7 from parallel worker.
+[13-Sep-2024 00:51:16] Completed 8 of 8 simulation runs
+[13-Sep-2024 00:51:16] Received simulation output (size: 7.58 MB) for run 8 from parallel worker.
+[13-Sep-2024 00:51:16] Cleaning up parallel workers...
+Elapsed Sweep Time Total:       99.00
+Elapsed Sweep Time/(Num Tests): 12.38
 Parallel pool using the 'Processes' profile is shutting down.
 </pre>
 <img vspace="5" hspace="5" src="quadcopter_package_delivery_20.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_21.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_22.png" alt=""> <h2 id="13">Simulation Results from Simscape Logging: Path 5, 6</h2>
 <img vspace="5" hspace="5" src="quadcopter_package_delivery_23.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_24.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_25.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_26.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_27.png" alt=""> <p class="footer">Copyright 2022-2024 The MathWorks, Inc.<br>
-<a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2024a</a>
+<a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2024b</a>
 <br>
 </p>
 </div>
