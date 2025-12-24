@@ -7,9 +7,9 @@ This HTML was auto-generated from MATLAB code.
 To make changes, update the MATLAB code and republish this document.
       -->
 <title>Quadcopter Package Delivery, Parameter Sweeps</title>
-<meta name="generator" content="MATLAB 25.1">
+<meta name="generator" content="MATLAB 25.2">
 <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
-<meta name="DC.date" content="2025-11-28">
+<meta name="DC.date" content="2025-12-01">
 <meta name="DC.source" content="quadcopter_package_delivery_param_sweep.m">
 <style type="text/css">
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
@@ -106,789 +106,789 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 <img vspace="5" hspace="5" src="quadcopter_package_deliver_mechExpAnim.png" alt=""> </p>
 <h2 id="3">Parameter Sweep: Package Mass</h2>
 <p>Using parallel computing we vary the mass of the package to see its effect on the quadcopter trajectory.</p>
-<pre class="codeoutput">Elapsed Simulation Time Single Run: 29.8728
-[28-Nov-2025 19:01:14] Checking for availability of parallel pool...
+<pre class="codeoutput">Elapsed Simulation Time Single Run: 29.9682
+[01-Dec-2025 10:16:09] Checking for availability of parallel pool...
 Starting parallel pool (parpool) using the 'Processes' profile ...
 Connected to parallel pool with 6 workers.
-[28-Nov-2025 19:01:44] Starting Simulink on parallel workers...
-[28-Nov-2025 19:01:51] Configuring simulation cache folder on parallel workers...
-[28-Nov-2025 19:01:51] Transferring base workspace variables used in the model to parallel workers...
-[28-Nov-2025 19:01:51] Total size of base workspace variables to send to parallel workers is 72.29 MB.
-[28-Nov-2025 19:01:52] Loading model on parallel workers...
-[28-Nov-2025 19:01:59] Running simulations...
-[28-Nov-2025 19:02:56] Completed 1 of 12 simulation runs
-[28-Nov-2025 19:02:56] Received simulation output (size: 7.68 MB) for run 1 from parallel worker.
-[28-Nov-2025 19:02:58] Completed 2 of 12 simulation runs
-[28-Nov-2025 19:02:58] Received simulation output (size: 7.73 MB) for run 2 from parallel worker.
-[28-Nov-2025 19:02:59] Completed 3 of 12 simulation runs
-[28-Nov-2025 19:02:59] Received simulation output (size: 7.83 MB) for run 5 from parallel worker.
-[28-Nov-2025 19:03:00] Completed 4 of 12 simulation runs
-[28-Nov-2025 19:03:00] Received simulation output (size: 7.79 MB) for run 3 from parallel worker.
-[28-Nov-2025 19:03:03] Completed 5 of 12 simulation runs
-[28-Nov-2025 19:03:03] Received simulation output (size: 7.98 MB) for run 6 from parallel worker.
-[28-Nov-2025 19:03:06] Completed 6 of 12 simulation runs
-[28-Nov-2025 19:03:06] Received simulation output (size: 10.00 MB) for run 4 from parallel worker.
-[28-Nov-2025 19:03:12] Completed 7 of 12 simulation runs
-[28-Nov-2025 19:03:12] Received simulation output (size: 7.95 MB) for run 7 from parallel worker.
-[28-Nov-2025 19:03:13] Completed 8 of 12 simulation runs
-[28-Nov-2025 19:03:13] Received simulation output (size: 6.29 MB) for run 12 from parallel worker.
-[28-Nov-2025 19:03:13] Completed 9 of 12 simulation runs
-[28-Nov-2025 19:03:13] Received simulation output (size: 8.14 MB) for run 8 from parallel worker.
-[28-Nov-2025 19:03:15] Completed 10 of 12 simulation runs
-[28-Nov-2025 19:03:15] Received simulation output (size: 8.19 MB) for run 9 from parallel worker.
-[28-Nov-2025 19:03:15] Completed 11 of 12 simulation runs
-[28-Nov-2025 19:03:15] Received simulation output (size: 8.44 MB) for run 10 from parallel worker.
-[28-Nov-2025 19:03:22] Completed 12 of 12 simulation runs
-[28-Nov-2025 19:03:22] Received simulation output (size: 12.41 MB) for run 11 from parallel worker.
-[28-Nov-2025 19:03:22] Cleaning up parallel workers...
-Elapsed Sweep Time Total:       73.00
-Elapsed Sweep Time/(Num Tests):  6.08
+[01-Dec-2025 10:16:32] Starting Simulink on parallel workers...
+[01-Dec-2025 10:16:39] Configuring simulation cache folder on parallel workers...
+[01-Dec-2025 10:16:39] Transferring base workspace variables used in the model to parallel workers...
+[01-Dec-2025 10:16:39] Total size of base workspace variables to send to parallel workers is 73.59 MB.
+[01-Dec-2025 10:16:40] Loading model on parallel workers...
+[01-Dec-2025 10:16:47] Running simulations...
+[01-Dec-2025 10:17:45] Completed 1 of 12 simulation runs
+[01-Dec-2025 10:17:45] Received simulation output (size: 7.68 MB) for run 1 from parallel worker.
+[01-Dec-2025 10:17:46] Completed 2 of 12 simulation runs
+[01-Dec-2025 10:17:46] Received simulation output (size: 7.73 MB) for run 2 from parallel worker.
+[01-Dec-2025 10:17:48] Completed 3 of 12 simulation runs
+[01-Dec-2025 10:17:48] Received simulation output (size: 7.79 MB) for run 3 from parallel worker.
+[01-Dec-2025 10:17:49] Completed 4 of 12 simulation runs
+[01-Dec-2025 10:17:49] Received simulation output (size: 7.83 MB) for run 5 from parallel worker.
+[01-Dec-2025 10:17:52] Completed 5 of 12 simulation runs
+[01-Dec-2025 10:17:52] Received simulation output (size: 7.98 MB) for run 6 from parallel worker.
+[01-Dec-2025 10:17:56] Completed 6 of 12 simulation runs
+[01-Dec-2025 10:17:56] Received simulation output (size: 10.00 MB) for run 4 from parallel worker.
+[01-Dec-2025 10:18:01] Completed 7 of 12 simulation runs
+[01-Dec-2025 10:18:01] Received simulation output (size: 7.95 MB) for run 7 from parallel worker.
+[01-Dec-2025 10:18:02] Completed 8 of 12 simulation runs
+[01-Dec-2025 10:18:02] Received simulation output (size: 8.14 MB) for run 8 from parallel worker.
+[01-Dec-2025 10:18:03] Completed 9 of 12 simulation runs
+[01-Dec-2025 10:18:03] Received simulation output (size: 6.29 MB) for run 12 from parallel worker.
+[01-Dec-2025 10:18:04] Completed 10 of 12 simulation runs
+[01-Dec-2025 10:18:04] Received simulation output (size: 8.19 MB) for run 9 from parallel worker.
+[01-Dec-2025 10:18:05] Completed 11 of 12 simulation runs
+[01-Dec-2025 10:18:05] Received simulation output (size: 8.44 MB) for run 10 from parallel worker.
+[01-Dec-2025 10:18:12] Completed 12 of 12 simulation runs
+[01-Dec-2025 10:18:12] Received simulation output (size: 12.41 MB) for run 11 from parallel worker.
+[01-Dec-2025 10:18:12] Cleaning up parallel workers...
+Elapsed Sweep Time Total:       76.00
+Elapsed Sweep Time/(Num Tests):  6.33
  
 Parallel pool using the 'Processes' profile is shutting down.
 </pre>
 <img vspace="5" hspace="5" src="quadcopter_package_delivery_param_sweep_02.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_param_sweep_03.png" alt=""> <h2 id="4">Parameter Sweep: Trajectory Speed</h2>
 <p>Using parallel computing we vary the target speed of the quadcopter and see if the quadcopter can follow the target path.</p>
-<pre class="codeoutput">Elapsed Simulation Time Single Run: 47.5422
-[28-Nov-2025 19:04:37] Checking for availability of parallel pool...
+<pre class="codeoutput">Elapsed Simulation Time Single Run: 47.3725
+[01-Dec-2025 10:19:31] Checking for availability of parallel pool...
 Starting parallel pool (parpool) using the 'Processes' profile ...
 Connected to parallel pool with 6 workers.
-[28-Nov-2025 19:05:03] Starting Simulink on parallel workers...
-[28-Nov-2025 19:05:10] Configuring simulation cache folder on parallel workers...
-[28-Nov-2025 19:05:10] Transferring base workspace variables used in the model to parallel workers...
-[28-Nov-2025 19:05:10] Total size of base workspace variables to send to parallel workers is 107.26 MB.
-[28-Nov-2025 19:05:11] Loading model on parallel workers...
-[28-Nov-2025 19:05:18] Running simulations...
-[28-Nov-2025 19:06:20] Completed 1 of 8 simulation runs
-[28-Nov-2025 19:06:20] Received simulation output (size: 6.96 MB) for run 6 from parallel worker.
-[28-Nov-2025 19:06:23] Completed 2 of 8 simulation runs
-[28-Nov-2025 19:06:23] Received simulation output (size: 8.57 MB) for run 5 from parallel worker.
-[28-Nov-2025 19:06:23] Completed 3 of 8 simulation runs
-[28-Nov-2025 19:06:23] Received simulation output (size: 8.90 MB) for run 3 from parallel worker.
-[28-Nov-2025 19:06:24] Completed 4 of 8 simulation runs
-[28-Nov-2025 19:06:24] Received simulation output (size: 8.45 MB) for run 4 from parallel worker.
-[28-Nov-2025 19:06:25] Completed 5 of 8 simulation runs
-[28-Nov-2025 19:06:25] Received simulation output (size: 8.45 MB) for run 2 from parallel worker.
-[28-Nov-2025 19:06:25] Completed 6 of 8 simulation runs
-[28-Nov-2025 19:06:25] Received simulation output (size: 9.28 MB) for run 1 from parallel worker.
-[28-Nov-2025 19:06:35] Completed 7 of 8 simulation runs
-[28-Nov-2025 19:06:35] Received simulation output (size: 7.36 MB) for run 7 from parallel worker.
-[28-Nov-2025 19:06:37] Completed 8 of 8 simulation runs
-[28-Nov-2025 19:06:37] Received simulation output (size: 7.58 MB) for run 8 from parallel worker.
-[28-Nov-2025 19:06:37] Cleaning up parallel workers...
+[01-Dec-2025 10:19:51] Starting Simulink on parallel workers...
+[01-Dec-2025 10:19:57] Configuring simulation cache folder on parallel workers...
+[01-Dec-2025 10:19:58] Transferring base workspace variables used in the model to parallel workers...
+[01-Dec-2025 10:19:58] Total size of base workspace variables to send to parallel workers is 108.56 MB.
+[01-Dec-2025 10:19:59] Loading model on parallel workers...
+[01-Dec-2025 10:20:06] Running simulations...
+[01-Dec-2025 10:21:08] Completed 1 of 8 simulation runs
+[01-Dec-2025 10:21:08] Received simulation output (size: 6.96 MB) for run 6 from parallel worker.
+[01-Dec-2025 10:21:11] Completed 2 of 8 simulation runs
+[01-Dec-2025 10:21:11] Received simulation output (size: 8.45 MB) for run 2 from parallel worker.
+[01-Dec-2025 10:21:12] Completed 3 of 8 simulation runs
+[01-Dec-2025 10:21:12] Received simulation output (size: 8.45 MB) for run 4 from parallel worker.
+[01-Dec-2025 10:21:13] Completed 4 of 8 simulation runs
+[01-Dec-2025 10:21:13] Received simulation output (size: 9.28 MB) for run 1 from parallel worker.
+[01-Dec-2025 10:21:13] Completed 5 of 8 simulation runs
+[01-Dec-2025 10:21:13] Received simulation output (size: 8.90 MB) for run 3 from parallel worker.
+[01-Dec-2025 10:21:14] Completed 6 of 8 simulation runs
+[01-Dec-2025 10:21:14] Received simulation output (size: 8.57 MB) for run 5 from parallel worker.
+[01-Dec-2025 10:21:23] Completed 7 of 8 simulation runs
+[01-Dec-2025 10:21:23] Received simulation output (size: 7.36 MB) for run 7 from parallel worker.
+[01-Dec-2025 10:21:25] Completed 8 of 8 simulation runs
+[01-Dec-2025 10:21:25] Received simulation output (size: 7.58 MB) for run 8 from parallel worker.
+[01-Dec-2025 10:21:25] Cleaning up parallel workers...
 Elapsed Sweep Time Total:       78.00
 Elapsed Sweep Time/(Num Tests):  9.75
 Parallel pool using the 'Processes' profile is shutting down.
 </pre>
 <img vspace="5" hspace="5" src="quadcopter_package_delivery_param_sweep_04.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_param_sweep_05.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_param_sweep_06.png" alt=""> <h2 id="5">Parameter Sweep: Mass and Wind</h2>
 <p>Using parallel computing we vary the mass of the package and the strength of wind gusts that strike the quadcopter during the test.</p>
-<pre class="codeoutput">Elapsed Simulation Time Single Run: 69.9358
-[28-Nov-2025 19:08:19] Checking for availability of parallel pool...
+<pre class="codeoutput">Elapsed Simulation Time Single Run: 65.3111
+[01-Dec-2025 10:23:06] Checking for availability of parallel pool...
 Starting parallel pool (parpool) using the 'Processes' profile ...
 Connected to parallel pool with 6 workers.
-[28-Nov-2025 19:08:47] Starting Simulink on parallel workers...
-[28-Nov-2025 19:08:54] Configuring simulation cache folder on parallel workers...
-[28-Nov-2025 19:08:54] Transferring base workspace variables used in the model to parallel workers...
-[28-Nov-2025 19:08:54] Total size of base workspace variables to send to parallel workers is 74.21 MB.
-[28-Nov-2025 19:08:56] Loading model on parallel workers...
-[28-Nov-2025 19:09:04] Running simulations...
-[28-Nov-2025 19:10:04] Completed 1 of 228 simulation runs
-[28-Nov-2025 19:10:04] Received simulation output (size: 9.80 MB) for run 1 from parallel worker.
-[28-Nov-2025 19:10:06] Completed 2 of 228 simulation runs
-[28-Nov-2025 19:10:06] Received simulation output (size: 10.30 MB) for run 3 from parallel worker.
-[28-Nov-2025 19:10:07] Completed 3 of 228 simulation runs
-[28-Nov-2025 19:10:07] Received simulation output (size: 9.92 MB) for run 2 from parallel worker.
-[28-Nov-2025 19:10:08] Completed 4 of 228 simulation runs
-[28-Nov-2025 19:10:08] Received simulation output (size: 11.26 MB) for run 4 from parallel worker.
-[28-Nov-2025 19:10:10] Completed 5 of 228 simulation runs
-[28-Nov-2025 19:10:10] Received simulation output (size: 12.45 MB) for run 5 from parallel worker.
-[28-Nov-2025 19:10:16] Completed 6 of 228 simulation runs
-[28-Nov-2025 19:10:16] Received simulation output (size: 14.87 MB) for run 6 from parallel worker.
-[28-Nov-2025 19:10:31] Completed 7 of 228 simulation runs
-[28-Nov-2025 19:10:31] Received simulation output (size: 17.00 MB) for run 7 from parallel worker.
-[28-Nov-2025 19:10:38] Completed 8 of 228 simulation runs
-[28-Nov-2025 19:10:38] Received simulation output (size: 19.31 MB) for run 8 from parallel worker.
-[28-Nov-2025 19:10:41] Completed 9 of 228 simulation runs
-[28-Nov-2025 19:10:41] Received simulation output (size: 20.90 MB) for run 9 from parallel worker.
-[28-Nov-2025 19:10:48] Completed 10 of 228 simulation runs
-[28-Nov-2025 19:10:48] Received simulation output (size: 22.94 MB) for run 11 from parallel worker.
-[28-Nov-2025 19:10:50] Completed 11 of 228 simulation runs
-[28-Nov-2025 19:10:50] Received simulation output (size: 21.84 MB) for run 12 from parallel worker.
-[28-Nov-2025 19:10:57] Completed 12 of 228 simulation runs
-[28-Nov-2025 19:10:57] Received simulation output (size: 28.26 MB) for run 10 from parallel worker.
-[28-Nov-2025 19:11:04] Completed 13 of 228 simulation runs
-[28-Nov-2025 19:11:04] Received simulation output (size: 22.35 MB) for run 13 from parallel worker.
-[28-Nov-2025 19:11:08] Completed 14 of 228 simulation runs
-[28-Nov-2025 19:11:08] Received simulation output (size: 20.21 MB) for run 14 from parallel worker.
-[28-Nov-2025 19:11:09] Completed 15 of 228 simulation runs
-[28-Nov-2025 19:11:10] Received simulation output (size: 19.29 MB) for run 15 from parallel worker.
-[28-Nov-2025 19:11:12] Completed 16 of 228 simulation runs
-[28-Nov-2025 19:11:12] Received simulation output (size: 15.59 MB) for run 17 from parallel worker.
-[28-Nov-2025 19:11:13] Completed 17 of 228 simulation runs
-[28-Nov-2025 19:11:13] Received simulation output (size: 17.46 MB) for run 16 from parallel worker.
-[28-Nov-2025 19:11:17] Completed 18 of 228 simulation runs
-[28-Nov-2025 19:11:17] Received simulation output (size: 15.16 MB) for run 18 from parallel worker.
-[28-Nov-2025 19:11:23] Completed 19 of 228 simulation runs
-[28-Nov-2025 19:11:23] Received simulation output (size: 14.43 MB) for run 19 from parallel worker.
-[28-Nov-2025 19:11:24] Completed 20 of 228 simulation runs
-[28-Nov-2025 19:11:24] Received simulation output (size: 9.84 MB) for run 20 from parallel worker.
-[28-Nov-2025 19:11:26] Completed 21 of 228 simulation runs
-[28-Nov-2025 19:11:26] Received simulation output (size: 9.91 MB) for run 21 from parallel worker.
-[28-Nov-2025 19:11:30] Completed 22 of 228 simulation runs
-[28-Nov-2025 19:11:30] Received simulation output (size: 10.41 MB) for run 22 from parallel worker.
-[28-Nov-2025 19:11:33] Completed 23 of 228 simulation runs
-[28-Nov-2025 19:11:33] Received simulation output (size: 11.30 MB) for run 23 from parallel worker.
-[28-Nov-2025 19:11:38] Completed 24 of 228 simulation runs
-[28-Nov-2025 19:11:38] Received simulation output (size: 12.63 MB) for run 24 from parallel worker.
-[28-Nov-2025 19:11:47] Completed 25 of 228 simulation runs
-[28-Nov-2025 19:11:47] Received simulation output (size: 14.44 MB) for run 25 from parallel worker.
-[28-Nov-2025 19:11:53] Completed 26 of 228 simulation runs
-[28-Nov-2025 19:11:53] Received simulation output (size: 16.63 MB) for run 26 from parallel worker.
-[28-Nov-2025 19:11:59] Completed 27 of 228 simulation runs
-[28-Nov-2025 19:11:59] Received simulation output (size: 19.46 MB) for run 27 from parallel worker.
-[28-Nov-2025 19:12:06] Completed 28 of 228 simulation runs
-[28-Nov-2025 19:12:06] Received simulation output (size: 20.82 MB) for run 28 from parallel worker.
-[28-Nov-2025 19:12:13] Completed 29 of 228 simulation runs
-[28-Nov-2025 19:12:13] Received simulation output (size: 23.41 MB) for run 29 from parallel worker.
-[28-Nov-2025 19:12:16] Completed 30 of 228 simulation runs
-[28-Nov-2025 19:12:16] Received simulation output (size: 24.17 MB) for run 30 from parallel worker.
-[28-Nov-2025 19:12:18] Completed 31 of 228 simulation runs
-[28-Nov-2025 19:12:18] Received simulation output (size: 20.45 MB) for run 31 from parallel worker.
-[28-Nov-2025 19:12:20] Completed 32 of 228 simulation runs
-[28-Nov-2025 19:12:20] Received simulation output (size: 18.36 MB) for run 32 from parallel worker.
-[28-Nov-2025 19:12:27] Completed 33 of 228 simulation runs
-[28-Nov-2025 19:12:27] Received simulation output (size: 18.15 MB) for run 33 from parallel worker.
-[28-Nov-2025 19:12:32] Completed 34 of 228 simulation runs
-[28-Nov-2025 19:12:32] Received simulation output (size: 17.70 MB) for run 34 from parallel worker.
-[28-Nov-2025 19:12:38] Completed 35 of 228 simulation runs
-[28-Nov-2025 19:12:38] Received simulation output (size: 13.85 MB) for run 38 from parallel worker.
-[28-Nov-2025 19:12:38] Completed 36 of 228 simulation runs
-[28-Nov-2025 19:12:38] Received simulation output (size: 14.88 MB) for run 36 from parallel worker.
-[28-Nov-2025 19:12:41] Completed 37 of 228 simulation runs
-[28-Nov-2025 19:12:41] Received simulation output (size: 16.05 MB) for run 37 from parallel worker.
-[28-Nov-2025 19:12:41] Completed 38 of 228 simulation runs
-[28-Nov-2025 19:12:41] Received simulation output (size: 19.65 MB) for run 35 from parallel worker.
-[28-Nov-2025 19:12:42] Completed 39 of 228 simulation runs
-[28-Nov-2025 19:12:42] Received simulation output (size: 9.82 MB) for run 39 from parallel worker.
-[28-Nov-2025 19:12:49] Completed 40 of 228 simulation runs
-[28-Nov-2025 19:12:49] Received simulation output (size: 9.88 MB) for run 40 from parallel worker.
-[28-Nov-2025 19:12:55] Completed 41 of 228 simulation runs
-[28-Nov-2025 19:12:55] Received simulation output (size: 10.39 MB) for run 41 from parallel worker.
-[28-Nov-2025 19:12:57] Completed 42 of 228 simulation runs
-[28-Nov-2025 19:12:57] Received simulation output (size: 11.27 MB) for run 42 from parallel worker.
-[28-Nov-2025 19:13:02] Completed 43 of 228 simulation runs
-[28-Nov-2025 19:13:02] Received simulation output (size: 12.16 MB) for run 43 from parallel worker.
-[28-Nov-2025 19:13:05] Completed 44 of 228 simulation runs
-[28-Nov-2025 19:13:05] Received simulation output (size: 13.64 MB) for run 44 from parallel worker.
-[28-Nov-2025 19:13:11] Completed 45 of 228 simulation runs
-[28-Nov-2025 19:13:11] Received simulation output (size: 16.20 MB) for run 45 from parallel worker.
-[28-Nov-2025 19:13:21] Completed 46 of 228 simulation runs
-[28-Nov-2025 19:13:21] Received simulation output (size: 18.21 MB) for run 46 from parallel worker.
-[28-Nov-2025 19:13:31] Completed 47 of 228 simulation runs
-[28-Nov-2025 19:13:31] Received simulation output (size: 20.18 MB) for run 47 from parallel worker.
-[28-Nov-2025 19:13:38] Completed 48 of 228 simulation runs
-[28-Nov-2025 19:13:38] Received simulation output (size: 20.27 MB) for run 50 from parallel worker.
-[28-Nov-2025 19:13:38] Completed 49 of 228 simulation runs
-[28-Nov-2025 19:13:38] Received simulation output (size: 22.78 MB) for run 48 from parallel worker.
-[28-Nov-2025 19:13:38] Completed 50 of 228 simulation runs
-[28-Nov-2025 19:13:38] Received simulation output (size: 18.32 MB) for run 51 from parallel worker.
-[28-Nov-2025 19:13:50] Completed 51 of 228 simulation runs
-[28-Nov-2025 19:13:50] Received simulation output (size: 26.22 MB) for run 49 from parallel worker.
-[28-Nov-2025 19:13:54] Completed 52 of 228 simulation runs
-[28-Nov-2025 19:13:54] Received simulation output (size: 21.11 MB) for run 52 from parallel worker.
-[28-Nov-2025 19:13:58] Completed 53 of 228 simulation runs
-[28-Nov-2025 19:13:58] Received simulation output (size: 17.19 MB) for run 53 from parallel worker.
-[28-Nov-2025 19:14:00] Completed 54 of 228 simulation runs
-[28-Nov-2025 19:14:00] Received simulation output (size: 15.08 MB) for run 56 from parallel worker.
-[28-Nov-2025 19:14:02] Completed 55 of 228 simulation runs
-[28-Nov-2025 19:14:02] Received simulation output (size: 16.19 MB) for run 55 from parallel worker.
-[28-Nov-2025 19:14:07] Completed 56 of 228 simulation runs
-[28-Nov-2025 19:14:07] Received simulation output (size: 19.14 MB) for run 54 from parallel worker.
-[28-Nov-2025 19:14:11] Completed 57 of 228 simulation runs
-[28-Nov-2025 19:14:11] Received simulation output (size: 15.49 MB) for run 57 from parallel worker.
-[28-Nov-2025 19:14:21] Completed 58 of 228 simulation runs
-[28-Nov-2025 19:14:21] Received simulation output (size: 13.05 MB) for run 58 from parallel worker.
-[28-Nov-2025 19:14:22] Completed 59 of 228 simulation runs
-[28-Nov-2025 19:14:22] Received simulation output (size: 12.20 MB) for run 59 from parallel worker.
-[28-Nov-2025 19:14:23] Completed 60 of 228 simulation runs
-[28-Nov-2025 19:14:23] Received simulation output (size: 12.32 MB) for run 60 from parallel worker.
-[28-Nov-2025 19:14:27] Completed 61 of 228 simulation runs
-[28-Nov-2025 19:14:27] Received simulation output (size: 12.91 MB) for run 61 from parallel worker.
-[28-Nov-2025 19:14:34] Completed 62 of 228 simulation runs
-[28-Nov-2025 19:14:34] Received simulation output (size: 14.22 MB) for run 62 from parallel worker.
-[28-Nov-2025 19:14:39] Completed 63 of 228 simulation runs
-[28-Nov-2025 19:14:39] Received simulation output (size: 14.50 MB) for run 63 from parallel worker.
-[28-Nov-2025 19:14:52] Completed 64 of 228 simulation runs
-[28-Nov-2025 19:14:53] Received simulation output (size: 17.33 MB) for run 64 from parallel worker.
-[28-Nov-2025 19:14:57] Completed 65 of 228 simulation runs
-[28-Nov-2025 19:14:57] Received simulation output (size: 18.72 MB) for run 65 from parallel worker.
-[28-Nov-2025 19:15:03] Completed 66 of 228 simulation runs
-[28-Nov-2025 19:15:03] Received simulation output (size: 21.32 MB) for run 66 from parallel worker.
-[28-Nov-2025 19:15:09] Completed 67 of 228 simulation runs
-[28-Nov-2025 19:15:09] Received simulation output (size: 22.93 MB) for run 67 from parallel worker.
-[28-Nov-2025 19:15:21] Completed 68 of 228 simulation runs
-[28-Nov-2025 19:15:21] Received simulation output (size: 24.78 MB) for run 69 from parallel worker.
-[28-Nov-2025 19:15:22] Completed 69 of 228 simulation runs
-[28-Nov-2025 19:15:22] Received simulation output (size: 25.92 MB) for run 68 from parallel worker.
-[28-Nov-2025 19:15:29] Completed 70 of 228 simulation runs
-[28-Nov-2025 19:15:29] Received simulation output (size: 19.01 MB) for run 71 from parallel worker.
-[28-Nov-2025 19:15:29] Completed 71 of 228 simulation runs
-[28-Nov-2025 19:15:29] Received simulation output (size: 21.49 MB) for run 70 from parallel worker.
-[28-Nov-2025 19:15:34] Completed 72 of 228 simulation runs
-[28-Nov-2025 19:15:34] Received simulation output (size: 18.81 MB) for run 72 from parallel worker.
-[28-Nov-2025 19:15:40] Completed 73 of 228 simulation runs
-[28-Nov-2025 19:15:40] Received simulation output (size: 18.48 MB) for run 73 from parallel worker.
-[28-Nov-2025 19:15:47] Completed 74 of 228 simulation runs
-[28-Nov-2025 19:15:47] Received simulation output (size: 14.86 MB) for run 75 from parallel worker.
-[28-Nov-2025 19:15:48] Completed 75 of 228 simulation runs
-[28-Nov-2025 19:15:48] Received simulation output (size: 9.83 MB) for run 77 from parallel worker.
-[28-Nov-2025 19:15:50] Completed 76 of 228 simulation runs
-[28-Nov-2025 19:15:50] Received simulation output (size: 14.93 MB) for run 76 from parallel worker.
-[28-Nov-2025 19:15:51] Completed 77 of 228 simulation runs
-[28-Nov-2025 19:15:51] Received simulation output (size: 17.33 MB) for run 74 from parallel worker.
-[28-Nov-2025 19:15:53] Completed 78 of 228 simulation runs
-[28-Nov-2025 19:15:53] Received simulation output (size: 9.92 MB) for run 78 from parallel worker.
-[28-Nov-2025 19:15:59] Completed 79 of 228 simulation runs
-[28-Nov-2025 19:15:59] Received simulation output (size: 10.35 MB) for run 79 from parallel worker.
-[28-Nov-2025 19:16:08] Completed 80 of 228 simulation runs
-[28-Nov-2025 19:16:08] Received simulation output (size: 11.28 MB) for run 80 from parallel worker.
-[28-Nov-2025 19:16:10] Completed 81 of 228 simulation runs
-[28-Nov-2025 19:16:10] Received simulation output (size: 12.12 MB) for run 81 from parallel worker.
-[28-Nov-2025 19:16:14] Completed 82 of 228 simulation runs
-[28-Nov-2025 19:16:14] Received simulation output (size: 13.52 MB) for run 82 from parallel worker.
-[28-Nov-2025 19:16:19] Completed 83 of 228 simulation runs
-[28-Nov-2025 19:16:19] Received simulation output (size: 15.74 MB) for run 83 from parallel worker.
-[28-Nov-2025 19:16:26] Completed 84 of 228 simulation runs
-[28-Nov-2025 19:16:26] Received simulation output (size: 18.36 MB) for run 84 from parallel worker.
-[28-Nov-2025 19:16:37] Completed 85 of 228 simulation runs
-[28-Nov-2025 19:16:37] Received simulation output (size: 20.47 MB) for run 85 from parallel worker.
-[28-Nov-2025 19:16:49] Completed 86 of 228 simulation runs
-[28-Nov-2025 19:16:50] Received simulation output (size: 22.03 MB) for run 86 from parallel worker.
-[28-Nov-2025 19:16:54] Completed 87 of 228 simulation runs
-[28-Nov-2025 19:16:54] Received simulation output (size: 24.16 MB) for run 87 from parallel worker.
-[28-Nov-2025 19:16:55] Completed 88 of 228 simulation runs
-[28-Nov-2025 19:16:55] Received simulation output (size: 18.20 MB) for run 90 from parallel worker.
-[28-Nov-2025 19:16:57] Completed 89 of 228 simulation runs
-[28-Nov-2025 19:16:57] Received simulation output (size: 23.34 MB) for run 89 from parallel worker.
-[28-Nov-2025 19:17:06] Completed 90 of 228 simulation runs
-[28-Nov-2025 19:17:06] Received simulation output (size: 18.49 MB) for run 91 from parallel worker.
-[28-Nov-2025 19:17:06] Completed 91 of 228 simulation runs
-[28-Nov-2025 19:17:06] Received simulation output (size: 27.43 MB) for run 88 from parallel worker.
-[28-Nov-2025 19:17:18] Completed 92 of 228 simulation runs
-[28-Nov-2025 19:17:18] Received simulation output (size: 14.42 MB) for run 95 from parallel worker.
-[28-Nov-2025 19:17:20] Completed 93 of 228 simulation runs
-[28-Nov-2025 19:17:20] Received simulation output (size: 17.52 MB) for run 94 from parallel worker.
-[28-Nov-2025 19:17:20] Completed 94 of 228 simulation runs
-[28-Nov-2025 19:17:21] Received simulation output (size: 19.35 MB) for run 92 from parallel worker.
-[28-Nov-2025 19:17:24] Completed 95 of 228 simulation runs
-[28-Nov-2025 19:17:24] Received simulation output (size: 18.33 MB) for run 93 from parallel worker.
-[28-Nov-2025 19:17:26] Completed 96 of 228 simulation runs
-[28-Nov-2025 19:17:26] Received simulation output (size: 9.84 MB) for run 96 from parallel worker.
-[28-Nov-2025 19:17:27] Completed 97 of 228 simulation runs
-[28-Nov-2025 19:17:27] Received simulation output (size: 10.05 MB) for run 97 from parallel worker.
-[28-Nov-2025 19:17:37] Completed 98 of 228 simulation runs
-[28-Nov-2025 19:17:37] Received simulation output (size: 10.27 MB) for run 98 from parallel worker.
-[28-Nov-2025 19:17:41] Completed 99 of 228 simulation runs
-[28-Nov-2025 19:17:41] Received simulation output (size: 11.16 MB) for run 99 from parallel worker.
-[28-Nov-2025 19:17:42] Completed 100 of 228 simulation runs
-[28-Nov-2025 19:17:42] Received simulation output (size: 12.30 MB) for run 100 from parallel worker.
-[28-Nov-2025 19:17:48] Completed 101 of 228 simulation runs
-[28-Nov-2025 19:17:48] Received simulation output (size: 13.72 MB) for run 101 from parallel worker.
-[28-Nov-2025 19:17:55] Completed 102 of 228 simulation runs
-[28-Nov-2025 19:17:55] Received simulation output (size: 16.07 MB) for run 102 from parallel worker.
-[28-Nov-2025 19:17:59] Completed 103 of 228 simulation runs
-[28-Nov-2025 19:17:59] Received simulation output (size: 17.46 MB) for run 103 from parallel worker.
-[28-Nov-2025 19:18:15] Completed 104 of 228 simulation runs
-[28-Nov-2025 19:18:15] Received simulation output (size: 20.20 MB) for run 104 from parallel worker.
-[28-Nov-2025 19:18:23] Completed 105 of 228 simulation runs
-[28-Nov-2025 19:18:23] Received simulation output (size: 22.63 MB) for run 105 from parallel worker.
-[28-Nov-2025 19:18:27] Completed 106 of 228 simulation runs
-[28-Nov-2025 19:18:27] Received simulation output (size: 24.35 MB) for run 106 from parallel worker.
-[28-Nov-2025 19:18:34] Completed 107 of 228 simulation runs
-[28-Nov-2025 19:18:34] Received simulation output (size: 21.48 MB) for run 109 from parallel worker.
-[28-Nov-2025 19:18:36] Completed 108 of 228 simulation runs
-[28-Nov-2025 19:18:36] Received simulation output (size: 25.96 MB) for run 107 from parallel worker.
-[28-Nov-2025 19:18:43] Completed 109 of 228 simulation runs
-[28-Nov-2025 19:18:43] Received simulation output (size: 17.85 MB) for run 110 from parallel worker.
-[28-Nov-2025 19:18:50] Completed 110 of 228 simulation runs
-[28-Nov-2025 19:18:50] Received simulation output (size: 17.86 MB) for run 111 from parallel worker.
-[28-Nov-2025 19:18:54] Completed 111 of 228 simulation runs
-[28-Nov-2025 19:18:54] Received simulation output (size: 17.83 MB) for run 112 from parallel worker.
-[28-Nov-2025 19:18:57] Completed 112 of 228 simulation runs
-[28-Nov-2025 19:18:57] Received simulation output (size: 14.58 MB) for run 114 from parallel worker.
-[28-Nov-2025 19:18:59] Completed 113 of 228 simulation runs
-[28-Nov-2025 19:18:59] Received simulation output (size: 17.00 MB) for run 113 from parallel worker.
-[28-Nov-2025 19:19:00] Completed 114 of 228 simulation runs
-[28-Nov-2025 19:19:00] Received simulation output (size: 33.31 MB) for run 108 from parallel worker.
-[28-Nov-2025 19:19:02] Completed 115 of 228 simulation runs
-[28-Nov-2025 19:19:02] Received simulation output (size: 9.78 MB) for run 115 from parallel worker.
-[28-Nov-2025 19:19:10] Completed 116 of 228 simulation runs
-[28-Nov-2025 19:19:10] Received simulation output (size: 9.92 MB) for run 116 from parallel worker.
-[28-Nov-2025 19:19:14] Completed 117 of 228 simulation runs
-[28-Nov-2025 19:19:14] Received simulation output (size: 10.46 MB) for run 117 from parallel worker.
-[28-Nov-2025 19:19:17] Completed 118 of 228 simulation runs
-[28-Nov-2025 19:19:17] Received simulation output (size: 11.27 MB) for run 118 from parallel worker.
-[28-Nov-2025 19:19:20] Completed 119 of 228 simulation runs
-[28-Nov-2025 19:19:20] Received simulation output (size: 12.23 MB) for run 119 from parallel worker.
-[28-Nov-2025 19:19:23] Completed 120 of 228 simulation runs
-[28-Nov-2025 19:19:23] Received simulation output (size: 13.56 MB) for run 120 from parallel worker.
-[28-Nov-2025 19:19:30] Completed 121 of 228 simulation runs
-[28-Nov-2025 19:19:30] Received simulation output (size: 15.55 MB) for run 121 from parallel worker.
-[28-Nov-2025 19:19:42] Completed 122 of 228 simulation runs
-[28-Nov-2025 19:19:42] Received simulation output (size: 17.87 MB) for run 122 from parallel worker.
-[28-Nov-2025 19:19:49] Completed 123 of 228 simulation runs
-[28-Nov-2025 19:19:49] Received simulation output (size: 19.89 MB) for run 123 from parallel worker.
-[28-Nov-2025 19:19:57] Completed 124 of 228 simulation runs
-[28-Nov-2025 19:19:57] Received simulation output (size: 22.16 MB) for run 124 from parallel worker.
-[28-Nov-2025 19:20:06] Completed 125 of 228 simulation runs
-[28-Nov-2025 19:20:06] Received simulation output (size: 24.65 MB) for run 125 from parallel worker.
-[28-Nov-2025 19:20:13] Completed 126 of 228 simulation runs
-[28-Nov-2025 19:20:13] Received simulation output (size: 26.21 MB) for run 126 from parallel worker.
-[28-Nov-2025 19:20:17] Completed 127 of 228 simulation runs
-[28-Nov-2025 19:20:17] Received simulation output (size: 20.91 MB) for run 128 from parallel worker.
-[28-Nov-2025 19:20:18] Completed 128 of 228 simulation runs
-[28-Nov-2025 19:20:18] Received simulation output (size: 18.08 MB) for run 129 from parallel worker.
-[28-Nov-2025 19:20:22] Completed 129 of 228 simulation runs
-[28-Nov-2025 19:20:22] Received simulation output (size: 16.27 MB) for run 130 from parallel worker.
-[28-Nov-2025 19:20:27] Completed 130 of 228 simulation runs
-[28-Nov-2025 19:20:27] Received simulation output (size: 30.32 MB) for run 127 from parallel worker.
-[28-Nov-2025 19:20:31] Completed 131 of 228 simulation runs
-[28-Nov-2025 19:20:31] Received simulation output (size: 16.33 MB) for run 131 from parallel worker.
-[28-Nov-2025 19:20:35] Completed 132 of 228 simulation runs
-[28-Nov-2025 19:20:35] Received simulation output (size: 9.80 MB) for run 134 from parallel worker.
-[28-Nov-2025 19:20:39] Completed 133 of 228 simulation runs
-[28-Nov-2025 19:20:39] Received simulation output (size: 15.43 MB) for run 133 from parallel worker.
-[28-Nov-2025 19:20:40] Completed 134 of 228 simulation runs
-[28-Nov-2025 19:20:40] Received simulation output (size: 9.93 MB) for run 135 from parallel worker.
-[28-Nov-2025 19:20:42] Completed 135 of 228 simulation runs
-[28-Nov-2025 19:20:42] Received simulation output (size: 18.76 MB) for run 132 from parallel worker.
-[28-Nov-2025 19:20:46] Completed 136 of 228 simulation runs
-[28-Nov-2025 19:20:46] Received simulation output (size: 10.28 MB) for run 136 from parallel worker.
-[28-Nov-2025 19:20:50] Completed 137 of 228 simulation runs
-[28-Nov-2025 19:20:51] Received simulation output (size: 11.15 MB) for run 137 from parallel worker.
-[28-Nov-2025 19:20:55] Completed 138 of 228 simulation runs
-[28-Nov-2025 19:20:55] Received simulation output (size: 11.93 MB) for run 138 from parallel worker.
-[28-Nov-2025 19:21:01] Completed 139 of 228 simulation runs
-[28-Nov-2025 19:21:01] Received simulation output (size: 13.19 MB) for run 139 from parallel worker.
-[28-Nov-2025 19:21:06] Completed 140 of 228 simulation runs
-[28-Nov-2025 19:21:06] Received simulation output (size: 14.88 MB) for run 140 from parallel worker.
-[28-Nov-2025 19:21:14] Completed 141 of 228 simulation runs
-[28-Nov-2025 19:21:14] Received simulation output (size: 17.44 MB) for run 141 from parallel worker.
-[28-Nov-2025 19:21:22] Completed 142 of 228 simulation runs
-[28-Nov-2025 19:21:22] Received simulation output (size: 19.81 MB) for run 142 from parallel worker.
-[28-Nov-2025 19:21:32] Completed 143 of 228 simulation runs
-[28-Nov-2025 19:21:32] Received simulation output (size: 22.15 MB) for run 143 from parallel worker.
-[28-Nov-2025 19:21:42] Completed 144 of 228 simulation runs
-[28-Nov-2025 19:21:42] Received simulation output (size: 24.78 MB) for run 144 from parallel worker.
-[28-Nov-2025 19:21:46] Completed 145 of 228 simulation runs
-[28-Nov-2025 19:21:46] Received simulation output (size: 15.76 MB) for run 148 from parallel worker.
-[28-Nov-2025 19:21:46] Completed 146 of 228 simulation runs
-[28-Nov-2025 19:21:46] Received simulation output (size: 20.65 MB) for run 147 from parallel worker.
-[28-Nov-2025 19:21:51] Completed 147 of 228 simulation runs
-[28-Nov-2025 19:21:51] Received simulation output (size: 26.08 MB) for run 145 from parallel worker.
-[28-Nov-2025 19:21:54] Completed 148 of 228 simulation runs
-[28-Nov-2025 19:21:54] Received simulation output (size: 15.17 MB) for run 149 from parallel worker.
-[28-Nov-2025 19:22:02] Completed 149 of 228 simulation runs
-[28-Nov-2025 19:22:02] Received simulation output (size: 29.52 MB) for run 146 from parallel worker.
-[28-Nov-2025 19:22:06] Completed 150 of 228 simulation runs
-[28-Nov-2025 19:22:06] Received simulation output (size: 14.36 MB) for run 151 from parallel worker.
-[28-Nov-2025 19:22:06] Completed 151 of 228 simulation runs
-[28-Nov-2025 19:22:06] Received simulation output (size: 15.99 MB) for run 150 from parallel worker.
-[28-Nov-2025 19:22:07] Completed 152 of 228 simulation runs
-[28-Nov-2025 19:22:07] Received simulation output (size: 9.86 MB) for run 153 from parallel worker.
-[28-Nov-2025 19:22:07] Completed 153 of 228 simulation runs
-[28-Nov-2025 19:22:07] Received simulation output (size: 14.10 MB) for run 152 from parallel worker.
-[28-Nov-2025 19:22:12] Completed 154 of 228 simulation runs
-[28-Nov-2025 19:22:12] Received simulation output (size: 9.99 MB) for run 154 from parallel worker.
-[28-Nov-2025 19:22:20] Completed 155 of 228 simulation runs
-[28-Nov-2025 19:22:20] Received simulation output (size: 10.35 MB) for run 155 from parallel worker.
-[28-Nov-2025 19:22:25] Completed 156 of 228 simulation runs
-[28-Nov-2025 19:22:25] Received simulation output (size: 10.95 MB) for run 156 from parallel worker.
-[28-Nov-2025 19:22:25] Completed 157 of 228 simulation runs
-[28-Nov-2025 19:22:25] Received simulation output (size: 11.97 MB) for run 157 from parallel worker.
-[28-Nov-2025 19:22:30] Completed 158 of 228 simulation runs
-[28-Nov-2025 19:22:30] Received simulation output (size: 13.55 MB) for run 158 from parallel worker.
-[28-Nov-2025 19:22:33] Completed 159 of 228 simulation runs
-[28-Nov-2025 19:22:33] Received simulation output (size: 14.82 MB) for run 159 from parallel worker.
-[28-Nov-2025 19:22:44] Completed 160 of 228 simulation runs
-[28-Nov-2025 19:22:44] Received simulation output (size: 17.63 MB) for run 160 from parallel worker.
-[28-Nov-2025 19:22:58] Completed 161 of 228 simulation runs
-[28-Nov-2025 19:22:58] Received simulation output (size: 20.28 MB) for run 161 from parallel worker.
-[28-Nov-2025 19:23:04] Completed 162 of 228 simulation runs
-[28-Nov-2025 19:23:04] Received simulation output (size: 19.33 MB) for run 165 from parallel worker.
-[28-Nov-2025 19:23:05] Completed 163 of 228 simulation runs
-[28-Nov-2025 19:23:05] Received simulation output (size: 14.77 MB) for run 166 from parallel worker.
-[28-Nov-2025 19:23:09] Completed 164 of 228 simulation runs
-[28-Nov-2025 19:23:09] Received simulation output (size: 22.97 MB) for run 162 from parallel worker.
-[28-Nov-2025 19:23:13] Completed 165 of 228 simulation runs
-[28-Nov-2025 19:23:13] Received simulation output (size: 24.44 MB) for run 163 from parallel worker.
-[28-Nov-2025 19:23:20] Completed 166 of 228 simulation runs
-[28-Nov-2025 19:23:20] Received simulation output (size: 15.06 MB) for run 167 from parallel worker.
-[28-Nov-2025 19:23:23] Completed 167 of 228 simulation runs
-[28-Nov-2025 19:23:23] Received simulation output (size: 27.71 MB) for run 164 from parallel worker.
-[28-Nov-2025 19:23:24] Completed 168 of 228 simulation runs
-[28-Nov-2025 19:23:24] Received simulation output (size: 13.45 MB) for run 169 from parallel worker.
-[28-Nov-2025 19:23:27] Completed 169 of 228 simulation runs
-[28-Nov-2025 19:23:27] Received simulation output (size: 13.61 MB) for run 170 from parallel worker.
-[28-Nov-2025 19:23:28] Completed 170 of 228 simulation runs
-[28-Nov-2025 19:23:28] Received simulation output (size: 16.17 MB) for run 168 from parallel worker.
-[28-Nov-2025 19:23:33] Completed 171 of 228 simulation runs
-[28-Nov-2025 19:23:33] Received simulation output (size: 14.37 MB) for run 171 from parallel worker.
-[28-Nov-2025 19:23:35] Completed 172 of 228 simulation runs
-[28-Nov-2025 19:23:35] Received simulation output (size: 10.20 MB) for run 172 from parallel worker.
-[28-Nov-2025 19:23:40] Completed 173 of 228 simulation runs
-[28-Nov-2025 19:23:40] Received simulation output (size: 10.19 MB) for run 173 from parallel worker.
-[28-Nov-2025 19:23:42] Completed 174 of 228 simulation runs
-[28-Nov-2025 19:23:42] Received simulation output (size: 10.61 MB) for run 174 from parallel worker.
-[28-Nov-2025 19:23:46] Completed 175 of 228 simulation runs
-[28-Nov-2025 19:23:46] Received simulation output (size: 11.23 MB) for run 175 from parallel worker.
-[28-Nov-2025 19:23:48] Completed 176 of 228 simulation runs
-[28-Nov-2025 19:23:48] Received simulation output (size: 11.96 MB) for run 176 from parallel worker.
-[28-Nov-2025 19:23:57] Completed 177 of 228 simulation runs
-[28-Nov-2025 19:23:57] Received simulation output (size: 13.87 MB) for run 177 from parallel worker.
-[28-Nov-2025 19:24:04] Completed 178 of 228 simulation runs
-[28-Nov-2025 19:24:04] Received simulation output (size: 16.14 MB) for run 178 from parallel worker.
-[28-Nov-2025 19:24:16] Completed 179 of 228 simulation runs
-[28-Nov-2025 19:24:16] Received simulation output (size: 18.66 MB) for run 179 from parallel worker.
-[28-Nov-2025 19:24:18] Completed 180 of 228 simulation runs
-[28-Nov-2025 19:24:18] Received simulation output (size: 13.98 MB) for run 183 from parallel worker.
-[28-Nov-2025 19:24:23] Completed 181 of 228 simulation runs
-[28-Nov-2025 19:24:23] Received simulation output (size: 21.34 MB) for run 180 from parallel worker.
-[28-Nov-2025 19:24:25] Completed 182 of 228 simulation runs
-[28-Nov-2025 19:24:25] Received simulation output (size: 14.90 MB) for run 184 from parallel worker.
-[28-Nov-2025 19:24:33] Completed 183 of 228 simulation runs
-[28-Nov-2025 19:24:33] Received simulation output (size: 24.44 MB) for run 181 from parallel worker.
-[28-Nov-2025 19:24:36] Completed 184 of 228 simulation runs
-[28-Nov-2025 19:24:36] Received simulation output (size: 14.89 MB) for run 185 from parallel worker.
-[28-Nov-2025 19:24:37] Completed 185 of 228 simulation runs
-[28-Nov-2025 19:24:37] Received simulation output (size: 14.06 MB) for run 186 from parallel worker.
-[28-Nov-2025 19:24:43] Completed 186 of 228 simulation runs
-[28-Nov-2025 19:24:43] Received simulation output (size: 14.27 MB) for run 187 from parallel worker.
-[28-Nov-2025 19:24:44] Completed 187 of 228 simulation runs
-[28-Nov-2025 19:24:45] Received simulation output (size: 13.92 MB) for run 188 from parallel worker.
-[28-Nov-2025 19:24:46] Completed 188 of 228 simulation runs
-[28-Nov-2025 19:24:46] Received simulation output (size: 30.47 MB) for run 182 from parallel worker.
-[28-Nov-2025 19:24:49] Completed 189 of 228 simulation runs
-[28-Nov-2025 19:24:49] Received simulation output (size: 12.55 MB) for run 189 from parallel worker.
-[28-Nov-2025 19:24:51] Completed 190 of 228 simulation runs
-[28-Nov-2025 19:24:51] Received simulation output (size: 12.32 MB) for run 190 from parallel worker.
-[28-Nov-2025 19:24:57] Completed 191 of 228 simulation runs
-[28-Nov-2025 19:24:57] Received simulation output (size: 12.61 MB) for run 191 from parallel worker.
-[28-Nov-2025 19:25:03] Completed 192 of 228 simulation runs
-[28-Nov-2025 19:25:03] Received simulation output (size: 12.67 MB) for run 192 from parallel worker.
-[28-Nov-2025 19:25:05] Completed 193 of 228 simulation runs
-[28-Nov-2025 19:25:05] Received simulation output (size: 12.84 MB) for run 193 from parallel worker.
-[28-Nov-2025 19:25:08] Completed 194 of 228 simulation runs
-[28-Nov-2025 19:25:08] Received simulation output (size: 13.08 MB) for run 194 from parallel worker.
-[28-Nov-2025 19:25:21] Completed 195 of 228 simulation runs
-[28-Nov-2025 19:25:21] Received simulation output (size: 17.40 MB) for run 195 from parallel worker.
-[28-Nov-2025 19:25:30] Completed 196 of 228 simulation runs
-[28-Nov-2025 19:25:30] Received simulation output (size: 15.88 MB) for run 199 from parallel worker.
-[28-Nov-2025 19:25:31] Completed 197 of 228 simulation runs
-[28-Nov-2025 19:25:31] Received simulation output (size: 20.70 MB) for run 196 from parallel worker.
-[28-Nov-2025 19:25:31] Completed 198 of 228 simulation runs
-[28-Nov-2025 19:25:31] Received simulation output (size: 15.89 MB) for run 200 from parallel worker.
-[28-Nov-2025 19:25:41] Completed 199 of 228 simulation runs
-[28-Nov-2025 19:25:41] Received simulation output (size: 14.41 MB) for run 201 from parallel worker.
-[28-Nov-2025 19:25:43] Completed 200 of 228 simulation runs
-[28-Nov-2025 19:25:43] Received simulation output (size: 23.43 MB) for run 197 from parallel worker.
-[28-Nov-2025 19:25:49] Completed 201 of 228 simulation runs
-[28-Nov-2025 19:25:49] Received simulation output (size: 12.76 MB) for run 204 from parallel worker.
-[28-Nov-2025 19:25:52] Completed 202 of 228 simulation runs
-[28-Nov-2025 19:25:52] Received simulation output (size: 15.14 MB) for run 202 from parallel worker.
-[28-Nov-2025 19:25:53] Completed 203 of 228 simulation runs
-[28-Nov-2025 19:25:53] Received simulation output (size: 13.85 MB) for run 203 from parallel worker.
-[28-Nov-2025 19:26:00] Completed 204 of 228 simulation runs
-[28-Nov-2025 19:26:00] Received simulation output (size: 13.41 MB) for run 205 from parallel worker.
-[28-Nov-2025 19:26:00] Completed 205 of 228 simulation runs
-[28-Nov-2025 19:26:00] Received simulation output (size: 29.71 MB) for run 198 from parallel worker.
-[28-Nov-2025 19:26:01] Completed 206 of 228 simulation runs
-[28-Nov-2025 19:26:01] Received simulation output (size: 13.47 MB) for run 206 from parallel worker.
-[28-Nov-2025 19:26:09] Completed 207 of 228 simulation runs
-[28-Nov-2025 19:26:09] Received simulation output (size: 13.87 MB) for run 207 from parallel worker.
-[28-Nov-2025 19:26:09] Completed 208 of 228 simulation runs
-[28-Nov-2025 19:26:09] Received simulation output (size: 9.26 MB) for run 210 from parallel worker.
-[28-Nov-2025 19:26:10] Completed 209 of 228 simulation runs
-[28-Nov-2025 19:26:10] Received simulation output (size: 12.35 MB) for run 208 from parallel worker.
-[28-Nov-2025 19:26:10] Completed 210 of 228 simulation runs
-[28-Nov-2025 19:26:10] Received simulation output (size: 9.23 MB) for run 211 from parallel worker.
-[28-Nov-2025 19:26:11] Completed 211 of 228 simulation runs
-[28-Nov-2025 19:26:11] Received simulation output (size: 9.23 MB) for run 212 from parallel worker.
-[28-Nov-2025 19:26:12] Completed 212 of 228 simulation runs
-[28-Nov-2025 19:26:12] Received simulation output (size: 13.48 MB) for run 209 from parallel worker.
-[28-Nov-2025 19:26:18] Completed 213 of 228 simulation runs
-[28-Nov-2025 19:26:18] Received simulation output (size: 9.23 MB) for run 213 from parallel worker.
-[28-Nov-2025 19:26:19] Completed 214 of 228 simulation runs
-[28-Nov-2025 19:26:19] Received simulation output (size: 9.23 MB) for run 214 from parallel worker.
-[28-Nov-2025 19:26:19] Completed 215 of 228 simulation runs
-[28-Nov-2025 19:26:19] Received simulation output (size: 9.23 MB) for run 215 from parallel worker.
-[28-Nov-2025 19:26:20] Completed 216 of 228 simulation runs
-[28-Nov-2025 19:26:20] Received simulation output (size: 9.23 MB) for run 216 from parallel worker.
-[28-Nov-2025 19:26:21] Completed 217 of 228 simulation runs
-[28-Nov-2025 19:26:21] Received simulation output (size: 9.23 MB) for run 217 from parallel worker.
-[28-Nov-2025 19:26:21] Completed 218 of 228 simulation runs
-[28-Nov-2025 19:26:21] Received simulation output (size: 9.23 MB) for run 218 from parallel worker.
-[28-Nov-2025 19:26:28] Completed 219 of 228 simulation runs
-[28-Nov-2025 19:26:28] Received simulation output (size: 9.23 MB) for run 219 from parallel worker.
-[28-Nov-2025 19:26:29] Completed 220 of 228 simulation runs
-[28-Nov-2025 19:26:29] Received simulation output (size: 9.23 MB) for run 220 from parallel worker.
-[28-Nov-2025 19:26:29] Completed 221 of 228 simulation runs
-[28-Nov-2025 19:26:29] Received simulation output (size: 9.23 MB) for run 221 from parallel worker.
-[28-Nov-2025 19:26:30] Completed 222 of 228 simulation runs
-[28-Nov-2025 19:26:30] Received simulation output (size: 9.23 MB) for run 222 from parallel worker.
-[28-Nov-2025 19:26:31] Completed 223 of 228 simulation runs
-[28-Nov-2025 19:26:31] Received simulation output (size: 9.23 MB) for run 223 from parallel worker.
-[28-Nov-2025 19:26:31] Completed 224 of 228 simulation runs
-[28-Nov-2025 19:26:31] Received simulation output (size: 9.23 MB) for run 224 from parallel worker.
-[28-Nov-2025 19:26:38] Completed 225 of 228 simulation runs
-[28-Nov-2025 19:26:38] Received simulation output (size: 9.23 MB) for run 225 from parallel worker.
-[28-Nov-2025 19:26:38] Completed 226 of 228 simulation runs
-[28-Nov-2025 19:26:38] Received simulation output (size: 9.23 MB) for run 227 from parallel worker.
-[28-Nov-2025 19:26:38] Completed 227 of 228 simulation runs
-[28-Nov-2025 19:26:38] Received simulation output (size: 9.23 MB) for run 226 from parallel worker.
-[28-Nov-2025 19:26:39] Completed 228 of 228 simulation runs
-[28-Nov-2025 19:26:39] Received simulation output (size: 9.23 MB) for run 228 from parallel worker.
-[28-Nov-2025 19:26:39] Cleaning up parallel workers...
-Elapsed Sweep Time Total:       1053.00
-Elapsed Sweep Time/(Num Tests):  4.62
+[01-Dec-2025 10:23:24] Starting Simulink on parallel workers...
+[01-Dec-2025 10:23:31] Configuring simulation cache folder on parallel workers...
+[01-Dec-2025 10:23:31] Transferring base workspace variables used in the model to parallel workers...
+[01-Dec-2025 10:23:32] Total size of base workspace variables to send to parallel workers is 75.51 MB.
+[01-Dec-2025 10:23:33] Loading model on parallel workers...
+[01-Dec-2025 10:23:41] Running simulations...
+[01-Dec-2025 10:24:43] Completed 1 of 228 simulation runs
+[01-Dec-2025 10:24:43] Received simulation output (size: 10.30 MB) for run 3 from parallel worker.
+[01-Dec-2025 10:24:44] Completed 2 of 228 simulation runs
+[01-Dec-2025 10:24:44] Received simulation output (size: 9.80 MB) for run 1 from parallel worker.
+[01-Dec-2025 10:24:44] Completed 3 of 228 simulation runs
+[01-Dec-2025 10:24:44] Received simulation output (size: 9.92 MB) for run 2 from parallel worker.
+[01-Dec-2025 10:24:46] Completed 4 of 228 simulation runs
+[01-Dec-2025 10:24:46] Received simulation output (size: 11.26 MB) for run 4 from parallel worker.
+[01-Dec-2025 10:24:47] Completed 5 of 228 simulation runs
+[01-Dec-2025 10:24:47] Received simulation output (size: 12.45 MB) for run 5 from parallel worker.
+[01-Dec-2025 10:24:52] Completed 6 of 228 simulation runs
+[01-Dec-2025 10:24:52] Received simulation output (size: 14.87 MB) for run 6 from parallel worker.
+[01-Dec-2025 10:25:11] Completed 7 of 228 simulation runs
+[01-Dec-2025 10:25:11] Received simulation output (size: 17.00 MB) for run 7 from parallel worker.
+[01-Dec-2025 10:25:16] Completed 8 of 228 simulation runs
+[01-Dec-2025 10:25:16] Received simulation output (size: 19.31 MB) for run 8 from parallel worker.
+[01-Dec-2025 10:25:19] Completed 9 of 228 simulation runs
+[01-Dec-2025 10:25:19] Received simulation output (size: 20.90 MB) for run 9 from parallel worker.
+[01-Dec-2025 10:25:24] Completed 10 of 228 simulation runs
+[01-Dec-2025 10:25:24] Received simulation output (size: 22.94 MB) for run 11 from parallel worker.
+[01-Dec-2025 10:25:27] Completed 11 of 228 simulation runs
+[01-Dec-2025 10:25:27] Received simulation output (size: 21.84 MB) for run 12 from parallel worker.
+[01-Dec-2025 10:25:34] Completed 12 of 228 simulation runs
+[01-Dec-2025 10:25:34] Received simulation output (size: 28.26 MB) for run 10 from parallel worker.
+[01-Dec-2025 10:25:44] Completed 13 of 228 simulation runs
+[01-Dec-2025 10:25:44] Received simulation output (size: 22.35 MB) for run 13 from parallel worker.
+[01-Dec-2025 10:25:46] Completed 14 of 228 simulation runs
+[01-Dec-2025 10:25:46] Received simulation output (size: 20.21 MB) for run 14 from parallel worker.
+[01-Dec-2025 10:25:47] Completed 15 of 228 simulation runs
+[01-Dec-2025 10:25:47] Received simulation output (size: 19.29 MB) for run 15 from parallel worker.
+[01-Dec-2025 10:25:48] Completed 16 of 228 simulation runs
+[01-Dec-2025 10:25:48] Received simulation output (size: 15.59 MB) for run 17 from parallel worker.
+[01-Dec-2025 10:25:50] Completed 17 of 228 simulation runs
+[01-Dec-2025 10:25:50] Received simulation output (size: 17.46 MB) for run 16 from parallel worker.
+[01-Dec-2025 10:25:53] Completed 18 of 228 simulation runs
+[01-Dec-2025 10:25:53] Received simulation output (size: 15.16 MB) for run 18 from parallel worker.
+[01-Dec-2025 10:26:02] Completed 19 of 228 simulation runs
+[01-Dec-2025 10:26:02] Received simulation output (size: 9.84 MB) for run 20 from parallel worker.
+[01-Dec-2025 10:26:03] Completed 20 of 228 simulation runs
+[01-Dec-2025 10:26:03] Received simulation output (size: 14.43 MB) for run 19 from parallel worker.
+[01-Dec-2025 10:26:03] Completed 21 of 228 simulation runs
+[01-Dec-2025 10:26:03] Received simulation output (size: 9.91 MB) for run 21 from parallel worker.
+[01-Dec-2025 10:26:07] Completed 22 of 228 simulation runs
+[01-Dec-2025 10:26:07] Received simulation output (size: 10.41 MB) for run 22 from parallel worker.
+[01-Dec-2025 10:26:09] Completed 23 of 228 simulation runs
+[01-Dec-2025 10:26:09] Received simulation output (size: 11.30 MB) for run 23 from parallel worker.
+[01-Dec-2025 10:26:15] Completed 24 of 228 simulation runs
+[01-Dec-2025 10:26:15] Received simulation output (size: 12.63 MB) for run 24 from parallel worker.
+[01-Dec-2025 10:26:26] Completed 25 of 228 simulation runs
+[01-Dec-2025 10:26:26] Received simulation output (size: 14.44 MB) for run 25 from parallel worker.
+[01-Dec-2025 10:26:33] Completed 26 of 228 simulation runs
+[01-Dec-2025 10:26:33] Received simulation output (size: 16.63 MB) for run 26 from parallel worker.
+[01-Dec-2025 10:26:37] Completed 27 of 228 simulation runs
+[01-Dec-2025 10:26:37] Received simulation output (size: 19.46 MB) for run 27 from parallel worker.
+[01-Dec-2025 10:26:43] Completed 28 of 228 simulation runs
+[01-Dec-2025 10:26:43] Received simulation output (size: 20.82 MB) for run 28 from parallel worker.
+[01-Dec-2025 10:26:49] Completed 29 of 228 simulation runs
+[01-Dec-2025 10:26:49] Received simulation output (size: 23.41 MB) for run 29 from parallel worker.
+[01-Dec-2025 10:26:53] Completed 30 of 228 simulation runs
+[01-Dec-2025 10:26:53] Received simulation output (size: 24.17 MB) for run 30 from parallel worker.
+[01-Dec-2025 10:26:57] Completed 31 of 228 simulation runs
+[01-Dec-2025 10:26:57] Received simulation output (size: 20.45 MB) for run 31 from parallel worker.
+[01-Dec-2025 10:27:01] Completed 32 of 228 simulation runs
+[01-Dec-2025 10:27:01] Received simulation output (size: 18.36 MB) for run 32 from parallel worker.
+[01-Dec-2025 10:27:04] Completed 33 of 228 simulation runs
+[01-Dec-2025 10:27:04] Received simulation output (size: 18.15 MB) for run 33 from parallel worker.
+[01-Dec-2025 10:27:09] Completed 34 of 228 simulation runs
+[01-Dec-2025 10:27:09] Received simulation output (size: 17.70 MB) for run 34 from parallel worker.
+[01-Dec-2025 10:27:15] Completed 35 of 228 simulation runs
+[01-Dec-2025 10:27:15] Received simulation output (size: 14.88 MB) for run 36 from parallel worker.
+[01-Dec-2025 10:27:18] Completed 36 of 228 simulation runs
+[01-Dec-2025 10:27:18] Received simulation output (size: 19.65 MB) for run 35 from parallel worker.
+[01-Dec-2025 10:27:19] Completed 37 of 228 simulation runs
+[01-Dec-2025 10:27:19] Received simulation output (size: 13.85 MB) for run 38 from parallel worker.
+[01-Dec-2025 10:27:19] Completed 38 of 228 simulation runs
+[01-Dec-2025 10:27:19] Received simulation output (size: 9.82 MB) for run 39 from parallel worker.
+[01-Dec-2025 10:27:20] Completed 39 of 228 simulation runs
+[01-Dec-2025 10:27:20] Received simulation output (size: 16.05 MB) for run 37 from parallel worker.
+[01-Dec-2025 10:27:26] Completed 40 of 228 simulation runs
+[01-Dec-2025 10:27:26] Received simulation output (size: 9.88 MB) for run 40 from parallel worker.
+[01-Dec-2025 10:27:33] Completed 41 of 228 simulation runs
+[01-Dec-2025 10:27:33] Received simulation output (size: 10.39 MB) for run 41 from parallel worker.
+[01-Dec-2025 10:27:37] Completed 42 of 228 simulation runs
+[01-Dec-2025 10:27:37] Received simulation output (size: 11.27 MB) for run 42 from parallel worker.
+[01-Dec-2025 10:27:41] Completed 43 of 228 simulation runs
+[01-Dec-2025 10:27:41] Received simulation output (size: 12.16 MB) for run 43 from parallel worker.
+[01-Dec-2025 10:27:43] Completed 44 of 228 simulation runs
+[01-Dec-2025 10:27:43] Received simulation output (size: 13.64 MB) for run 44 from parallel worker.
+[01-Dec-2025 10:27:48] Completed 45 of 228 simulation runs
+[01-Dec-2025 10:27:48] Received simulation output (size: 16.20 MB) for run 45 from parallel worker.
+[01-Dec-2025 10:27:58] Completed 46 of 228 simulation runs
+[01-Dec-2025 10:27:58] Received simulation output (size: 18.21 MB) for run 46 from parallel worker.
+[01-Dec-2025 10:28:08] Completed 47 of 228 simulation runs
+[01-Dec-2025 10:28:08] Received simulation output (size: 20.18 MB) for run 47 from parallel worker.
+[01-Dec-2025 10:28:15] Completed 48 of 228 simulation runs
+[01-Dec-2025 10:28:15] Received simulation output (size: 20.27 MB) for run 50 from parallel worker.
+[01-Dec-2025 10:28:16] Completed 49 of 228 simulation runs
+[01-Dec-2025 10:28:16] Received simulation output (size: 18.32 MB) for run 51 from parallel worker.
+[01-Dec-2025 10:28:17] Completed 50 of 228 simulation runs
+[01-Dec-2025 10:28:17] Received simulation output (size: 22.78 MB) for run 48 from parallel worker.
+[01-Dec-2025 10:28:28] Completed 51 of 228 simulation runs
+[01-Dec-2025 10:28:28] Received simulation output (size: 26.22 MB) for run 49 from parallel worker.
+[01-Dec-2025 10:28:31] Completed 52 of 228 simulation runs
+[01-Dec-2025 10:28:31] Received simulation output (size: 21.11 MB) for run 52 from parallel worker.
+[01-Dec-2025 10:28:34] Completed 53 of 228 simulation runs
+[01-Dec-2025 10:28:34] Received simulation output (size: 17.19 MB) for run 53 from parallel worker.
+[01-Dec-2025 10:28:39] Completed 54 of 228 simulation runs
+[01-Dec-2025 10:28:39] Received simulation output (size: 15.08 MB) for run 56 from parallel worker.
+[01-Dec-2025 10:28:39] Completed 55 of 228 simulation runs
+[01-Dec-2025 10:28:39] Received simulation output (size: 16.19 MB) for run 55 from parallel worker.
+[01-Dec-2025 10:28:44] Completed 56 of 228 simulation runs
+[01-Dec-2025 10:28:44] Received simulation output (size: 19.14 MB) for run 54 from parallel worker.
+[01-Dec-2025 10:28:49] Completed 57 of 228 simulation runs
+[01-Dec-2025 10:28:49] Received simulation output (size: 15.49 MB) for run 57 from parallel worker.
+[01-Dec-2025 10:28:57] Completed 58 of 228 simulation runs
+[01-Dec-2025 10:28:57] Received simulation output (size: 13.05 MB) for run 58 from parallel worker.
+[01-Dec-2025 10:28:58] Completed 59 of 228 simulation runs
+[01-Dec-2025 10:28:58] Received simulation output (size: 12.20 MB) for run 59 from parallel worker.
+[01-Dec-2025 10:29:01] Completed 60 of 228 simulation runs
+[01-Dec-2025 10:29:01] Received simulation output (size: 12.32 MB) for run 60 from parallel worker.
+[01-Dec-2025 10:29:04] Completed 61 of 228 simulation runs
+[01-Dec-2025 10:29:04] Received simulation output (size: 12.91 MB) for run 61 from parallel worker.
+[01-Dec-2025 10:29:11] Completed 62 of 228 simulation runs
+[01-Dec-2025 10:29:11] Received simulation output (size: 14.22 MB) for run 62 from parallel worker.
+[01-Dec-2025 10:29:17] Completed 63 of 228 simulation runs
+[01-Dec-2025 10:29:17] Received simulation output (size: 14.50 MB) for run 63 from parallel worker.
+[01-Dec-2025 10:29:29] Completed 64 of 228 simulation runs
+[01-Dec-2025 10:29:29] Received simulation output (size: 17.33 MB) for run 64 from parallel worker.
+[01-Dec-2025 10:29:33] Completed 65 of 228 simulation runs
+[01-Dec-2025 10:29:33] Received simulation output (size: 18.72 MB) for run 65 from parallel worker.
+[01-Dec-2025 10:29:41] Completed 66 of 228 simulation runs
+[01-Dec-2025 10:29:41] Received simulation output (size: 21.32 MB) for run 66 from parallel worker.
+[01-Dec-2025 10:29:46] Completed 67 of 228 simulation runs
+[01-Dec-2025 10:29:46] Received simulation output (size: 22.93 MB) for run 67 from parallel worker.
+[01-Dec-2025 10:29:59] Completed 68 of 228 simulation runs
+[01-Dec-2025 10:29:59] Received simulation output (size: 25.92 MB) for run 68 from parallel worker.
+[01-Dec-2025 10:30:00] Completed 69 of 228 simulation runs
+[01-Dec-2025 10:30:00] Received simulation output (size: 24.78 MB) for run 69 from parallel worker.
+[01-Dec-2025 10:30:02] Completed 70 of 228 simulation runs
+[01-Dec-2025 10:30:02] Received simulation output (size: 19.01 MB) for run 71 from parallel worker.
+[01-Dec-2025 10:30:03] Completed 71 of 228 simulation runs
+[01-Dec-2025 10:30:03] Received simulation output (size: 21.49 MB) for run 70 from parallel worker.
+[01-Dec-2025 10:30:09] Completed 72 of 228 simulation runs
+[01-Dec-2025 10:30:09] Received simulation output (size: 18.81 MB) for run 72 from parallel worker.
+[01-Dec-2025 10:30:14] Completed 73 of 228 simulation runs
+[01-Dec-2025 10:30:14] Received simulation output (size: 18.48 MB) for run 73 from parallel worker.
+[01-Dec-2025 10:30:21] Completed 74 of 228 simulation runs
+[01-Dec-2025 10:30:21] Received simulation output (size: 9.83 MB) for run 77 from parallel worker.
+[01-Dec-2025 10:30:22] Completed 75 of 228 simulation runs
+[01-Dec-2025 10:30:22] Received simulation output (size: 14.86 MB) for run 75 from parallel worker.
+[01-Dec-2025 10:30:23] Completed 76 of 228 simulation runs
+[01-Dec-2025 10:30:23] Received simulation output (size: 14.93 MB) for run 76 from parallel worker.
+[01-Dec-2025 10:30:26] Completed 77 of 228 simulation runs
+[01-Dec-2025 10:30:26] Received simulation output (size: 17.33 MB) for run 74 from parallel worker.
+[01-Dec-2025 10:30:29] Completed 78 of 228 simulation runs
+[01-Dec-2025 10:30:29] Received simulation output (size: 9.92 MB) for run 78 from parallel worker.
+[01-Dec-2025 10:30:33] Completed 79 of 228 simulation runs
+[01-Dec-2025 10:30:33] Received simulation output (size: 10.35 MB) for run 79 from parallel worker.
+[01-Dec-2025 10:30:42] Completed 80 of 228 simulation runs
+[01-Dec-2025 10:30:43] Received simulation output (size: 11.28 MB) for run 80 from parallel worker.
+[01-Dec-2025 10:30:43] Completed 81 of 228 simulation runs
+[01-Dec-2025 10:30:43] Received simulation output (size: 12.12 MB) for run 81 from parallel worker.
+[01-Dec-2025 10:30:47] Completed 82 of 228 simulation runs
+[01-Dec-2025 10:30:47] Received simulation output (size: 13.52 MB) for run 82 from parallel worker.
+[01-Dec-2025 10:30:54] Completed 83 of 228 simulation runs
+[01-Dec-2025 10:30:54] Received simulation output (size: 15.74 MB) for run 83 from parallel worker.
+[01-Dec-2025 10:31:02] Completed 84 of 228 simulation runs
+[01-Dec-2025 10:31:02] Received simulation output (size: 18.36 MB) for run 84 from parallel worker.
+[01-Dec-2025 10:31:11] Completed 85 of 228 simulation runs
+[01-Dec-2025 10:31:11] Received simulation output (size: 20.47 MB) for run 85 from parallel worker.
+[01-Dec-2025 10:31:23] Completed 86 of 228 simulation runs
+[01-Dec-2025 10:31:23] Received simulation output (size: 22.03 MB) for run 86 from parallel worker.
+[01-Dec-2025 10:31:28] Completed 87 of 228 simulation runs
+[01-Dec-2025 10:31:28] Received simulation output (size: 24.16 MB) for run 87 from parallel worker.
+[01-Dec-2025 10:31:30] Completed 88 of 228 simulation runs
+[01-Dec-2025 10:31:30] Received simulation output (size: 18.20 MB) for run 90 from parallel worker.
+[01-Dec-2025 10:31:32] Completed 89 of 228 simulation runs
+[01-Dec-2025 10:31:32] Received simulation output (size: 23.34 MB) for run 89 from parallel worker.
+[01-Dec-2025 10:31:38] Completed 90 of 228 simulation runs
+[01-Dec-2025 10:31:38] Received simulation output (size: 27.43 MB) for run 88 from parallel worker.
+[01-Dec-2025 10:31:39] Completed 91 of 228 simulation runs
+[01-Dec-2025 10:31:39] Received simulation output (size: 18.49 MB) for run 91 from parallel worker.
+[01-Dec-2025 10:31:52] Completed 92 of 228 simulation runs
+[01-Dec-2025 10:31:52] Received simulation output (size: 14.42 MB) for run 95 from parallel worker.
+[01-Dec-2025 10:31:54] Completed 93 of 228 simulation runs
+[01-Dec-2025 10:31:54] Received simulation output (size: 19.35 MB) for run 92 from parallel worker.
+[01-Dec-2025 10:31:55] Completed 94 of 228 simulation runs
+[01-Dec-2025 10:31:55] Received simulation output (size: 17.52 MB) for run 94 from parallel worker.
+[01-Dec-2025 10:31:57] Completed 95 of 228 simulation runs
+[01-Dec-2025 10:31:57] Received simulation output (size: 18.33 MB) for run 93 from parallel worker.
+[01-Dec-2025 10:31:58] Completed 96 of 228 simulation runs
+[01-Dec-2025 10:31:58] Received simulation output (size: 9.84 MB) for run 96 from parallel worker.
+[01-Dec-2025 10:32:00] Completed 97 of 228 simulation runs
+[01-Dec-2025 10:32:00] Received simulation output (size: 10.05 MB) for run 97 from parallel worker.
+[01-Dec-2025 10:32:12] Completed 98 of 228 simulation runs
+[01-Dec-2025 10:32:12] Received simulation output (size: 10.27 MB) for run 98 from parallel worker.
+[01-Dec-2025 10:32:15] Completed 99 of 228 simulation runs
+[01-Dec-2025 10:32:15] Received simulation output (size: 11.16 MB) for run 99 from parallel worker.
+[01-Dec-2025 10:32:17] Completed 100 of 228 simulation runs
+[01-Dec-2025 10:32:17] Received simulation output (size: 12.30 MB) for run 100 from parallel worker.
+[01-Dec-2025 10:32:22] Completed 101 of 228 simulation runs
+[01-Dec-2025 10:32:22] Received simulation output (size: 13.72 MB) for run 101 from parallel worker.
+[01-Dec-2025 10:32:27] Completed 102 of 228 simulation runs
+[01-Dec-2025 10:32:27] Received simulation output (size: 16.07 MB) for run 102 from parallel worker.
+[01-Dec-2025 10:32:32] Completed 103 of 228 simulation runs
+[01-Dec-2025 10:32:32] Received simulation output (size: 17.46 MB) for run 103 from parallel worker.
+[01-Dec-2025 10:32:49] Completed 104 of 228 simulation runs
+[01-Dec-2025 10:32:49] Received simulation output (size: 20.20 MB) for run 104 from parallel worker.
+[01-Dec-2025 10:32:56] Completed 105 of 228 simulation runs
+[01-Dec-2025 10:32:56] Received simulation output (size: 22.63 MB) for run 105 from parallel worker.
+[01-Dec-2025 10:33:02] Completed 106 of 228 simulation runs
+[01-Dec-2025 10:33:02] Received simulation output (size: 24.35 MB) for run 106 from parallel worker.
+[01-Dec-2025 10:33:06] Completed 107 of 228 simulation runs
+[01-Dec-2025 10:33:06] Received simulation output (size: 21.48 MB) for run 109 from parallel worker.
+[01-Dec-2025 10:33:11] Completed 108 of 228 simulation runs
+[01-Dec-2025 10:33:11] Received simulation output (size: 25.96 MB) for run 107 from parallel worker.
+[01-Dec-2025 10:33:16] Completed 109 of 228 simulation runs
+[01-Dec-2025 10:33:17] Received simulation output (size: 17.85 MB) for run 110 from parallel worker.
+[01-Dec-2025 10:33:24] Completed 110 of 228 simulation runs
+[01-Dec-2025 10:33:24] Received simulation output (size: 17.86 MB) for run 111 from parallel worker.
+[01-Dec-2025 10:33:29] Completed 111 of 228 simulation runs
+[01-Dec-2025 10:33:29] Received simulation output (size: 17.83 MB) for run 112 from parallel worker.
+[01-Dec-2025 10:33:31] Completed 112 of 228 simulation runs
+[01-Dec-2025 10:33:31] Received simulation output (size: 33.31 MB) for run 108 from parallel worker.
+[01-Dec-2025 10:33:31] Completed 113 of 228 simulation runs
+[01-Dec-2025 10:33:31] Received simulation output (size: 17.00 MB) for run 113 from parallel worker.
+[01-Dec-2025 10:33:32] Completed 114 of 228 simulation runs
+[01-Dec-2025 10:33:32] Received simulation output (size: 14.58 MB) for run 114 from parallel worker.
+[01-Dec-2025 10:33:35] Completed 115 of 228 simulation runs
+[01-Dec-2025 10:33:35] Received simulation output (size: 9.78 MB) for run 115 from parallel worker.
+[01-Dec-2025 10:33:43] Completed 116 of 228 simulation runs
+[01-Dec-2025 10:33:43] Received simulation output (size: 9.92 MB) for run 116 from parallel worker.
+[01-Dec-2025 10:33:49] Completed 117 of 228 simulation runs
+[01-Dec-2025 10:33:49] Received simulation output (size: 10.46 MB) for run 117 from parallel worker.
+[01-Dec-2025 10:33:51] Completed 118 of 228 simulation runs
+[01-Dec-2025 10:33:51] Received simulation output (size: 11.27 MB) for run 118 from parallel worker.
+[01-Dec-2025 10:33:53] Completed 119 of 228 simulation runs
+[01-Dec-2025 10:33:53] Received simulation output (size: 12.23 MB) for run 119 from parallel worker.
+[01-Dec-2025 10:33:55] Completed 120 of 228 simulation runs
+[01-Dec-2025 10:33:55] Received simulation output (size: 13.56 MB) for run 120 from parallel worker.
+[01-Dec-2025 10:34:03] Completed 121 of 228 simulation runs
+[01-Dec-2025 10:34:03] Received simulation output (size: 15.55 MB) for run 121 from parallel worker.
+[01-Dec-2025 10:34:14] Completed 122 of 228 simulation runs
+[01-Dec-2025 10:34:14] Received simulation output (size: 17.87 MB) for run 122 from parallel worker.
+[01-Dec-2025 10:34:24] Completed 123 of 228 simulation runs
+[01-Dec-2025 10:34:24] Received simulation output (size: 19.89 MB) for run 123 from parallel worker.
+[01-Dec-2025 10:34:31] Completed 124 of 228 simulation runs
+[01-Dec-2025 10:34:31] Received simulation output (size: 22.16 MB) for run 124 from parallel worker.
+[01-Dec-2025 10:34:38] Completed 125 of 228 simulation runs
+[01-Dec-2025 10:34:38] Received simulation output (size: 24.65 MB) for run 125 from parallel worker.
+[01-Dec-2025 10:34:45] Completed 126 of 228 simulation runs
+[01-Dec-2025 10:34:45] Received simulation output (size: 26.21 MB) for run 126 from parallel worker.
+[01-Dec-2025 10:34:50] Completed 127 of 228 simulation runs
+[01-Dec-2025 10:34:50] Received simulation output (size: 20.91 MB) for run 128 from parallel worker.
+[01-Dec-2025 10:34:53] Completed 128 of 228 simulation runs
+[01-Dec-2025 10:34:53] Received simulation output (size: 18.08 MB) for run 129 from parallel worker.
+[01-Dec-2025 10:34:56] Completed 129 of 228 simulation runs
+[01-Dec-2025 10:34:56] Received simulation output (size: 16.27 MB) for run 130 from parallel worker.
+[01-Dec-2025 10:35:00] Completed 130 of 228 simulation runs
+[01-Dec-2025 10:35:00] Received simulation output (size: 30.32 MB) for run 127 from parallel worker.
+[01-Dec-2025 10:35:03] Completed 131 of 228 simulation runs
+[01-Dec-2025 10:35:03] Received simulation output (size: 16.33 MB) for run 131 from parallel worker.
+[01-Dec-2025 10:35:10] Completed 132 of 228 simulation runs
+[01-Dec-2025 10:35:10] Received simulation output (size: 9.80 MB) for run 134 from parallel worker.
+[01-Dec-2025 10:35:11] Completed 133 of 228 simulation runs
+[01-Dec-2025 10:35:11] Received simulation output (size: 15.43 MB) for run 133 from parallel worker.
+[01-Dec-2025 10:35:14] Completed 134 of 228 simulation runs
+[01-Dec-2025 10:35:14] Received simulation output (size: 9.93 MB) for run 135 from parallel worker.
+[01-Dec-2025 10:35:14] Completed 135 of 228 simulation runs
+[01-Dec-2025 10:35:14] Received simulation output (size: 18.76 MB) for run 132 from parallel worker.
+[01-Dec-2025 10:35:18] Completed 136 of 228 simulation runs
+[01-Dec-2025 10:35:18] Received simulation output (size: 10.28 MB) for run 136 from parallel worker.
+[01-Dec-2025 10:35:22] Completed 137 of 228 simulation runs
+[01-Dec-2025 10:35:22] Received simulation output (size: 11.15 MB) for run 137 from parallel worker.
+[01-Dec-2025 10:35:31] Completed 138 of 228 simulation runs
+[01-Dec-2025 10:35:31] Received simulation output (size: 11.93 MB) for run 138 from parallel worker.
+[01-Dec-2025 10:35:34] Completed 139 of 228 simulation runs
+[01-Dec-2025 10:35:34] Received simulation output (size: 13.19 MB) for run 139 from parallel worker.
+[01-Dec-2025 10:35:40] Completed 140 of 228 simulation runs
+[01-Dec-2025 10:35:40] Received simulation output (size: 14.88 MB) for run 140 from parallel worker.
+[01-Dec-2025 10:35:46] Completed 141 of 228 simulation runs
+[01-Dec-2025 10:35:46] Received simulation output (size: 17.44 MB) for run 141 from parallel worker.
+[01-Dec-2025 10:35:54] Completed 142 of 228 simulation runs
+[01-Dec-2025 10:35:54] Received simulation output (size: 19.81 MB) for run 142 from parallel worker.
+[01-Dec-2025 10:36:04] Completed 143 of 228 simulation runs
+[01-Dec-2025 10:36:04] Received simulation output (size: 22.15 MB) for run 143 from parallel worker.
+[01-Dec-2025 10:36:17] Completed 144 of 228 simulation runs
+[01-Dec-2025 10:36:17] Received simulation output (size: 24.78 MB) for run 144 from parallel worker.
+[01-Dec-2025 10:36:18] Completed 145 of 228 simulation runs
+[01-Dec-2025 10:36:18] Received simulation output (size: 15.76 MB) for run 148 from parallel worker.
+[01-Dec-2025 10:36:19] Completed 146 of 228 simulation runs
+[01-Dec-2025 10:36:19] Received simulation output (size: 20.65 MB) for run 147 from parallel worker.
+[01-Dec-2025 10:36:23] Completed 147 of 228 simulation runs
+[01-Dec-2025 10:36:23] Received simulation output (size: 26.08 MB) for run 145 from parallel worker.
+[01-Dec-2025 10:36:26] Completed 148 of 228 simulation runs
+[01-Dec-2025 10:36:26] Received simulation output (size: 15.17 MB) for run 149 from parallel worker.
+[01-Dec-2025 10:36:35] Completed 149 of 228 simulation runs
+[01-Dec-2025 10:36:35] Received simulation output (size: 29.52 MB) for run 146 from parallel worker.
+[01-Dec-2025 10:36:37] Completed 150 of 228 simulation runs
+[01-Dec-2025 10:36:37] Received simulation output (size: 14.36 MB) for run 151 from parallel worker.
+[01-Dec-2025 10:36:39] Completed 151 of 228 simulation runs
+[01-Dec-2025 10:36:39] Received simulation output (size: 9.86 MB) for run 153 from parallel worker.
+[01-Dec-2025 10:36:40] Completed 152 of 228 simulation runs
+[01-Dec-2025 10:36:40] Received simulation output (size: 15.99 MB) for run 150 from parallel worker.
+[01-Dec-2025 10:36:40] Completed 153 of 228 simulation runs
+[01-Dec-2025 10:36:40] Received simulation output (size: 14.10 MB) for run 152 from parallel worker.
+[01-Dec-2025 10:36:42] Completed 154 of 228 simulation runs
+[01-Dec-2025 10:36:42] Received simulation output (size: 9.99 MB) for run 154 from parallel worker.
+[01-Dec-2025 10:36:53] Completed 155 of 228 simulation runs
+[01-Dec-2025 10:36:53] Received simulation output (size: 10.35 MB) for run 155 from parallel worker.
+[01-Dec-2025 10:36:57] Completed 156 of 228 simulation runs
+[01-Dec-2025 10:36:57] Received simulation output (size: 10.95 MB) for run 156 from parallel worker.
+[01-Dec-2025 10:36:59] Completed 157 of 228 simulation runs
+[01-Dec-2025 10:36:59] Received simulation output (size: 11.97 MB) for run 157 from parallel worker.
+[01-Dec-2025 10:37:05] Completed 158 of 228 simulation runs
+[01-Dec-2025 10:37:05] Received simulation output (size: 13.55 MB) for run 158 from parallel worker.
+[01-Dec-2025 10:37:07] Completed 159 of 228 simulation runs
+[01-Dec-2025 10:37:07] Received simulation output (size: 14.82 MB) for run 159 from parallel worker.
+[01-Dec-2025 10:37:15] Completed 160 of 228 simulation runs
+[01-Dec-2025 10:37:15] Received simulation output (size: 17.63 MB) for run 160 from parallel worker.
+[01-Dec-2025 10:37:32] Completed 161 of 228 simulation runs
+[01-Dec-2025 10:37:32] Received simulation output (size: 20.28 MB) for run 161 from parallel worker.
+[01-Dec-2025 10:37:37] Completed 162 of 228 simulation runs
+[01-Dec-2025 10:37:37] Received simulation output (size: 14.77 MB) for run 166 from parallel worker.
+[01-Dec-2025 10:37:38] Completed 163 of 228 simulation runs
+[01-Dec-2025 10:37:38] Received simulation output (size: 19.33 MB) for run 165 from parallel worker.
+[01-Dec-2025 10:37:41] Completed 164 of 228 simulation runs
+[01-Dec-2025 10:37:41] Received simulation output (size: 22.97 MB) for run 162 from parallel worker.
+[01-Dec-2025 10:37:46] Completed 165 of 228 simulation runs
+[01-Dec-2025 10:37:46] Received simulation output (size: 24.44 MB) for run 163 from parallel worker.
+[01-Dec-2025 10:37:54] Completed 166 of 228 simulation runs
+[01-Dec-2025 10:37:54] Received simulation output (size: 15.06 MB) for run 167 from parallel worker.
+[01-Dec-2025 10:37:57] Completed 167 of 228 simulation runs
+[01-Dec-2025 10:37:57] Received simulation output (size: 13.45 MB) for run 169 from parallel worker.
+[01-Dec-2025 10:37:59] Completed 168 of 228 simulation runs
+[01-Dec-2025 10:37:59] Received simulation output (size: 27.71 MB) for run 164 from parallel worker.
+[01-Dec-2025 10:37:59] Completed 169 of 228 simulation runs
+[01-Dec-2025 10:37:59] Received simulation output (size: 13.61 MB) for run 170 from parallel worker.
+[01-Dec-2025 10:38:01] Completed 170 of 228 simulation runs
+[01-Dec-2025 10:38:01] Received simulation output (size: 16.17 MB) for run 168 from parallel worker.
+[01-Dec-2025 10:38:06] Completed 171 of 228 simulation runs
+[01-Dec-2025 10:38:06] Received simulation output (size: 14.37 MB) for run 171 from parallel worker.
+[01-Dec-2025 10:38:09] Completed 172 of 228 simulation runs
+[01-Dec-2025 10:38:09] Received simulation output (size: 10.20 MB) for run 172 from parallel worker.
+[01-Dec-2025 10:38:14] Completed 173 of 228 simulation runs
+[01-Dec-2025 10:38:14] Received simulation output (size: 10.19 MB) for run 173 from parallel worker.
+[01-Dec-2025 10:38:18] Completed 174 of 228 simulation runs
+[01-Dec-2025 10:38:18] Received simulation output (size: 10.61 MB) for run 174 from parallel worker.
+[01-Dec-2025 10:38:18] Completed 175 of 228 simulation runs
+[01-Dec-2025 10:38:18] Received simulation output (size: 11.23 MB) for run 175 from parallel worker.
+[01-Dec-2025 10:38:20] Completed 176 of 228 simulation runs
+[01-Dec-2025 10:38:20] Received simulation output (size: 11.96 MB) for run 176 from parallel worker.
+[01-Dec-2025 10:38:30] Completed 177 of 228 simulation runs
+[01-Dec-2025 10:38:30] Received simulation output (size: 13.87 MB) for run 177 from parallel worker.
+[01-Dec-2025 10:38:39] Completed 178 of 228 simulation runs
+[01-Dec-2025 10:38:39] Received simulation output (size: 16.14 MB) for run 178 from parallel worker.
+[01-Dec-2025 10:38:49] Completed 179 of 228 simulation runs
+[01-Dec-2025 10:38:49] Received simulation output (size: 18.66 MB) for run 179 from parallel worker.
+[01-Dec-2025 10:38:50] Completed 180 of 228 simulation runs
+[01-Dec-2025 10:38:50] Received simulation output (size: 13.98 MB) for run 183 from parallel worker.
+[01-Dec-2025 10:38:59] Completed 181 of 228 simulation runs
+[01-Dec-2025 10:38:59] Received simulation output (size: 21.34 MB) for run 180 from parallel worker.
+[01-Dec-2025 10:38:59] Completed 182 of 228 simulation runs
+[01-Dec-2025 10:38:59] Received simulation output (size: 14.90 MB) for run 184 from parallel worker.
+[01-Dec-2025 10:39:03] Completed 183 of 228 simulation runs
+[01-Dec-2025 10:39:03] Received simulation output (size: 24.44 MB) for run 181 from parallel worker.
+[01-Dec-2025 10:39:09] Completed 184 of 228 simulation runs
+[01-Dec-2025 10:39:09] Received simulation output (size: 14.89 MB) for run 185 from parallel worker.
+[01-Dec-2025 10:39:09] Completed 185 of 228 simulation runs
+[01-Dec-2025 10:39:09] Received simulation output (size: 14.06 MB) for run 186 from parallel worker.
+[01-Dec-2025 10:39:18] Completed 186 of 228 simulation runs
+[01-Dec-2025 10:39:18] Received simulation output (size: 30.47 MB) for run 182 from parallel worker.
+[01-Dec-2025 10:39:19] Completed 187 of 228 simulation runs
+[01-Dec-2025 10:39:19] Received simulation output (size: 14.27 MB) for run 187 from parallel worker.
+[01-Dec-2025 10:39:19] Completed 188 of 228 simulation runs
+[01-Dec-2025 10:39:19] Received simulation output (size: 13.92 MB) for run 188 from parallel worker.
+[01-Dec-2025 10:39:19] Completed 189 of 228 simulation runs
+[01-Dec-2025 10:39:19] Received simulation output (size: 12.55 MB) for run 189 from parallel worker.
+[01-Dec-2025 10:39:24] Completed 190 of 228 simulation runs
+[01-Dec-2025 10:39:24] Received simulation output (size: 12.32 MB) for run 190 from parallel worker.
+[01-Dec-2025 10:39:29] Completed 191 of 228 simulation runs
+[01-Dec-2025 10:39:29] Received simulation output (size: 12.61 MB) for run 191 from parallel worker.
+[01-Dec-2025 10:39:39] Completed 192 of 228 simulation runs
+[01-Dec-2025 10:39:39] Received simulation output (size: 12.67 MB) for run 192 from parallel worker.
+[01-Dec-2025 10:39:40] Completed 193 of 228 simulation runs
+[01-Dec-2025 10:39:40] Received simulation output (size: 12.84 MB) for run 193 from parallel worker.
+[01-Dec-2025 10:39:41] Completed 194 of 228 simulation runs
+[01-Dec-2025 10:39:41] Received simulation output (size: 13.08 MB) for run 194 from parallel worker.
+[01-Dec-2025 10:39:52] Completed 195 of 228 simulation runs
+[01-Dec-2025 10:39:52] Received simulation output (size: 17.40 MB) for run 195 from parallel worker.
+[01-Dec-2025 10:40:04] Completed 196 of 228 simulation runs
+[01-Dec-2025 10:40:04] Received simulation output (size: 15.88 MB) for run 199 from parallel worker.
+[01-Dec-2025 10:40:05] Completed 197 of 228 simulation runs
+[01-Dec-2025 10:40:05] Received simulation output (size: 15.89 MB) for run 200 from parallel worker.
+[01-Dec-2025 10:40:05] Completed 198 of 228 simulation runs
+[01-Dec-2025 10:40:05] Received simulation output (size: 20.70 MB) for run 196 from parallel worker.
+[01-Dec-2025 10:40:12] Completed 199 of 228 simulation runs
+[01-Dec-2025 10:40:12] Received simulation output (size: 14.41 MB) for run 201 from parallel worker.
+[01-Dec-2025 10:40:15] Completed 200 of 228 simulation runs
+[01-Dec-2025 10:40:15] Received simulation output (size: 23.43 MB) for run 197 from parallel worker.
+[01-Dec-2025 10:40:22] Completed 201 of 228 simulation runs
+[01-Dec-2025 10:40:22] Received simulation output (size: 12.76 MB) for run 204 from parallel worker.
+[01-Dec-2025 10:40:26] Completed 202 of 228 simulation runs
+[01-Dec-2025 10:40:26] Received simulation output (size: 13.85 MB) for run 203 from parallel worker.
+[01-Dec-2025 10:40:27] Completed 203 of 228 simulation runs
+[01-Dec-2025 10:40:27] Received simulation output (size: 15.14 MB) for run 202 from parallel worker.
+[01-Dec-2025 10:40:30] Completed 204 of 228 simulation runs
+[01-Dec-2025 10:40:30] Received simulation output (size: 13.41 MB) for run 205 from parallel worker.
+[01-Dec-2025 10:40:33] Completed 205 of 228 simulation runs
+[01-Dec-2025 10:40:33] Received simulation output (size: 13.47 MB) for run 206 from parallel worker.
+[01-Dec-2025 10:40:35] Completed 206 of 228 simulation runs
+[01-Dec-2025 10:40:35] Received simulation output (size: 29.71 MB) for run 198 from parallel worker.
+[01-Dec-2025 10:40:40] Completed 207 of 228 simulation runs
+[01-Dec-2025 10:40:40] Received simulation output (size: 9.26 MB) for run 210 from parallel worker.
+[01-Dec-2025 10:40:42] Completed 208 of 228 simulation runs
+[01-Dec-2025 10:40:42] Received simulation output (size: 13.87 MB) for run 207 from parallel worker.
+[01-Dec-2025 10:40:43] Completed 209 of 228 simulation runs
+[01-Dec-2025 10:40:43] Received simulation output (size: 9.23 MB) for run 211 from parallel worker.
+[01-Dec-2025 10:40:44] Completed 210 of 228 simulation runs
+[01-Dec-2025 10:40:44] Received simulation output (size: 12.35 MB) for run 208 from parallel worker.
+[01-Dec-2025 10:40:45] Completed 211 of 228 simulation runs
+[01-Dec-2025 10:40:45] Received simulation output (size: 9.23 MB) for run 212 from parallel worker.
+[01-Dec-2025 10:40:46] Completed 212 of 228 simulation runs
+[01-Dec-2025 10:40:46] Received simulation output (size: 13.48 MB) for run 209 from parallel worker.
+[01-Dec-2025 10:40:50] Completed 213 of 228 simulation runs
+[01-Dec-2025 10:40:50] Received simulation output (size: 9.23 MB) for run 213 from parallel worker.
+[01-Dec-2025 10:40:52] Completed 214 of 228 simulation runs
+[01-Dec-2025 10:40:52] Received simulation output (size: 9.23 MB) for run 214 from parallel worker.
+[01-Dec-2025 10:40:53] Completed 215 of 228 simulation runs
+[01-Dec-2025 10:40:53] Received simulation output (size: 9.23 MB) for run 215 from parallel worker.
+[01-Dec-2025 10:40:54] Completed 216 of 228 simulation runs
+[01-Dec-2025 10:40:54] Received simulation output (size: 9.23 MB) for run 216 from parallel worker.
+[01-Dec-2025 10:40:55] Completed 217 of 228 simulation runs
+[01-Dec-2025 10:40:55] Received simulation output (size: 9.23 MB) for run 217 from parallel worker.
+[01-Dec-2025 10:40:56] Completed 218 of 228 simulation runs
+[01-Dec-2025 10:40:56] Received simulation output (size: 9.23 MB) for run 218 from parallel worker.
+[01-Dec-2025 10:41:00] Completed 219 of 228 simulation runs
+[01-Dec-2025 10:41:00] Received simulation output (size: 9.23 MB) for run 219 from parallel worker.
+[01-Dec-2025 10:41:02] Completed 220 of 228 simulation runs
+[01-Dec-2025 10:41:02] Received simulation output (size: 9.23 MB) for run 220 from parallel worker.
+[01-Dec-2025 10:41:03] Completed 221 of 228 simulation runs
+[01-Dec-2025 10:41:03] Received simulation output (size: 9.23 MB) for run 221 from parallel worker.
+[01-Dec-2025 10:41:04] Completed 222 of 228 simulation runs
+[01-Dec-2025 10:41:04] Received simulation output (size: 9.23 MB) for run 222 from parallel worker.
+[01-Dec-2025 10:41:05] Completed 223 of 228 simulation runs
+[01-Dec-2025 10:41:05] Received simulation output (size: 9.23 MB) for run 223 from parallel worker.
+[01-Dec-2025 10:41:06] Completed 224 of 228 simulation runs
+[01-Dec-2025 10:41:06] Received simulation output (size: 9.23 MB) for run 224 from parallel worker.
+[01-Dec-2025 10:41:10] Completed 225 of 228 simulation runs
+[01-Dec-2025 10:41:10] Received simulation output (size: 9.23 MB) for run 225 from parallel worker.
+[01-Dec-2025 10:41:11] Completed 226 of 228 simulation runs
+[01-Dec-2025 10:41:11] Received simulation output (size: 9.23 MB) for run 226 from parallel worker.
+[01-Dec-2025 10:41:12] Completed 227 of 228 simulation runs
+[01-Dec-2025 10:41:12] Received simulation output (size: 9.23 MB) for run 227 from parallel worker.
+[01-Dec-2025 10:41:13] Completed 228 of 228 simulation runs
+[01-Dec-2025 10:41:13] Received simulation output (size: 9.23 MB) for run 228 from parallel worker.
+[01-Dec-2025 10:41:13] Cleaning up parallel workers...
+Elapsed Sweep Time Total:       1050.00
+Elapsed Sweep Time/(Num Tests):  4.61
  
 Parallel pool using the 'Processes' profile is shutting down.
 </pre>
 <img vspace="5" hspace="5" src="quadcopter_package_delivery_param_sweep_07.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_param_sweep_08.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_param_sweep_09.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_param_sweep_10.png" alt=""> <h2 id="6">Parameter Sweep: Mass and Air Temperature</h2>
 <p>Using parallel computing we vary the mass of the package and the temperature of the air with associated change in air density</p>
-<pre class="codeoutput">Elapsed Simulation Time Single Run: 40.3557
-[28-Nov-2025 19:28:15] Checking for availability of parallel pool...
+<pre class="codeoutput">Elapsed Simulation Time Single Run: 41.1304
+[01-Dec-2025 10:42:51] Checking for availability of parallel pool...
 Starting parallel pool (parpool) using the 'Processes' profile ...
 Connected to parallel pool with 6 workers.
-[28-Nov-2025 19:28:44] Starting Simulink on parallel workers...
-[28-Nov-2025 19:28:53] Configuring simulation cache folder on parallel workers...
-[28-Nov-2025 19:28:54] Transferring base workspace variables used in the model to parallel workers...
-[28-Nov-2025 19:28:54] Total size of base workspace variables to send to parallel workers is 7.80 MB.
-[28-Nov-2025 19:28:54] Loading model on parallel workers...
-[28-Nov-2025 19:29:18] Running simulations...
-[28-Nov-2025 19:30:18] Completed 1 of 108 simulation runs
-[28-Nov-2025 19:30:18] Received simulation output (size: 9.78 MB) for run 4 from parallel worker.
-[28-Nov-2025 19:30:18] Completed 2 of 108 simulation runs
-[28-Nov-2025 19:30:18] Received simulation output (size: 9.78 MB) for run 2 from parallel worker.
-[28-Nov-2025 19:30:19] Completed 3 of 108 simulation runs
-[28-Nov-2025 19:30:19] Received simulation output (size: 9.79 MB) for run 3 from parallel worker.
-[28-Nov-2025 19:30:19] Completed 4 of 108 simulation runs
-[28-Nov-2025 19:30:19] Received simulation output (size: 9.72 MB) for run 5 from parallel worker.
-[28-Nov-2025 19:30:20] Completed 5 of 108 simulation runs
-[28-Nov-2025 19:30:20] Received simulation output (size: 9.75 MB) for run 1 from parallel worker.
-[28-Nov-2025 19:30:20] Completed 6 of 108 simulation runs
-[28-Nov-2025 19:30:20] Received simulation output (size: 9.76 MB) for run 6 from parallel worker.
-[28-Nov-2025 19:30:32] Completed 7 of 108 simulation runs
-[28-Nov-2025 19:30:32] Received simulation output (size: 9.84 MB) for run 7 from parallel worker.
-[28-Nov-2025 19:30:32] Completed 8 of 108 simulation runs
-[28-Nov-2025 19:30:32] Received simulation output (size: 9.75 MB) for run 8 from parallel worker.
-[28-Nov-2025 19:30:33] Completed 9 of 108 simulation runs
-[28-Nov-2025 19:30:33] Received simulation output (size: 9.74 MB) for run 9 from parallel worker.
-[28-Nov-2025 19:30:36] Completed 10 of 108 simulation runs
-[28-Nov-2025 19:30:36] Received simulation output (size: 9.83 MB) for run 10 from parallel worker.
-[28-Nov-2025 19:30:37] Completed 11 of 108 simulation runs
-[28-Nov-2025 19:30:37] Received simulation output (size: 9.78 MB) for run 12 from parallel worker.
-[28-Nov-2025 19:30:37] Completed 12 of 108 simulation runs
-[28-Nov-2025 19:30:37] Received simulation output (size: 9.83 MB) for run 11 from parallel worker.
-[28-Nov-2025 19:30:49] Completed 13 of 108 simulation runs
-[28-Nov-2025 19:30:49] Received simulation output (size: 9.89 MB) for run 13 from parallel worker.
-[28-Nov-2025 19:30:49] Completed 14 of 108 simulation runs
-[28-Nov-2025 19:30:49] Received simulation output (size: 9.80 MB) for run 14 from parallel worker.
-[28-Nov-2025 19:30:50] Completed 15 of 108 simulation runs
-[28-Nov-2025 19:30:50] Received simulation output (size: 9.84 MB) for run 15 from parallel worker.
-[28-Nov-2025 19:30:53] Completed 16 of 108 simulation runs
-[28-Nov-2025 19:30:53] Received simulation output (size: 9.78 MB) for run 16 from parallel worker.
-[28-Nov-2025 19:30:54] Completed 17 of 108 simulation runs
-[28-Nov-2025 19:30:54] Received simulation output (size: 9.92 MB) for run 17 from parallel worker.
-[28-Nov-2025 19:30:54] Completed 18 of 108 simulation runs
-[28-Nov-2025 19:30:54] Received simulation output (size: 9.82 MB) for run 18 from parallel worker.
-[28-Nov-2025 19:31:05] Completed 19 of 108 simulation runs
-[28-Nov-2025 19:31:05] Received simulation output (size: 9.76 MB) for run 19 from parallel worker.
-[28-Nov-2025 19:31:05] Completed 20 of 108 simulation runs
-[28-Nov-2025 19:31:05] Received simulation output (size: 9.80 MB) for run 20 from parallel worker.
-[28-Nov-2025 19:31:05] Completed 21 of 108 simulation runs
-[28-Nov-2025 19:31:06] Received simulation output (size: 9.67 MB) for run 21 from parallel worker.
-[28-Nov-2025 19:31:09] Completed 22 of 108 simulation runs
-[28-Nov-2025 19:31:09] Received simulation output (size: 9.75 MB) for run 22 from parallel worker.
-[28-Nov-2025 19:31:09] Completed 23 of 108 simulation runs
-[28-Nov-2025 19:31:09] Received simulation output (size: 9.72 MB) for run 24 from parallel worker.
-[28-Nov-2025 19:31:10] Completed 24 of 108 simulation runs
-[28-Nov-2025 19:31:10] Received simulation output (size: 9.74 MB) for run 23 from parallel worker.
-[28-Nov-2025 19:31:21] Completed 25 of 108 simulation runs
-[28-Nov-2025 19:31:21] Received simulation output (size: 9.70 MB) for run 26 from parallel worker.
-[28-Nov-2025 19:31:21] Completed 26 of 108 simulation runs
-[28-Nov-2025 19:31:21] Received simulation output (size: 9.82 MB) for run 25 from parallel worker.
-[28-Nov-2025 19:31:22] Completed 27 of 108 simulation runs
-[28-Nov-2025 19:31:22] Received simulation output (size: 9.72 MB) for run 27 from parallel worker.
-[28-Nov-2025 19:31:36] Completed 28 of 108 simulation runs
-[28-Nov-2025 19:31:36] Received simulation output (size: 13.06 MB) for run 28 from parallel worker.
-[28-Nov-2025 19:31:40] Completed 29 of 108 simulation runs
-[28-Nov-2025 19:31:40] Received simulation output (size: 14.45 MB) for run 29 from parallel worker.
-[28-Nov-2025 19:31:41] Completed 30 of 108 simulation runs
-[28-Nov-2025 19:31:41] Received simulation output (size: 14.65 MB) for run 30 from parallel worker.
-[28-Nov-2025 19:31:49] Completed 31 of 108 simulation runs
-[28-Nov-2025 19:31:49] Received simulation output (size: 13.37 MB) for run 32 from parallel worker.
-[28-Nov-2025 19:31:49] Completed 32 of 108 simulation runs
-[28-Nov-2025 19:31:49] Received simulation output (size: 14.13 MB) for run 33 from parallel worker.
-[28-Nov-2025 19:31:49] Completed 33 of 108 simulation runs
-[28-Nov-2025 19:31:50] Received simulation output (size: 13.58 MB) for run 31 from parallel worker.
-[28-Nov-2025 19:32:03] Completed 34 of 108 simulation runs
-[28-Nov-2025 19:32:03] Received simulation output (size: 13.03 MB) for run 34 from parallel worker.
-[28-Nov-2025 19:32:07] Completed 35 of 108 simulation runs
-[28-Nov-2025 19:32:07] Received simulation output (size: 9.83 MB) for run 37 from parallel worker.
-[28-Nov-2025 19:32:07] Completed 36 of 108 simulation runs
-[28-Nov-2025 19:32:07] Received simulation output (size: 9.82 MB) for run 38 from parallel worker.
-[28-Nov-2025 19:32:07] Completed 37 of 108 simulation runs
-[28-Nov-2025 19:32:08] Received simulation output (size: 9.82 MB) for run 39 from parallel worker.
-[28-Nov-2025 19:32:09] Completed 38 of 108 simulation runs
-[28-Nov-2025 19:32:09] Received simulation output (size: 13.59 MB) for run 35 from parallel worker.
-[28-Nov-2025 19:32:13] Completed 39 of 108 simulation runs
-[28-Nov-2025 19:32:13] Received simulation output (size: 15.33 MB) for run 36 from parallel worker.
-[28-Nov-2025 19:32:21] Completed 40 of 108 simulation runs
-[28-Nov-2025 19:32:21] Received simulation output (size: 9.88 MB) for run 40 from parallel worker.
-[28-Nov-2025 19:32:25] Completed 41 of 108 simulation runs
-[28-Nov-2025 19:32:25] Received simulation output (size: 9.82 MB) for run 41 from parallel worker.
-[28-Nov-2025 19:32:25] Completed 42 of 108 simulation runs
-[28-Nov-2025 19:32:25] Received simulation output (size: 9.87 MB) for run 43 from parallel worker.
-[28-Nov-2025 19:32:25] Completed 43 of 108 simulation runs
-[28-Nov-2025 19:32:25] Received simulation output (size: 9.83 MB) for run 42 from parallel worker.
-[28-Nov-2025 19:32:27] Completed 44 of 108 simulation runs
-[28-Nov-2025 19:32:27] Received simulation output (size: 9.86 MB) for run 44 from parallel worker.
-[28-Nov-2025 19:32:31] Completed 45 of 108 simulation runs
-[28-Nov-2025 19:32:31] Received simulation output (size: 9.81 MB) for run 45 from parallel worker.
-[28-Nov-2025 19:32:42] Completed 46 of 108 simulation runs
-[28-Nov-2025 19:32:42] Received simulation output (size: 9.83 MB) for run 46 from parallel worker.
-[28-Nov-2025 19:32:46] Completed 47 of 108 simulation runs
-[28-Nov-2025 19:32:46] Received simulation output (size: 9.90 MB) for run 47 from parallel worker.
-[28-Nov-2025 19:32:46] Completed 48 of 108 simulation runs
-[28-Nov-2025 19:32:46] Received simulation output (size: 9.91 MB) for run 49 from parallel worker.
-[28-Nov-2025 19:32:47] Completed 49 of 108 simulation runs
-[28-Nov-2025 19:32:47] Received simulation output (size: 9.88 MB) for run 48 from parallel worker.
-[28-Nov-2025 19:32:48] Completed 50 of 108 simulation runs
-[28-Nov-2025 19:32:48] Received simulation output (size: 9.91 MB) for run 50 from parallel worker.
-[28-Nov-2025 19:32:51] Completed 51 of 108 simulation runs
-[28-Nov-2025 19:32:52] Received simulation output (size: 9.84 MB) for run 51 from parallel worker.
-[28-Nov-2025 19:33:03] Completed 52 of 108 simulation runs
-[28-Nov-2025 19:33:03] Received simulation output (size: 9.83 MB) for run 52 from parallel worker.
-[28-Nov-2025 19:33:06] Completed 53 of 108 simulation runs
-[28-Nov-2025 19:33:06] Received simulation output (size: 9.93 MB) for run 55 from parallel worker.
-[28-Nov-2025 19:33:06] Completed 54 of 108 simulation runs
-[28-Nov-2025 19:33:06] Received simulation output (size: 9.81 MB) for run 56 from parallel worker.
-[28-Nov-2025 19:33:06] Completed 55 of 108 simulation runs
-[28-Nov-2025 19:33:06] Received simulation output (size: 9.83 MB) for run 53 from parallel worker.
-[28-Nov-2025 19:33:07] Completed 56 of 108 simulation runs
-[28-Nov-2025 19:33:07] Received simulation output (size: 9.92 MB) for run 54 from parallel worker.
-[28-Nov-2025 19:33:12] Completed 57 of 108 simulation runs
-[28-Nov-2025 19:33:12] Received simulation output (size: 9.87 MB) for run 57 from parallel worker.
-[28-Nov-2025 19:33:22] Completed 58 of 108 simulation runs
-[28-Nov-2025 19:33:22] Received simulation output (size: 9.80 MB) for run 58 from parallel worker.
-[28-Nov-2025 19:33:24] Completed 59 of 108 simulation runs
-[28-Nov-2025 19:33:24] Received simulation output (size: 9.90 MB) for run 59 from parallel worker.
-[28-Nov-2025 19:33:25] Completed 60 of 108 simulation runs
-[28-Nov-2025 19:33:25] Received simulation output (size: 9.96 MB) for run 60 from parallel worker.
-[28-Nov-2025 19:33:26] Completed 61 of 108 simulation runs
-[28-Nov-2025 19:33:26] Received simulation output (size: 9.76 MB) for run 61 from parallel worker.
-[28-Nov-2025 19:33:26] Completed 62 of 108 simulation runs
-[28-Nov-2025 19:33:26] Received simulation output (size: 9.89 MB) for run 62 from parallel worker.
-[28-Nov-2025 19:33:30] Completed 63 of 108 simulation runs
-[28-Nov-2025 19:33:30] Received simulation output (size: 9.83 MB) for run 63 from parallel worker.
-[28-Nov-2025 19:33:39] Completed 64 of 108 simulation runs
-[28-Nov-2025 19:33:39] Received simulation output (size: 9.92 MB) for run 64 from parallel worker.
-[28-Nov-2025 19:33:42] Completed 65 of 108 simulation runs
-[28-Nov-2025 19:33:42] Received simulation output (size: 10.04 MB) for run 65 from parallel worker.
-[28-Nov-2025 19:33:42] Completed 66 of 108 simulation runs
-[28-Nov-2025 19:33:42] Received simulation output (size: 9.92 MB) for run 66 from parallel worker.
-[28-Nov-2025 19:33:42] Completed 67 of 108 simulation runs
-[28-Nov-2025 19:33:42] Received simulation output (size: 9.86 MB) for run 67 from parallel worker.
-[28-Nov-2025 19:33:43] Completed 68 of 108 simulation runs
-[28-Nov-2025 19:33:43] Received simulation output (size: 9.88 MB) for run 68 from parallel worker.
-[28-Nov-2025 19:33:47] Completed 69 of 108 simulation runs
-[28-Nov-2025 19:33:47] Received simulation output (size: 9.83 MB) for run 69 from parallel worker.
-[28-Nov-2025 19:33:55] Completed 70 of 108 simulation runs
-[28-Nov-2025 19:33:55] Received simulation output (size: 9.82 MB) for run 70 from parallel worker.
-[28-Nov-2025 19:33:58] Completed 71 of 108 simulation runs
-[28-Nov-2025 19:33:58] Received simulation output (size: 9.83 MB) for run 73 from parallel worker.
-[28-Nov-2025 19:33:58] Completed 72 of 108 simulation runs
-[28-Nov-2025 19:33:58] Received simulation output (size: 9.95 MB) for run 72 from parallel worker.
-[28-Nov-2025 19:33:59] Completed 73 of 108 simulation runs
-[28-Nov-2025 19:33:59] Received simulation output (size: 9.84 MB) for run 74 from parallel worker.
-[28-Nov-2025 19:33:59] Completed 74 of 108 simulation runs
-[28-Nov-2025 19:33:59] Received simulation output (size: 9.91 MB) for run 71 from parallel worker.
-[28-Nov-2025 19:34:03] Completed 75 of 108 simulation runs
-[28-Nov-2025 19:34:03] Received simulation output (size: 9.85 MB) for run 75 from parallel worker.
-[28-Nov-2025 19:34:12] Completed 76 of 108 simulation runs
-[28-Nov-2025 19:34:12] Received simulation output (size: 9.84 MB) for run 76 from parallel worker.
-[28-Nov-2025 19:34:13] Completed 77 of 108 simulation runs
-[28-Nov-2025 19:34:13] Received simulation output (size: 9.90 MB) for run 77 from parallel worker.
-[28-Nov-2025 19:34:14] Completed 78 of 108 simulation runs
-[28-Nov-2025 19:34:14] Received simulation output (size: 9.83 MB) for run 78 from parallel worker.
-[28-Nov-2025 19:34:14] Completed 79 of 108 simulation runs
-[28-Nov-2025 19:34:14] Received simulation output (size: 9.86 MB) for run 79 from parallel worker.
-[28-Nov-2025 19:34:15] Completed 80 of 108 simulation runs
-[28-Nov-2025 19:34:15] Received simulation output (size: 9.86 MB) for run 80 from parallel worker.
-[28-Nov-2025 19:34:18] Completed 81 of 108 simulation runs
-[28-Nov-2025 19:34:18] Received simulation output (size: 9.84 MB) for run 81 from parallel worker.
-[28-Nov-2025 19:34:28] Completed 82 of 108 simulation runs
-[28-Nov-2025 19:34:28] Received simulation output (size: 10.18 MB) for run 82 from parallel worker.
-[28-Nov-2025 19:34:29] Completed 83 of 108 simulation runs
-[28-Nov-2025 19:34:30] Received simulation output (size: 10.12 MB) for run 85 from parallel worker.
-[28-Nov-2025 19:34:30] Completed 84 of 108 simulation runs
-[28-Nov-2025 19:34:30] Received simulation output (size: 10.24 MB) for run 83 from parallel worker.
-[28-Nov-2025 19:34:30] Completed 85 of 108 simulation runs
-[28-Nov-2025 19:34:30] Received simulation output (size: 10.09 MB) for run 86 from parallel worker.
-[28-Nov-2025 19:34:30] Completed 86 of 108 simulation runs
-[28-Nov-2025 19:34:30] Received simulation output (size: 10.23 MB) for run 84 from parallel worker.
-[28-Nov-2025 19:34:34] Completed 87 of 108 simulation runs
-[28-Nov-2025 19:34:34] Received simulation output (size: 10.17 MB) for run 87 from parallel worker.
-[28-Nov-2025 19:34:44] Completed 88 of 108 simulation runs
-[28-Nov-2025 19:34:44] Received simulation output (size: 10.21 MB) for run 88 from parallel worker.
-[28-Nov-2025 19:34:45] Completed 89 of 108 simulation runs
-[28-Nov-2025 19:34:45] Received simulation output (size: 10.10 MB) for run 89 from parallel worker.
-[28-Nov-2025 19:34:45] Completed 90 of 108 simulation runs
-[28-Nov-2025 19:34:45] Received simulation output (size: 10.04 MB) for run 90 from parallel worker.
-[28-Nov-2025 19:34:50] Completed 91 of 108 simulation runs
-[28-Nov-2025 19:34:50] Received simulation output (size: 12.99 MB) for run 91 from parallel worker.
-[28-Nov-2025 19:34:52] Completed 92 of 108 simulation runs
-[28-Nov-2025 19:34:52] Received simulation output (size: 13.36 MB) for run 92 from parallel worker.
-[28-Nov-2025 19:34:53] Completed 93 of 108 simulation runs
-[28-Nov-2025 19:34:53] Received simulation output (size: 12.56 MB) for run 93 from parallel worker.
-[28-Nov-2025 19:35:03] Completed 94 of 108 simulation runs
-[28-Nov-2025 19:35:03] Received simulation output (size: 12.92 MB) for run 94 from parallel worker.
-[28-Nov-2025 19:35:05] Completed 95 of 108 simulation runs
-[28-Nov-2025 19:35:05] Received simulation output (size: 12.83 MB) for run 96 from parallel worker.
-[28-Nov-2025 19:35:06] Completed 96 of 108 simulation runs
-[28-Nov-2025 19:35:06] Received simulation output (size: 13.53 MB) for run 95 from parallel worker.
-[28-Nov-2025 19:35:11] Completed 97 of 108 simulation runs
-[28-Nov-2025 19:35:11] Received simulation output (size: 13.14 MB) for run 97 from parallel worker.
-[28-Nov-2025 19:35:11] Completed 98 of 108 simulation runs
-[28-Nov-2025 19:35:11] Received simulation output (size: 12.05 MB) for run 98 from parallel worker.
-[28-Nov-2025 19:35:13] Completed 99 of 108 simulation runs
-[28-Nov-2025 19:35:13] Received simulation output (size: 12.78 MB) for run 99 from parallel worker.
-[28-Nov-2025 19:35:13] Completed 100 of 108 simulation runs
-[28-Nov-2025 19:35:13] Received simulation output (size: 9.25 MB) for run 100 from parallel worker.
-[28-Nov-2025 19:35:15] Completed 101 of 108 simulation runs
-[28-Nov-2025 19:35:15] Received simulation output (size: 9.25 MB) for run 101 from parallel worker.
-[28-Nov-2025 19:35:16] Completed 102 of 108 simulation runs
-[28-Nov-2025 19:35:16] Received simulation output (size: 9.25 MB) for run 102 from parallel worker.
-[28-Nov-2025 19:35:20] Completed 103 of 108 simulation runs
-[28-Nov-2025 19:35:20] Received simulation output (size: 9.26 MB) for run 103 from parallel worker.
-[28-Nov-2025 19:35:20] Completed 104 of 108 simulation runs
-[28-Nov-2025 19:35:20] Received simulation output (size: 9.26 MB) for run 104 from parallel worker.
-[28-Nov-2025 19:35:22] Completed 105 of 108 simulation runs
-[28-Nov-2025 19:35:23] Received simulation output (size: 9.25 MB) for run 106 from parallel worker.
-[28-Nov-2025 19:35:23] Completed 106 of 108 simulation runs
-[28-Nov-2025 19:35:23] Received simulation output (size: 9.26 MB) for run 105 from parallel worker.
-[28-Nov-2025 19:35:24] Completed 107 of 108 simulation runs
-[28-Nov-2025 19:35:24] Received simulation output (size: 9.25 MB) for run 107 from parallel worker.
-[28-Nov-2025 19:35:25] Completed 108 of 108 simulation runs
-[28-Nov-2025 19:35:25] Received simulation output (size: 9.25 MB) for run 108 from parallel worker.
-[28-Nov-2025 19:35:25] Cleaning up parallel workers...
-Elapsed Sweep Time Total:       365.00
-Elapsed Sweep Time/(Num Tests):  3.38
+[01-Dec-2025 10:43:13] Starting Simulink on parallel workers...
+[01-Dec-2025 10:43:23] Configuring simulation cache folder on parallel workers...
+[01-Dec-2025 10:43:23] Transferring base workspace variables used in the model to parallel workers...
+[01-Dec-2025 10:43:23] Total size of base workspace variables to send to parallel workers is 9.10 MB.
+[01-Dec-2025 10:43:24] Loading model on parallel workers...
+[01-Dec-2025 10:43:40] Running simulations...
+[01-Dec-2025 10:44:41] Completed 1 of 108 simulation runs
+[01-Dec-2025 10:44:41] Received simulation output (size: 9.78 MB) for run 4 from parallel worker.
+[01-Dec-2025 10:44:41] Completed 2 of 108 simulation runs
+[01-Dec-2025 10:44:41] Received simulation output (size: 9.75 MB) for run 1 from parallel worker.
+[01-Dec-2025 10:44:42] Completed 3 of 108 simulation runs
+[01-Dec-2025 10:44:42] Received simulation output (size: 9.72 MB) for run 5 from parallel worker.
+[01-Dec-2025 10:44:42] Completed 4 of 108 simulation runs
+[01-Dec-2025 10:44:42] Received simulation output (size: 9.78 MB) for run 2 from parallel worker.
+[01-Dec-2025 10:44:43] Completed 5 of 108 simulation runs
+[01-Dec-2025 10:44:43] Received simulation output (size: 9.79 MB) for run 3 from parallel worker.
+[01-Dec-2025 10:44:43] Completed 6 of 108 simulation runs
+[01-Dec-2025 10:44:43] Received simulation output (size: 9.76 MB) for run 6 from parallel worker.
+[01-Dec-2025 10:44:55] Completed 7 of 108 simulation runs
+[01-Dec-2025 10:44:55] Received simulation output (size: 9.84 MB) for run 7 from parallel worker.
+[01-Dec-2025 10:44:56] Completed 8 of 108 simulation runs
+[01-Dec-2025 10:44:56] Received simulation output (size: 9.75 MB) for run 8 from parallel worker.
+[01-Dec-2025 10:44:56] Completed 9 of 108 simulation runs
+[01-Dec-2025 10:44:56] Received simulation output (size: 9.74 MB) for run 9 from parallel worker.
+[01-Dec-2025 10:44:59] Completed 10 of 108 simulation runs
+[01-Dec-2025 10:44:59] Received simulation output (size: 9.83 MB) for run 10 from parallel worker.
+[01-Dec-2025 10:45:00] Completed 11 of 108 simulation runs
+[01-Dec-2025 10:45:00] Received simulation output (size: 9.83 MB) for run 11 from parallel worker.
+[01-Dec-2025 10:45:00] Completed 12 of 108 simulation runs
+[01-Dec-2025 10:45:00] Received simulation output (size: 9.78 MB) for run 12 from parallel worker.
+[01-Dec-2025 10:45:12] Completed 13 of 108 simulation runs
+[01-Dec-2025 10:45:12] Received simulation output (size: 9.89 MB) for run 13 from parallel worker.
+[01-Dec-2025 10:45:12] Completed 14 of 108 simulation runs
+[01-Dec-2025 10:45:12] Received simulation output (size: 9.80 MB) for run 14 from parallel worker.
+[01-Dec-2025 10:45:13] Completed 15 of 108 simulation runs
+[01-Dec-2025 10:45:13] Received simulation output (size: 9.84 MB) for run 15 from parallel worker.
+[01-Dec-2025 10:45:15] Completed 16 of 108 simulation runs
+[01-Dec-2025 10:45:15] Received simulation output (size: 9.78 MB) for run 16 from parallel worker.
+[01-Dec-2025 10:45:17] Completed 17 of 108 simulation runs
+[01-Dec-2025 10:45:17] Received simulation output (size: 9.92 MB) for run 17 from parallel worker.
+[01-Dec-2025 10:45:17] Completed 18 of 108 simulation runs
+[01-Dec-2025 10:45:17] Received simulation output (size: 9.82 MB) for run 18 from parallel worker.
+[01-Dec-2025 10:45:28] Completed 19 of 108 simulation runs
+[01-Dec-2025 10:45:28] Received simulation output (size: 9.76 MB) for run 19 from parallel worker.
+[01-Dec-2025 10:45:28] Completed 20 of 108 simulation runs
+[01-Dec-2025 10:45:28] Received simulation output (size: 9.80 MB) for run 20 from parallel worker.
+[01-Dec-2025 10:45:29] Completed 21 of 108 simulation runs
+[01-Dec-2025 10:45:29] Received simulation output (size: 9.67 MB) for run 21 from parallel worker.
+[01-Dec-2025 10:45:32] Completed 22 of 108 simulation runs
+[01-Dec-2025 10:45:32] Received simulation output (size: 9.75 MB) for run 22 from parallel worker.
+[01-Dec-2025 10:45:33] Completed 23 of 108 simulation runs
+[01-Dec-2025 10:45:33] Received simulation output (size: 9.74 MB) for run 23 from parallel worker.
+[01-Dec-2025 10:45:33] Completed 24 of 108 simulation runs
+[01-Dec-2025 10:45:33] Received simulation output (size: 9.72 MB) for run 24 from parallel worker.
+[01-Dec-2025 10:45:44] Completed 25 of 108 simulation runs
+[01-Dec-2025 10:45:44] Received simulation output (size: 9.70 MB) for run 26 from parallel worker.
+[01-Dec-2025 10:45:44] Completed 26 of 108 simulation runs
+[01-Dec-2025 10:45:44] Received simulation output (size: 9.82 MB) for run 25 from parallel worker.
+[01-Dec-2025 10:45:45] Completed 27 of 108 simulation runs
+[01-Dec-2025 10:45:45] Received simulation output (size: 9.72 MB) for run 27 from parallel worker.
+[01-Dec-2025 10:45:58] Completed 28 of 108 simulation runs
+[01-Dec-2025 10:45:58] Received simulation output (size: 13.06 MB) for run 28 from parallel worker.
+[01-Dec-2025 10:46:03] Completed 29 of 108 simulation runs
+[01-Dec-2025 10:46:03] Received simulation output (size: 14.45 MB) for run 29 from parallel worker.
+[01-Dec-2025 10:46:04] Completed 30 of 108 simulation runs
+[01-Dec-2025 10:46:04] Received simulation output (size: 14.65 MB) for run 30 from parallel worker.
+[01-Dec-2025 10:46:11] Completed 31 of 108 simulation runs
+[01-Dec-2025 10:46:11] Received simulation output (size: 13.37 MB) for run 32 from parallel worker.
+[01-Dec-2025 10:46:12] Completed 32 of 108 simulation runs
+[01-Dec-2025 10:46:12] Received simulation output (size: 14.13 MB) for run 33 from parallel worker.
+[01-Dec-2025 10:46:12] Completed 33 of 108 simulation runs
+[01-Dec-2025 10:46:12] Received simulation output (size: 13.58 MB) for run 31 from parallel worker.
+[01-Dec-2025 10:46:26] Completed 34 of 108 simulation runs
+[01-Dec-2025 10:46:26] Received simulation output (size: 13.03 MB) for run 34 from parallel worker.
+[01-Dec-2025 10:46:30] Completed 35 of 108 simulation runs
+[01-Dec-2025 10:46:30] Received simulation output (size: 9.83 MB) for run 37 from parallel worker.
+[01-Dec-2025 10:46:30] Completed 36 of 108 simulation runs
+[01-Dec-2025 10:46:30] Received simulation output (size: 9.82 MB) for run 38 from parallel worker.
+[01-Dec-2025 10:46:31] Completed 37 of 108 simulation runs
+[01-Dec-2025 10:46:31] Received simulation output (size: 9.82 MB) for run 39 from parallel worker.
+[01-Dec-2025 10:46:32] Completed 38 of 108 simulation runs
+[01-Dec-2025 10:46:32] Received simulation output (size: 13.59 MB) for run 35 from parallel worker.
+[01-Dec-2025 10:46:35] Completed 39 of 108 simulation runs
+[01-Dec-2025 10:46:35] Received simulation output (size: 15.33 MB) for run 36 from parallel worker.
+[01-Dec-2025 10:46:44] Completed 40 of 108 simulation runs
+[01-Dec-2025 10:46:44] Received simulation output (size: 9.88 MB) for run 40 from parallel worker.
+[01-Dec-2025 10:46:47] Completed 41 of 108 simulation runs
+[01-Dec-2025 10:46:47] Received simulation output (size: 9.82 MB) for run 41 from parallel worker.
+[01-Dec-2025 10:46:48] Completed 42 of 108 simulation runs
+[01-Dec-2025 10:46:48] Received simulation output (size: 9.87 MB) for run 43 from parallel worker.
+[01-Dec-2025 10:46:49] Completed 43 of 108 simulation runs
+[01-Dec-2025 10:46:49] Received simulation output (size: 9.83 MB) for run 42 from parallel worker.
+[01-Dec-2025 10:46:50] Completed 44 of 108 simulation runs
+[01-Dec-2025 10:46:50] Received simulation output (size: 9.86 MB) for run 44 from parallel worker.
+[01-Dec-2025 10:46:53] Completed 45 of 108 simulation runs
+[01-Dec-2025 10:46:53] Received simulation output (size: 9.81 MB) for run 45 from parallel worker.
+[01-Dec-2025 10:47:05] Completed 46 of 108 simulation runs
+[01-Dec-2025 10:47:05] Received simulation output (size: 9.83 MB) for run 46 from parallel worker.
+[01-Dec-2025 10:47:09] Completed 47 of 108 simulation runs
+[01-Dec-2025 10:47:09] Received simulation output (size: 9.90 MB) for run 47 from parallel worker.
+[01-Dec-2025 10:47:10] Completed 48 of 108 simulation runs
+[01-Dec-2025 10:47:11] Received simulation output (size: 9.88 MB) for run 48 from parallel worker.
+[01-Dec-2025 10:47:11] Completed 49 of 108 simulation runs
+[01-Dec-2025 10:47:11] Received simulation output (size: 9.91 MB) for run 49 from parallel worker.
+[01-Dec-2025 10:47:11] Completed 50 of 108 simulation runs
+[01-Dec-2025 10:47:11] Received simulation output (size: 9.91 MB) for run 50 from parallel worker.
+[01-Dec-2025 10:47:14] Completed 51 of 108 simulation runs
+[01-Dec-2025 10:47:14] Received simulation output (size: 9.84 MB) for run 51 from parallel worker.
+[01-Dec-2025 10:47:26] Completed 52 of 108 simulation runs
+[01-Dec-2025 10:47:26] Received simulation output (size: 9.83 MB) for run 52 from parallel worker.
+[01-Dec-2025 10:47:29] Completed 53 of 108 simulation runs
+[01-Dec-2025 10:47:29] Received simulation output (size: 9.83 MB) for run 53 from parallel worker.
+[01-Dec-2025 10:47:30] Completed 54 of 108 simulation runs
+[01-Dec-2025 10:47:30] Received simulation output (size: 9.81 MB) for run 56 from parallel worker.
+[01-Dec-2025 10:47:30] Completed 55 of 108 simulation runs
+[01-Dec-2025 10:47:30] Received simulation output (size: 9.93 MB) for run 55 from parallel worker.
+[01-Dec-2025 10:47:31] Completed 56 of 108 simulation runs
+[01-Dec-2025 10:47:31] Received simulation output (size: 9.92 MB) for run 54 from parallel worker.
+[01-Dec-2025 10:47:34] Completed 57 of 108 simulation runs
+[01-Dec-2025 10:47:34] Received simulation output (size: 9.87 MB) for run 57 from parallel worker.
+[01-Dec-2025 10:47:45] Completed 58 of 108 simulation runs
+[01-Dec-2025 10:47:45] Received simulation output (size: 9.80 MB) for run 58 from parallel worker.
+[01-Dec-2025 10:47:47] Completed 59 of 108 simulation runs
+[01-Dec-2025 10:47:47] Received simulation output (size: 9.90 MB) for run 59 from parallel worker.
+[01-Dec-2025 10:47:49] Completed 60 of 108 simulation runs
+[01-Dec-2025 10:47:49] Received simulation output (size: 9.96 MB) for run 60 from parallel worker.
+[01-Dec-2025 10:47:49] Completed 61 of 108 simulation runs
+[01-Dec-2025 10:47:49] Received simulation output (size: 9.76 MB) for run 61 from parallel worker.
+[01-Dec-2025 10:47:50] Completed 62 of 108 simulation runs
+[01-Dec-2025 10:47:50] Received simulation output (size: 9.89 MB) for run 62 from parallel worker.
+[01-Dec-2025 10:47:52] Completed 63 of 108 simulation runs
+[01-Dec-2025 10:47:52] Received simulation output (size: 9.83 MB) for run 63 from parallel worker.
+[01-Dec-2025 10:48:02] Completed 64 of 108 simulation runs
+[01-Dec-2025 10:48:02] Received simulation output (size: 9.92 MB) for run 64 from parallel worker.
+[01-Dec-2025 10:48:05] Completed 65 of 108 simulation runs
+[01-Dec-2025 10:48:05] Received simulation output (size: 10.04 MB) for run 65 from parallel worker.
+[01-Dec-2025 10:48:06] Completed 66 of 108 simulation runs
+[01-Dec-2025 10:48:06] Received simulation output (size: 9.92 MB) for run 66 from parallel worker.
+[01-Dec-2025 10:48:06] Completed 67 of 108 simulation runs
+[01-Dec-2025 10:48:06] Received simulation output (size: 9.86 MB) for run 67 from parallel worker.
+[01-Dec-2025 10:48:07] Completed 68 of 108 simulation runs
+[01-Dec-2025 10:48:07] Received simulation output (size: 9.88 MB) for run 68 from parallel worker.
+[01-Dec-2025 10:48:09] Completed 69 of 108 simulation runs
+[01-Dec-2025 10:48:09] Received simulation output (size: 9.83 MB) for run 69 from parallel worker.
+[01-Dec-2025 10:48:18] Completed 70 of 108 simulation runs
+[01-Dec-2025 10:48:18] Received simulation output (size: 9.82 MB) for run 70 from parallel worker.
+[01-Dec-2025 10:48:22] Completed 71 of 108 simulation runs
+[01-Dec-2025 10:48:22] Received simulation output (size: 9.83 MB) for run 73 from parallel worker.
+[01-Dec-2025 10:48:22] Completed 72 of 108 simulation runs
+[01-Dec-2025 10:48:22] Received simulation output (size: 9.91 MB) for run 71 from parallel worker.
+[01-Dec-2025 10:48:22] Completed 73 of 108 simulation runs
+[01-Dec-2025 10:48:22] Received simulation output (size: 9.95 MB) for run 72 from parallel worker.
+[01-Dec-2025 10:48:22] Completed 74 of 108 simulation runs
+[01-Dec-2025 10:48:22] Received simulation output (size: 9.84 MB) for run 74 from parallel worker.
+[01-Dec-2025 10:48:25] Completed 75 of 108 simulation runs
+[01-Dec-2025 10:48:25] Received simulation output (size: 9.85 MB) for run 75 from parallel worker.
+[01-Dec-2025 10:48:34] Completed 76 of 108 simulation runs
+[01-Dec-2025 10:48:34] Received simulation output (size: 9.84 MB) for run 76 from parallel worker.
+[01-Dec-2025 10:48:37] Completed 77 of 108 simulation runs
+[01-Dec-2025 10:48:37] Received simulation output (size: 9.90 MB) for run 77 from parallel worker.
+[01-Dec-2025 10:48:38] Completed 78 of 108 simulation runs
+[01-Dec-2025 10:48:38] Received simulation output (size: 9.83 MB) for run 78 from parallel worker.
+[01-Dec-2025 10:48:38] Completed 79 of 108 simulation runs
+[01-Dec-2025 10:48:38] Received simulation output (size: 9.86 MB) for run 79 from parallel worker.
+[01-Dec-2025 10:48:38] Completed 80 of 108 simulation runs
+[01-Dec-2025 10:48:38] Received simulation output (size: 9.86 MB) for run 80 from parallel worker.
+[01-Dec-2025 10:48:40] Completed 81 of 108 simulation runs
+[01-Dec-2025 10:48:40] Received simulation output (size: 9.84 MB) for run 81 from parallel worker.
+[01-Dec-2025 10:48:51] Completed 82 of 108 simulation runs
+[01-Dec-2025 10:48:51] Received simulation output (size: 10.18 MB) for run 82 from parallel worker.
+[01-Dec-2025 10:48:53] Completed 83 of 108 simulation runs
+[01-Dec-2025 10:48:53] Received simulation output (size: 10.12 MB) for run 85 from parallel worker.
+[01-Dec-2025 10:48:53] Completed 84 of 108 simulation runs
+[01-Dec-2025 10:48:53] Received simulation output (size: 10.09 MB) for run 86 from parallel worker.
+[01-Dec-2025 10:48:54] Completed 85 of 108 simulation runs
+[01-Dec-2025 10:48:54] Received simulation output (size: 10.24 MB) for run 83 from parallel worker.
+[01-Dec-2025 10:48:54] Completed 86 of 108 simulation runs
+[01-Dec-2025 10:48:54] Received simulation output (size: 10.23 MB) for run 84 from parallel worker.
+[01-Dec-2025 10:48:56] Completed 87 of 108 simulation runs
+[01-Dec-2025 10:48:56] Received simulation output (size: 10.17 MB) for run 87 from parallel worker.
+[01-Dec-2025 10:49:07] Completed 88 of 108 simulation runs
+[01-Dec-2025 10:49:07] Received simulation output (size: 10.21 MB) for run 88 from parallel worker.
+[01-Dec-2025 10:49:08] Completed 89 of 108 simulation runs
+[01-Dec-2025 10:49:08] Received simulation output (size: 10.04 MB) for run 90 from parallel worker.
+[01-Dec-2025 10:49:09] Completed 90 of 108 simulation runs
+[01-Dec-2025 10:49:09] Received simulation output (size: 10.10 MB) for run 89 from parallel worker.
+[01-Dec-2025 10:49:14] Completed 91 of 108 simulation runs
+[01-Dec-2025 10:49:14] Received simulation output (size: 12.99 MB) for run 91 from parallel worker.
+[01-Dec-2025 10:49:15] Completed 92 of 108 simulation runs
+[01-Dec-2025 10:49:15] Received simulation output (size: 12.56 MB) for run 93 from parallel worker.
+[01-Dec-2025 10:49:15] Completed 93 of 108 simulation runs
+[01-Dec-2025 10:49:15] Received simulation output (size: 13.36 MB) for run 92 from parallel worker.
+[01-Dec-2025 10:49:26] Completed 94 of 108 simulation runs
+[01-Dec-2025 10:49:26] Received simulation output (size: 12.92 MB) for run 94 from parallel worker.
+[01-Dec-2025 10:49:28] Completed 95 of 108 simulation runs
+[01-Dec-2025 10:49:29] Received simulation output (size: 12.83 MB) for run 96 from parallel worker.
+[01-Dec-2025 10:49:29] Completed 96 of 108 simulation runs
+[01-Dec-2025 10:49:29] Received simulation output (size: 13.53 MB) for run 95 from parallel worker.
+[01-Dec-2025 10:49:34] Completed 97 of 108 simulation runs
+[01-Dec-2025 10:49:34] Received simulation output (size: 12.05 MB) for run 98 from parallel worker.
+[01-Dec-2025 10:49:34] Completed 98 of 108 simulation runs
+[01-Dec-2025 10:49:34] Received simulation output (size: 13.14 MB) for run 97 from parallel worker.
+[01-Dec-2025 10:49:35] Completed 99 of 108 simulation runs
+[01-Dec-2025 10:49:35] Received simulation output (size: 12.78 MB) for run 99 from parallel worker.
+[01-Dec-2025 10:49:36] Completed 100 of 108 simulation runs
+[01-Dec-2025 10:49:36] Received simulation output (size: 9.25 MB) for run 100 from parallel worker.
+[01-Dec-2025 10:49:38] Completed 101 of 108 simulation runs
+[01-Dec-2025 10:49:38] Received simulation output (size: 9.25 MB) for run 101 from parallel worker.
+[01-Dec-2025 10:49:39] Completed 102 of 108 simulation runs
+[01-Dec-2025 10:49:39] Received simulation output (size: 9.25 MB) for run 102 from parallel worker.
+[01-Dec-2025 10:49:44] Completed 103 of 108 simulation runs
+[01-Dec-2025 10:49:44] Received simulation output (size: 9.26 MB) for run 103 from parallel worker.
+[01-Dec-2025 10:49:44] Completed 104 of 108 simulation runs
+[01-Dec-2025 10:49:44] Received simulation output (size: 9.26 MB) for run 105 from parallel worker.
+[01-Dec-2025 10:49:44] Completed 105 of 108 simulation runs
+[01-Dec-2025 10:49:44] Received simulation output (size: 9.26 MB) for run 104 from parallel worker.
+[01-Dec-2025 10:49:46] Completed 106 of 108 simulation runs
+[01-Dec-2025 10:49:46] Received simulation output (size: 9.25 MB) for run 106 from parallel worker.
+[01-Dec-2025 10:49:47] Completed 107 of 108 simulation runs
+[01-Dec-2025 10:49:47] Received simulation output (size: 9.25 MB) for run 107 from parallel worker.
+[01-Dec-2025 10:49:48] Completed 108 of 108 simulation runs
+[01-Dec-2025 10:49:48] Received simulation output (size: 9.25 MB) for run 108 from parallel worker.
+[01-Dec-2025 10:49:48] Cleaning up parallel workers...
+Elapsed Sweep Time Total:       367.00
+Elapsed Sweep Time/(Num Tests):  3.40
  
 Parallel pool using the 'Processes' profile is shutting down.
 </pre>
 <img vspace="5" hspace="5" src="quadcopter_package_delivery_param_sweep_11.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_param_sweep_12.png" alt=""> <img vspace="5" hspace="5" src="quadcopter_package_delivery_param_sweep_13.png" alt=""> <p class="footer">Copyright 2021-2025 The MathWorks, Inc.<br>
-<a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2025a</a>
+<a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2025b</a>
 <br>
 </p>
 </div>
