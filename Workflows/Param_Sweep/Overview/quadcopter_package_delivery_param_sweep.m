@@ -10,7 +10,7 @@
 % The design space for the quadcopter and the missions it performs is
 % explored by conducting a set of parameter sweeps.
 % 
-% Copyright 2021-2024 The MathWorks, Inc.
+% Copyright 2021-2025 The MathWorks, Inc.
 
 
 
@@ -35,18 +35,25 @@ quadcopter_package_delivery_sweep_load_mass
 % Using parallel computing we vary the target speed of the quadcopter and
 % see if the quadcopter can follow the target path.
 
+close(h4_quadcopter_package_delivery_pct_mass)
+close(h5_quadcopter_package_delivery_pct_mass)
 quadcopter_package_delivery_sweep_load_speed
 
 %% Parameter Sweep: Mass and Wind
 % Using parallel computing we vary the mass of the package and the strength
 % of wind gusts that strike the quadcopter during the test.
 
+close(h4_quadcopter_package_delivery_pct_speed)
+close(h5_quadcopter_package_delivery_pct_speed_soc)
+close(h5_quadcopter_package_delivery_pct_speed_i)
 quadcopter_package_delivery_sweep_load_mass_wind
 
 %% Parameter Sweep: Mass and Air Temperature
 % Using parallel computing we vary the mass of the package and the
 % temperature of the air with associated change in air density
 
+close(h4_quadcopter_package_delivery_pct_mass)
+close(h5_quadcopter_package_delivery_pct_mass)
 quadcopter_package_delivery_sweep_load_mass_temp
 
 %%

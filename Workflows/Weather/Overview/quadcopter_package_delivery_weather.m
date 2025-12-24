@@ -8,7 +8,7 @@
 % The Python module reads and parses current weather data from the web API:
 % https://openweathermap.org/api
 %
-% Copyright 2022-2024 The MathWorks, Inc.
+% Copyright 2022-2025 The MathWorks, Inc.
 
 
 

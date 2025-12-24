@@ -7,7 +7,7 @@
 % is released from the quadcopter when it reaches the final waypoint and
 % the release criteria are met.
 % 
-% Copyright 2022-2024 The MathWorks, Inc.
+% Copyright 2022-2025 The MathWorks, Inc.
 
 
 
@@ -16,6 +16,7 @@
 open_system('quadcopter_package_delivery')
 
 set_param(find_system(bdroot,'MatchFilter',@Simulink.match.allVariants,'FindAll','on','type','annotation','Tag','ModelFeatures'),'Interpreter','off');
+set(0, 'DefaultFigureWindowStyle', 'normal');
 
 %%
 %
@@ -71,12 +72,17 @@ wind_speed = 0;
 % effect on the quadcopter trajectory.
 
 quadcopter_package_delivery_sweep_load_mass
+close(h1_waypoints_and_spline_xyz)
+close(h1_trajectory_speed_yaw)
 
 %% Parameter Sweep: Trajectory Speed
+
 % Using parallel computing we vary the target speed of the quadcopter and
 % see if the quadcopter can follow the target path.
 
 quadcopter_package_delivery_sweep_load_speed
+close(h4_quadcopter_package_delivery_pct_mass)
+close(h5_quadcopter_package_delivery_pct_mass)
 
 %% Simulation Results from Simscape Logging: Path 5, 6
 

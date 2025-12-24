@@ -1,7 +1,7 @@
 %% Script to create protected model
 %  with Simscape runtime parameters.
 
-% Copyright 2021-2024 The MathWorks(TM), Inc.
+% Copyright 2021-2025 The MathWorks(TM), Inc.
 
 % Move to folder where script is saved
 cd(fileparts(which(mfilename)));

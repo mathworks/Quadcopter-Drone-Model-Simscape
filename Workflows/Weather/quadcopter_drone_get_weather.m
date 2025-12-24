@@ -18,7 +18,7 @@ function [wind_spd, weather_data] = quadcopter_drone_get_weather(location,vararg
 %
 %   wind_spd = quadcopter_drone_get_weather('Boston','forecast','showplot');
 
-% Copyright 2022-2024 The MathWorks, Inc.
+% Copyright 2022-2025 The MathWorks, Inc.
 
 dataset  = 'current';
 plotdata = 'noplot';
